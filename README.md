@@ -32,6 +32,7 @@ Thesis_project/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+```text
 
 Knowledge Graph
 The Neo4j graph contains the main entities: JobPosting, Occupation, and Skill.
