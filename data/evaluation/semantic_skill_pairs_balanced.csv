@@ -1,0 +1,178 @@
+skill_a_id,skill_a,skill_b_id,skill_b,candidate_type,occupation,lexical_score,label
+45f1ae17-c20d-40fc-9307-7d33b6ca9213,image recognition,54c9c155-9293-4329-8ed2-2e76e8b519d4,define data quality criteria,same_occupation,data scientist,,0
+0a52bed5-fd29-45fb-aba6-e32bccfda1c1,plan migration to cloud,f0de4973-0a70-4644-8fd4-3a97080476f4,DevOps,same_occupation,cloud architect,,0
+8efa6a7a-6556-4cb8-908d-59d3b5c58d2f,cloud monitoring and reporting,f14ff4b7-be1e-4b55-b39b-520005f8a97e,liaise with managers,same_occupation,cloud identity manager,,0
+4918ec9a-0204-4935-8b09-b0112370daa8,establish an Information Security Management System,bec4359e-cb92-468f-a997-8fb28e32fba9,ICT project management methodologies,same_occupation,chief ICT security officer,,0
+0ccdfe98-f845-4598-84a1-3dca66e9d9a3,Ruby (computer programming),dcdd5ddf-82a6-4ac3-8edc-d4b23cae9a88,VBScript,same_occupation,embedded systems software developer,,0
+21c5790c-0930-4d74-b3b0-84caf5af12ea,manage budgets,397da142-ab35-48fe-b154-7c38f447adfb,digital systems,same_occupation,ICT operations manager,,0
+c7451027-8249-405a-bb1b-342ff0f3fb3b,Salt (tools for software configuration management),d12e9d68-84c5-444e-aa98-d36533bf03f6,apply operations for an ITIL-based environment,same_occupation,ICT change and configuration manager,,0
+09f2f811-a3fb-4de3-a70f-6420a6935575,systems development life-cycle,fda917eb-0d6a-4371-8c93-2a10bf950966,manage ICT semantic integration,same_occupation,database integrator,,0
+013441c1-1f13-47e9-80c4-9a53e8e1bc05,KDevelop,1c2978b8-bb0d-4249-9c23-877571a4dffa,cloud security and compliance,same_occupation,cloud DevOps engineer,,0
+518dc04d-092d-4fa1-bd82-88b7a9278ef7,manage intellectual property rights,75f839c2-fd9a-4ad3-8921-6e734608568d,use query languages,same_occupation,computer scientist,,0
+7a17d7ce-01a2-4746-bbcc-22ffe22fa16e,monitor technology trends,9710092c-f174-4e84-95bf-2064d39ad7a0,manage content metadata,same_occupation,ICT documentation manager,,0
+19a8293b-8e95-4de3-983f-77484079c389,Java (computer programming),a47d194d-0ffd-4aaa-b695-fbbe0255000e,design information system,same_occupation,enterprise architect,,0
+a846cb9e-c152-41e7-bd34-45e7ff941e3b,legal requirements of ICT products,d53b04fb-1bbb-4a25-92f8-8ceb308d276f,define organisational standards,same_occupation,IT auditor,,0
+1c2978b8-bb0d-4249-9c23-877571a4dffa,cloud security and compliance,83218cac-3599-417e-93d2-26013cdccd98,service-oriented modelling,same_occupation,cloud software developer,,0
+0a9acb6b-1139-4be9-b431-3a80a959f2f4,Agile project management,a57a54b6-2f2e-43e4-9621-b52f4a63cb08,LDAP,same_occupation,ICT integration tester,,0
+143769cb-b61e-47d8-a61e-eedfbec1016c,business intelligence,397da142-ab35-48fe-b154-7c38f447adfb,digital systems,same_occupation,ICT business analyst,,0
+51586df8-1c46-4b47-8583-773cb63bf00b,R,a4d336a6-9ffd-402a-91cc-f359716ba4e0,ML (computer programming),same_occupation,ICT application configurator,,0
+3f4dab51-572b-4e2c-85ef-3b4c3f7094e1,XQuery,cc7370dd-69fa-4c67-a96f-d4d135d38700,data quality assessment,same_occupation,data analyst,,0
+46e93774-7c6a-4dc5-bae9-be97cc461093,inter-organisational middleware system,a4a882a1-0263-4dd2-b29a-f0028cac2393,define integration strategy,same_occupation,ICT system integration consultant,,0
+83b33952-3872-46ec-9a2e-b28f91303a7e,oversee development of software,eb0e5615-1575-4a86-a1a2-7d39595033c5,ABAP,same_occupation,software architect,,0
+2239694b-771a-4586-8b54-2794e361a9ae,maintain relationship with customers,628664ec-a63b-4486-8d65-02aba81c82a0,ICT sales methodologies,same_occupation,ICT consultant,,0
+438ff259-d086-4004-acda-1ec3e1631bc6,software anomalies,b105ec9b-0857-41d6-8d07-a83e58b73d90,ICT system programming,same_occupation,ICT system developer,,0
+b0a3bb25-a02f-43ed-ab1f-994fa66a424a,online analytical processing,fbafa41f-cd05-4109-a649-8b44d306d779,create data models,same_occupation,database administrator,,0
+3579208e-49b3-4ce4-98e7-20e41b1ce8d4,develop information security strategy,7f27f1ff-2e17-4b69-990e-c23334478313,assessment of risks and threats,same_occupation,cybersecurity risk manager,,0
+7b5cce4d-c7fe-4119-b48f-70aa05391787,computer science,906323f4-00c4-4c3b-ab5a-8af77be3456e,create data sets,same_occupation,data engineer,,0
+b105ec9b-0857-41d6-8d07-a83e58b73d90,ICT system programming,ed8de897-adbe-4f0e-b4d2-534953e64c72,integrate system components,same_occupation,ICT system administrator,,0
+7e1f9657-ab4e-407c-842f-b846197060e3,execute ICT audits,99c4c69a-025c-464f-adda-874c7f107a31,engage with stakeholders,same_occupation,ethical hacker,,0
+0cd6dcf1-5778-42a5-b685-4d01ae4a4871,Common Lisp,b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f,C++,same_occupation,artificial intelligence engineer,,0
+8088750d-8388-4170-a76f-48354c469c44,cyber security,bec4359e-cb92-468f-a997-8fb28e32fba9,ICT project management methodologies,same_occupation,cyber incident responder,,0
+e8b89eb6-51e8-4c3a-babb-88b2e110376b,Pascal (computer programming),f5308e60-d763-4ead-be95-88c96fb3e02b,adapt to changes in technological development plans,same_occupation,software developer,,0
+03b9b491-fc9b-4868-914a-bf7cd47b5041,create solutions to problems,85c11255-469f-41bd-a6d1-382bc4a87783,interpret technical texts,same_occupation,database developer,,0
+3c03ee71-4a23-448f-b79e-81fd75d27dca,apply change management,e5609f89-0daf-40bb-bd6b-94f5d7498131,ICT market,same_occupation,digital transformation manager,,0
+3ce1fe19-7f9e-4070-941d-651673a5693b,decision support systems,df0612db-366c-4ff5-b106-40b9e385195c,utilise decision support system,same_occupation,chief data officer,,1
+0e1fe34b-f4e7-4642-8c8b-5a05ac3438e5,manage schedule of tasks,dc72ad0a-c5dc-4abd-bc0d-ca43e82162e1,build business relationships,same_occupation,data quality specialist,,0
+0ffdb6ac-03b5-4f1c-bfcc-3d9cb874fdf9,ethical hacking principles,bd14968e-e409-45af-b362-3495ed7b10e0,cloud technologies,same_occupation,embedded systems security engineer,,0
+0a9acb6b-1139-4be9-b431-3a80a959f2f4,Agile project management,3bddfd7c-ab6d-40c2-883d-5e97fb7640ba,create software design,same_occupation,software manager,,0
+14d1e367-3efe-4ec5-86ae-eca48710ee4e,implement ICT security policies,696e3b5b-8b61-45af-ae4c-3ab700f197ec,information extraction,same_occupation,ICT information and knowledge manager,,0
+af607e5e-4ba1-4e5f-a2a6-dc05806567c7,coordinate technological activities,fafe0b9d-dbd9-46bd-b770-26299539ce66,ICT process quality models,same_occupation,ICT capacity planner,,0
+69cfc5ed-6569-4aca-a4cc-fd782ba51d9c,implement ICT risk management,f17f94f1-88cb-4815-873a-2a9639f10729,draft project documentation,same_occupation,ICT project manager,,0
+0a43729f-2a79-4dae-9faa-95520daae79f,apply company policies,ae4f0cc6-e0b9-47f5-bdca-2fc2e6316dce,manage ICT virtualisation environments,same_occupation,ICT security administrator,,0
+4c016b68-4116-468c-9dc6-42710c239e4a,C#,b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f,C++,positive_candidate,,1.0,0
+94dd823c-148e-4614-a6e8-99249b16357d,ICT project management,cd5efa8c-e44d-4cbc-91c6-796018dbed68,perform project management,positive_candidate,,1.0,1
+94dd823c-148e-4614-a6e8-99249b16357d,ICT project management,7111b95d-0ce3-441a-9d92-4c75d05c4388,project management,positive_candidate,,1.0,1
+5da3c765-10a3-49eb-934c-ec401ceb1a34,analyse business plans,ead58f22-0af5-467c-ac1e-b750e4e1ac6a,develop business plans,positive_candidate,,1.0,0
+56042303-972b-41be-9310-58467599ff7e,analyse business processes,9e84a506-df06-4be3-874a-fa01293e3dd5,business processes,positive_candidate,,1.0,1
+cbe2c304-1e7d-489a-97d9-a7d3e37a9db6,apply ICT systems theory,cdd8b6b2-2fd9-453c-8d62-8a1dc6efcd49,systems theory,positive_candidate,,1.0,1
+07e47d58-dd0e-4302-9e68-70a188e89065,apply system organisational policies,3a5231a0-8c30-48ee-b671-08e2debd4441,organisational policies,positive_candidate,,1.0,1
+ccdbd9bb-4faf-403c-a968-e8bf487f8a53,business ICT systems,27ed854c-15b8-4ba2-90e9-ae888a219703,perform business analysis,positive_candidate,,1.0,0
+1c2978b8-bb0d-4249-9c23-877571a4dffa,cloud security and compliance,c13fb093-5ffb-491a-b8b7-fa2d42a57e2e,implement cloud security and compliance,positive_candidate,,1.0,1
+7b0d5000-00da-4864-b776-6de49a87a669,computer vision,4754d9fe-dc3a-4f8f-8ea6-5dbcea3a21ca,develop computer vision system,positive_candidate,,1.0,1
+fbafa41f-cd05-4109-a649-8b44d306d779,create data models,fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5,data models,positive_candidate,,1.0,1
+3bddfd7c-ab6d-40c2-883d-5e97fb7640ba,create software design,fae27053-8924-4bfd-b565-c9fe502044c9,system design,positive_candidate,,1.0,0
+25f0ea33-b4a2-4f31-b7b4-7d20e827b180,data mining,4216e465-7baa-4884-a241-54b197bb9278,perform data mining,positive_candidate,,1.0,1
+43ae58b9-5e56-4524-b45a-b422777a0576,database,29fb0fb5-dfc4-4098-ac9b-3a712000f48f,manage database,positive_candidate,,1.0,1
+3579208e-49b3-4ce4-98e7-20e41b1ce8d4,develop information security strategy,11eebd42-44ab-401d-8a2c-bdb9fc9beb50,information security strategy,positive_candidate,,1.0,1
+bb165899-d95f-4433-95f2-173fefd716d2,develop statistical software,ad59afe4-6f8a-4bc4-acfd-0f228277508a,statistical analysis system software,positive_candidate,,1.0,0
+69cfc5ed-6569-4aca-a4cc-fd782ba51d9c,implement ICT risk management,6eff134b-e34f-4d6e-a6e8-5e47cf2228d0,risk management,positive_candidate,,1.0,1
+f7b5d916-52f0-4865-b6a6-e1a3b711cb5e,implement strategic planning,949ced5f-7536-4614-ac60-563ffc91a2f2,strategic planning,positive_candidate,,1.0,1
+03ff0d53-573a-47a0-a0ad-1995815a4339,information structure,cc9b4fbb-65f1-4c92-9229-1392d03b6e20,structure information,positive_candidate,,1.0,1
+9ff9db9d-d14b-426e-83f3-e7449af6c79f,manage data,2b92a5b2-6758-4ee3-9fb4-b6387a55cc8f,perform data analysis,positive_candidate,,1.0,0
+a9bf8565-8a09-4118-9922-932d65a79d69,manage localisation,bf298db2-b90e-4739-85ca-9c3003103fab,manage software localisation,positive_candidate,,1.0,1
+cd5efa8c-e44d-4cbc-91c6-796018dbed68,perform project management,7111b95d-0ce3-441a-9d92-4c75d05c4388,project management,positive_candidate,,1.0,1
+9cf681c7-89ec-470c-b651-7fe03786f586,query languages,75f839c2-fd9a-4ad3-8921-6e734608568d,use query languages,positive_candidate,,1.0,1
+59ea80e1-463a-4dba-82c6-d0b6d577d532,technical drawings,541561bc-510c-4a99-881c-2d8bf5a85462,use technical drawing software,positive_candidate,,0.9714,0
+fa465db3-56e8-4b5d-a781-e2a313a4ed2d,conduct qualitative research,8316979b-df5a-4dc7-98ef-61ec6a10df84,conduct quantitative research,positive_candidate,,0.9474,0
+43ae58b9-5e56-4524-b45a-b422777a0576,database,4463a721-69f3-413d-8321-43e3af13a4f1,use databases,positive_candidate,,0.9412,1
+29fb0fb5-dfc4-4098-ac9b-3a712000f48f,manage database,4463a721-69f3-413d-8321-43e3af13a4f1,use databases,positive_candidate,,0.9412,1
+a4d336a6-9ffd-402a-91cc-f359716ba4e0,ML (computer programming),21d2f96d-35f7-4e3f-9745-c533d2dd6e97,computer programming,positive_candidate,,0.9302,1
+49f85a99-086c-45b6-a6fa-eb90305af7b1,Chef (tools for software configuration management),9d2e926f-53d9-41f5-98f3-19dfaa687f3f,tools for software configuration management,positive_candidate,,0.9231,1
+c7451027-8249-405a-bb1b-342ff0f3fb3b,Salt (tools for software configuration management),9d2e926f-53d9-41f5-98f3-19dfaa687f3f,tools for software configuration management,positive_candidate,,0.9231,1
+16a00c69-9c74-4c37-96d7-6301d285e5ce,use e-services,f84a433f-34f1-4083-b0a3-24802623509c,web services,positive_candidate,,0.9091,0
+98301d4a-2cc3-439d-8d7f-0b6ac76302bb,business process modelling,6a7792a9-888a-46ad-afc9-2c0d94c8fde6,create business process models,positive_candidate,,0.898,1
+6417a4cc-6f61-4459-a114-761a7fa0279d,Puppet (tools for software configuration management),9d2e926f-53d9-41f5-98f3-19dfaa687f3f,tools for software configuration management,positive_candidate,,0.8955,1
+6b6a9252-2ed7-4862-a02f-1578f4a532ea,Eclipse (integrated development environment software),925463a7-d51f-4d5b-9f79-4d28cf30acde,integrated development environment software,positive_candidate,,0.8947,1
+0a9acb6b-1139-4be9-b431-3a80a959f2f4,Agile project management,da6393d5-a53c-4863-abc7-51f36281d74e,lean project management,positive_candidate,,0.8936,0
+d53b04fb-1bbb-4a25-92f8-8ceb308d276f,define organisational standards,b8271c8a-cba6-4baa-80f5-6361af3f07e3,ensure adherence to organisational ICT standards,positive_candidate,,0.8923,0
+49f85a99-086c-45b6-a6fa-eb90305af7b1,Chef (tools for software configuration management),6417a4cc-6f61-4459-a114-761a7fa0279d,Puppet (tools for software configuration management),positive_candidate,,0.8889,0
+19a8293b-8e95-4de3-983f-77484079c389,Java (computer programming),21d2f96d-35f7-4e3f-9745-c533d2dd6e97,computer programming,positive_candidate,,0.8889,1
+6417a4cc-6f61-4459-a114-761a7fa0279d,Puppet (tools for software configuration management),c7451027-8249-405a-bb1b-342ff0f3fb3b,Salt (tools for software configuration management),positive_candidate,,0.8889,0
+0ccdfe98-f845-4598-84a1-3dca66e9d9a3,Ruby (computer programming),21d2f96d-35f7-4e3f-9745-c533d2dd6e97,computer programming,positive_candidate,,0.8889,1
+69f0167e-75d9-46cf-847f-72a592880ebb,STAF,339ac029-066a-4985-9f9d-b3d7c8fea0bb,manage staff,positive_candidate,,0.8889,0
+744442ac-c157-4350-8be0-ce454df4f5c5,perform ICT troubleshooting,334e3e49-fb02-4051-809a-f06adfdc1c40,troubleshoot,positive_candidate,,0.8889,1
+49f85a99-086c-45b6-a6fa-eb90305af7b1,Chef (tools for software configuration management),c7451027-8249-405a-bb1b-342ff0f3fb3b,Salt (tools for software configuration management),positive_candidate,,0.8857,0
+47b9bbcf-356c-4782-83a4-7f5a1b2b51a3,Assembly (computer programming),a4d336a6-9ffd-402a-91cc-f359716ba4e0,ML (computer programming),positive_candidate,,0.8846,0
+19a8293b-8e95-4de3-983f-77484079c389,Java (computer programming),e8b89eb6-51e8-4c3a-babb-88b2e110376b,Pascal (computer programming),positive_candidate,,0.8846,0
+a4d336a6-9ffd-402a-91cc-f359716ba4e0,ML (computer programming),e8b89eb6-51e8-4c3a-babb-88b2e110376b,Pascal (computer programming),positive_candidate,,0.88,0
+94dd823c-148e-4614-a6e8-99249b16357d,ICT project management,da6393d5-a53c-4863-abc7-51f36281d74e,lean project management,positive_candidate,,0.878,0
+56042303-972b-41be-9310-58467599ff7e,analyse business processes,6a7792a9-888a-46ad-afc9-2c0d94c8fde6,create business process models,positive_candidate,,0.878,0
+9e84a506-df06-4be3-874a-fa01293e3dd5,business processes,6a7792a9-888a-46ad-afc9-2c0d94c8fde6,create business process models,positive_candidate,,0.878,1
+da6393d5-a53c-4863-abc7-51f36281d74e,lean project management,cd5efa8c-e44d-4cbc-91c6-796018dbed68,perform project management,positive_candidate,,0.878,1
+69f0167e-75d9-46cf-847f-72a592880ebb,STAF,1b70a55d-b8a4-49fc-96c6-15ab4cff2522,use data processing techniques,random,,,0
+f975091a-e5a5-4472-ac17-11680e53e98f,seek innovation in current practices,50b100ea-74fd-4706-99db-3e4ca55e51b8,perform data cleansing,random,,,0
+f0de4973-0a70-4644-8fd4-3a97080476f4,DevOps,fb221711-05c3-4196-ba72-813ed5bd040e,lead the brand strategic planning process,random,,,0
+c7d24594-0c11-4b27-9039-fe0bb903da8e,LINQ,42ed3bfb-1a01-4c8b-9758-fc6438865734,Smalltalk (computer programming),random,,,0
+24310a7b-5db1-4917-a705-4835630227ca,create incident reports,3c2e6f38-42c1-46ec-b782-5854b2db330d,blockchain openness,random,,,0
+46e93774-7c6a-4dc5-bae9-be97cc461093,inter-organisational middleware system,d5145a9a-602e-40bf-b3e1-f04cf9c3ef86,leadership principles,random,,,0
+7a17d7ce-01a2-4746-bbcc-22ffe22fa16e,monitor technology trends,42c3287f-5e50-4559-a2d1-2000c70e0aab,Pentaho Data Integration,random,,,0
+90be83d9-56f1-46a4-a6bc-96c51f6c9025,acquire system component,ed1d8bd4-cd2a-4c64-b665-56d70651026c,Prototyping development,random,,,0
+897b393f-e7e0-4248-a40d-d77119694e83,distributed computing,0ffdb6ac-03b5-4f1c-bfcc-3d9cb874fdf9,ethical hacking principles,random,,,0
+e1b9df19-98c3-45d3-9f85-371eb385cf88,deal with changing operational demand,b04f377b-ee80-4b38-aca1-19d266a23b17,analyse business requirements,random,,,0
+e464363b-8346-421d-9035-52118b76d8c8,computational biology,08fe5910-8c4c-4679-a988-eb2ded3c4909,labour legislation,random,,,0
+84f58e3d-8669-4d83-8c1d-5dd1e73a654f,create database diagrams,99207709-d076-4cce-ba38-e90d3bb28806,resource description framework query language,random,,,0
+cb1b0777-0388-4b01-a0cf-7c6bbfbbd61d,review development process of an organisation,d6cdef49-b669-4507-91d1-3f959cf98e47,maintain database performance,random,,,0
+d6cdef49-b669-4507-91d1-3f959cf98e47,maintain database performance,75f839c2-fd9a-4ad3-8921-6e734608568d,use query languages,random,,,0
+09cf2c34-6f93-4a19-a9f1-c0d866414bcc,Cain and Abel (penetration testing tool),2522a6ce-3202-4ac8-9f5b-b9cb5a3a83a1,debug software,random,,,0
+f84a433f-34f1-4083-b0a3-24802623509c,web services,42c3287f-5e50-4559-a2d1-2000c70e0aab,Pentaho Data Integration,random,,,0
+03b9b491-fc9b-4868-914a-bf7cd47b5041,create solutions to problems,f17f94f1-88cb-4815-873a-2a9639f10729,draft project documentation,random,,,0
+4216e465-7baa-4884-a241-54b197bb9278,perform data mining,de586dcf-d7e5-4340-bf5b-d59026f1b436,penetration testing tool,random,,,0
+9a0d0abc-010d-440b-8242-7e31510471ba,information governance compliance,4da171e5-779c-4983-a76f-91c16751e99f,MySQL,random,,,0
+ff64e9fc-36dd-4035-872a-83aa41dc1ad9,communicate with a non-scientific audience,bb2b4485-2bad-402f-8517-44bf7d9afff4,implement anti-virus software,random,,,0
+0cd6dcf1-5778-42a5-b685-4d01ae4a4871,Common Lisp,0de61385-de6d-4146-ba32-1cc1bc102220,Lisp,balanced_hard,,,1
+976455eb-5bbe-4493-ae64-ed16c3b009ea,mobile operating systems,d8829a1d-dbde-435b-b921-29d6462f35c9,Android (mobile operating systems),balanced_hard,,,0
+94dd823c-148e-4614-a6e8-99249b16357d,ICT project management,bec4359e-cb92-468f-a997-8fb28e32fba9,ICT project management methodologies,balanced_hard,,,0
+e6b8f934-7f35-4dc6-9a64-f6c43acdc00b,software components suppliers,ed1fbdc3-1071-423c-9bb4-e3288ca6d1fe,hardware components suppliers,balanced_hard,,,0
+14fdac88-6d4a-4e47-9df5-02c6d1e86fdd,IBM InfoSphere DataStage,81b082fb-9a00-4660-976a-10c985979100,IBM InfoSphere Information Server,balanced_hard,,,0
+2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80,ICT network security risks,fe1c2b32-7fe9-4668-affa-07ff658a68cf,identify ICT security risks,balanced_hard,,,0
+744442ac-c157-4350-8be0-ce454df4f5c5,perform ICT troubleshooting,9e06bac6-6b91-48ca-8b7d-c1f48cdecd7c,solve ICT system problems,balanced_hard,,,1
+713fb616-118e-40bc-9366-4a69879a49d5,implement data quality processes,cc7370dd-69fa-4c67-a96f-d4d135d38700,data quality assessment,balanced_hard,,,0
+8c88d336-c249-4537-b26e-d679a85c4b9b,Ajax Framework,b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282,AJAX,balanced_hard,,,0
+3c76296d-4bbd-44ba-8eaa-95bf275f79b7,manage ICT project,94dd823c-148e-4614-a6e8-99249b16357d,ICT project management,balanced_hard,,,1
+75b30aeb-34c0-40f4-b77d-271d75a98b14,improve business processes,9e84a506-df06-4be3-874a-fa01293e3dd5,business processes,balanced_hard,,,1
+5d9e766b-8f17-4e17-bfab-3bb0e0719791,define quality standards,8d4271ca-c9fd-40b3-875f-15f78332a49e,quality standards,balanced_hard,,,1
+60d48be0-4260-4b2e-85b9-aedff7a9b7d9,ICT capacity planning strategies,a2fef437-6719-47c2-8552-73b9fe81df86,plan ICT capacity,balanced_hard,,,0
+114c9698-c999-4369-8498-81bf641fe871,establish an ICT security prevention plan,69cfc5ed-6569-4aca-a4cc-fd782ba51d9c,implement ICT risk management,balanced_hard,,,0
+114c9698-c999-4369-8498-81bf641fe871,establish an ICT security prevention plan,14d1e367-3efe-4ec5-86ae-eca48710ee4e,implement ICT security policies,balanced_hard,,,0
+0ee94c0a-3716-494a-95a2-dcbab9e58be2,business requirements techniques,b04f377b-ee80-4b38-aca1-19d266a23b17,analyse business requirements,balanced_hard,,,0
+401eb8d8-6daa-4f8b-90ad-60afc71eb4f8,Perl,58d7a289-dafd-4363-833f-d1dc4140885e,APL,balanced_hard,,,0
+3cd569a2-4f88-4c1e-9995-8dce8c5e51a7,JavaScript,867137fb-ff1b-4ca3-99f3-cb6969aa2c68,TypeScript,balanced_hard,,,0
+4c016b68-4116-468c-9dc6-42710c239e4a,C#,56a7f561-1d55-43c9-9cd7-36a0a9bc6c50,ASP.NET,balanced_hard,,,0
+52cf3037-ab53-4806-85ed-7fd21ea7f6a1,Groovy,ffddfc7c-a9dd-449f-9e96-882dc447c8b6,Scala,balanced_hard,,,0
+58d7a289-dafd-4363-833f-d1dc4140885e,APL,eb0e5615-1575-4a86-a1a2-7d39595033c5,ABAP,balanced_hard,,,0
+000f1d3d-220f-4789-9c0a-cc742521fb02,Haskell,0de61385-de6d-4146-ba32-1cc1bc102220,Lisp,balanced_hard,,,0
+3cd569a2-4f88-4c1e-9995-8dce8c5e51a7,JavaScript,b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282,AJAX,balanced_hard,,,0
+13bdd41a-2a18-441f-96db-41252c519413,Visual Basic,dcdd5ddf-82a6-4ac3-8edc-d4b23cae9a88,VBScript,balanced_hard,,,0
+976455eb-5bbe-4493-ae64-ed16c3b009ea,mobile operating systems,ce26e71f-2d47-474e-89b6-7920931ac4fc,iOS,balanced_hard,,,0
+9973a5a2-7822-4161-99e9-95c781eb63f8,Objective-C,eb0e5615-1575-4a86-a1a2-7d39595033c5,ABAP,balanced_hard,,,0
+52cf3037-ab53-4806-85ed-7fd21ea7f6a1,Groovy,dcdd5ddf-82a6-4ac3-8edc-d4b23cae9a88,VBScript,balanced_hard,,,0
+034c29fa-c3ba-45ea-b8f3-bf8e3705e386,Erlang,ffddfc7c-a9dd-449f-9e96-882dc447c8b6,Scala,balanced_hard,,,0
+13bdd41a-2a18-441f-96db-41252c519413,Visual Basic,4c016b68-4116-468c-9dc6-42710c239e4a,C#,balanced_hard,,,0
+04fe962b-4017-4eb7-9139-7d69b6922bc9,use an application-specific interface,b0096dc5-2e2d-4bc1-8172-05bf486c3968,design application interfaces,balanced_hard,,,0
+034c29fa-c3ba-45ea-b8f3-bf8e3705e386,Erlang,401eb8d8-6daa-4f8b-90ad-60afc71eb4f8,Perl,balanced_hard,,,0
+993b1e23-f2de-4bd8-b33f-f86dde1c8e9d,CoffeeScript,def007fa-5fed-4a5f-91a2-b0d7e3db1be1,COBOL,balanced_hard,,,0
+143769cb-b61e-47d8-a61e-eedfbec1016c,business intelligence,98a1dec3-8138-4f46-a596-5e2a83b884b9,business analytics,balanced_hard,,,0
+ce26e71f-2d47-474e-89b6-7920931ac4fc,iOS,d8829a1d-dbde-435b-b921-29d6462f35c9,Android (mobile operating systems),balanced_hard,,,0
+8ff015a0-98ea-4d80-a23e-1f68110a919e,software design methodologies,dba46f87-0831-49cd-a1c7-340a653c0221,Agile development,balanced_hard,,,0
+a47d194d-0ffd-4aaa-b695-fbbe0255000e,design information system,fae27053-8924-4bfd-b565-c9fe502044c9,system design,balanced_hard,,,1
+21d2f96d-35f7-4e3f-9745-c533d2dd6e97,computer programming,e8b89eb6-51e8-4c3a-babb-88b2e110376b,Pascal (computer programming),balanced_hard,,,1
+f5ac9226-0ace-4d34-a1c3-7b3845834a98,maintain ICT server,fbbcb9ab-4b95-4e57-a756-30d08b7da7a5,maintain ICT system,balanced_hard,,,0
+14d1e367-3efe-4ec5-86ae-eca48710ee4e,implement ICT security policies,86d2e2ea-1ba2-4aa6-b465-8a1f9abc81b8,apply information security policies,balanced_hard,,,1
+1e7ed56a-6d6b-422f-962e-38543d150755,manage changes in ICT system,fbbcb9ab-4b95-4e57-a756-30d08b7da7a5,maintain ICT system,balanced_hard,,,0
+54c9c155-9293-4329-8ed2-2e76e8b519d4,define data quality criteria,cc7370dd-69fa-4c67-a96f-d4d135d38700,data quality assessment,balanced_hard,,,0
+2239694b-771a-4586-8b54-2794e361a9ae,maintain relationship with customers,3cd35f5d-ce6d-4f14-9a09-53d7a28d834c,maintain relationship with suppliers,balanced_hard,,,0
+339ac029-066a-4985-9f9d-b3d7c8fea0bb,manage staff,cb668e89-6ef5-4ff3-ab4a-506010e7e70b,manage a team,balanced_hard,,,1
+1dae8445-12e5-423a-bb26-824010e299b9,ensure compliance with legal requirements,3d3ee5c3-4286-457f-9f76-1704011f7e11,comply with legal regulations,balanced_hard,,,1
+84f58e3d-8669-4d83-8c1d-5dd1e73a654f,create database diagrams,9ef0f3a0-9ce2-4ef1-a987-0366b5cb2dbe,database development tools,balanced_hard,,,0
+bf5d77ad-e18c-48d8-83f0-bc79c011c74a,develop professional network,cc61f9e5-d4fc-470e-8606-1ce865ff8386,develop professional network with researchers and scientists,balanced_hard,,,1
+6a899482-8bcf-40ca-ae67-579a1cc467ab,manage engineering project,cd5efa8c-e44d-4cbc-91c6-796018dbed68,perform project management,balanced_hard,,,1
+9e06bac6-6b91-48ca-8b7d-c1f48cdecd7c,solve ICT system problems,f5ac9226-0ace-4d34-a1c3-7b3845834a98,maintain ICT server,balanced_hard,,,0
+85c11255-469f-41bd-a6d1-382bc4a87783,interpret technical texts,be48353d-25c7-4f86-bea9-7b9e248fbc6e,interpret technical requirements,balanced_hard,,,0
+00c04e40-35ea-4ed1-824c-82f936c8f876,incremental development,33d49d4f-31ec-473f-9b8a-b555aa5116bb,iterative development,balanced_hard,,,1
+0e0c9c11-b39e-43cf-ba95-2fe646f5de64,identify customer requirements,ddfe79e2-c2e3-4ba7-9bdf-3820b4f75b54,identify ICT user needs,balanced_hard,,,0
+979cf728-896f-4f2c-8fa8-2698ca0d4930,publish academic research,c3c2420c-ce9a-4371-8eed-1db479c3a562,write scientific publications,balanced_hard,,,0
+be48353d-25c7-4f86-bea9-7b9e248fbc6e,interpret technical requirements,d9e5349e-8791-49c2-8ba4-839fdd1606c2,define technical requirements,balanced_hard,,,0
+976455eb-5bbe-4493-ae64-ed16c3b009ea,mobile operating systems,f9a6f35b-01a7-40c9-8b61-b6ee46f97272,operating systems,balanced_hard,,,0
+ad59afe4-6f8a-4bc4-acfd-0f228277508a,statistical analysis system software,e5a6e1e0-1b07-4432-83ba-77d593b2cb47,SAS Data Management,balanced_hard,,,0
+67a118f4-8a5f-48f7-8e5f-de34b9ca2c37,hybrid model,83218cac-3599-417e-93d2-26013cdccd98,service-oriented modelling,balanced_hard,,,0
+69cfc5ed-6569-4aca-a4cc-fd782ba51d9c,implement ICT risk management,fe1c2b32-7fe9-4668-affa-07ff658a68cf,identify ICT security risks,balanced_hard,,,0
+0a9acb6b-1139-4be9-b431-3a80a959f2f4,Agile project management,bec4359e-cb92-468f-a997-8fb28e32fba9,ICT project management methodologies,balanced_hard,,,0
+ca73ac82-867a-4afa-9732-834aebe896ff,ICT system user requirements,ddfe79e2-c2e3-4ba7-9bdf-3820b4f75b54,identify ICT user needs,balanced_hard,,,0
+03a74eee-2dc6-4147-8667-5cdeb65f122d,manage ICT data classification,4d85b881-e490-4b4c-897a-2faa4ef53956,manage ICT data architecture,balanced_hard,,,0
+0c766ca3-9364-4203-916b-fed16e4814c1,gather data for forensic purposes,118a9b27-1c5a-4214-b685-1a4d9e6365ea,computer forensics,balanced_hard,,,0
+90be83d9-56f1-46a4-a6bc-96c51f6c9025,acquire system component,ed8de897-adbe-4f0e-b4d2-534953e64c72,integrate system components,balanced_hard,,,0
+913e7e83-b8f8-4574-b1ca-1b38f3fd974a,execute software tests,ff25cbf0-6978-4c4c-887e-d4b185410d74,perform software recovery testing,balanced_hard,,,0
+2450c3b3-e78e-435b-b84d-e05d984e71dc,software architecture models,f7e2eb04-3e50-4561-bce1-7e51a1fec308,define software architecture,balanced_hard,,,0
+29fb0fb5-dfc4-4098-ac9b-3a712000f48f,manage database,ab1e97ed-2319-4293-a8b7-072d2648822f,database management systems,balanced_hard,,,0
+283cbcd3-7101-4dbb-be37-56f3625515b1,provide ICT consulting advice,3cfa46e9-b7da-44ac-b09e-9596dffe0425,optimise choice of ICT solution,balanced_hard,,,0
+14d1e367-3efe-4ec5-86ae-eca48710ee4e,implement ICT security policies,7814e88f-c133-4c3b-b27f-857afa145d42,ICT security legislation,balanced_hard,,,0

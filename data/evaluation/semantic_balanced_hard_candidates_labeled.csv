@@ -1,0 +1,68 @@
+skill_a_id,skill_a,skill_b_id,skill_b,selected_by,minilm_similarity,mpnet_similarity,bge_similarity,candidate_type,label
+0cd6dcf1-5778-42a5-b685-4d01ae4a4871,Common Lisp,0de61385-de6d-4146-ba32-1cc1bc102220,Lisp,MiniLM|MPNet|BGE-small,0.9169,0.9026,0.9657,balanced_hard,1
+976455eb-5bbe-4493-ae64-ed16c3b009ea,mobile operating systems,d8829a1d-dbde-435b-b921-29d6462f35c9,Android (mobile operating systems),MiniLM|MPNet|BGE-small,0.8716,0.7828,0.8843,balanced_hard,0
+94dd823c-148e-4614-a6e8-99249b16357d,ICT project management,bec4359e-cb92-468f-a997-8fb28e32fba9,ICT project management methodologies,MiniLM|MPNet|BGE-small,0.866,0.7953,0.9173,balanced_hard,0
+e6b8f934-7f35-4dc6-9a64-f6c43acdc00b,software components suppliers,ed1fbdc3-1071-423c-9bb4-e3288ca6d1fe,hardware components suppliers,MiniLM|MPNet|BGE-small,0.8624,0.8617,0.9012,balanced_hard,0
+14fdac88-6d4a-4e47-9df5-02c6d1e86fdd,IBM InfoSphere DataStage,81b082fb-9a00-4660-976a-10c985979100,IBM InfoSphere Information Server,MiniLM|MPNet|BGE-small,0.838,0.8425,0.8994,balanced_hard,0
+2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80,ICT network security risks,fe1c2b32-7fe9-4668-affa-07ff658a68cf,identify ICT security risks,MiniLM|MPNet|BGE-small,0.8272,0.8332,0.8727,balanced_hard,0
+744442ac-c157-4350-8be0-ce454df4f5c5,perform ICT troubleshooting,9e06bac6-6b91-48ca-8b7d-c1f48cdecd7c,solve ICT system problems,MiniLM|MPNet|BGE-small,0.7781,0.8511,0.871,balanced_hard,1
+713fb616-118e-40bc-9366-4a69879a49d5,implement data quality processes,cc7370dd-69fa-4c67-a96f-d4d135d38700,data quality assessment,MPNet|BGE-small,0.751,0.7766,0.8805,balanced_hard,0
+8c88d336-c249-4537-b26e-d679a85c4b9b,Ajax Framework,b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282,AJAX,MiniLM|BGE-small,0.8017,0.7171,0.8849,balanced_hard,0
+3c76296d-4bbd-44ba-8eaa-95bf275f79b7,manage ICT project,94dd823c-148e-4614-a6e8-99249b16357d,ICT project management,MiniLM|MPNet,0.843,0.813,0.8328,balanced_hard,1
+75b30aeb-34c0-40f4-b77d-271d75a98b14,improve business processes,9e84a506-df06-4be3-874a-fa01293e3dd5,business processes,MiniLM|MPNet,0.8368,0.7942,0.8702,balanced_hard,1
+5d9e766b-8f17-4e17-bfab-3bb0e0719791,define quality standards,8d4271ca-c9fd-40b3-875f-15f78332a49e,quality standards,MiniLM|MPNet,0.8319,0.8732,0.8314,balanced_hard,1
+60d48be0-4260-4b2e-85b9-aedff7a9b7d9,ICT capacity planning strategies,a2fef437-6719-47c2-8552-73b9fe81df86,plan ICT capacity,MiniLM|MPNet,0.8229,0.831,0.8151,balanced_hard,0
+114c9698-c999-4369-8498-81bf641fe871,establish an ICT security prevention plan,69cfc5ed-6569-4aca-a4cc-fd782ba51d9c,implement ICT risk management,MiniLM|MPNet,0.8146,0.7852,0.8621,balanced_hard,0
+114c9698-c999-4369-8498-81bf641fe871,establish an ICT security prevention plan,14d1e367-3efe-4ec5-86ae-eca48710ee4e,implement ICT security policies,MiniLM|MPNet,0.8133,0.7994,0.8379,balanced_hard,0
+0ee94c0a-3716-494a-95a2-dcbab9e58be2,business requirements techniques,b04f377b-ee80-4b38-aca1-19d266a23b17,analyse business requirements,MiniLM|MPNet,0.785,0.8133,0.8384,balanced_hard,0
+401eb8d8-6daa-4f8b-90ad-60afc71eb4f8,Perl,58d7a289-dafd-4363-833f-d1dc4140885e,APL,BGE-small,0.7161,0.6632,0.9064,balanced_hard,0
+3cd569a2-4f88-4c1e-9995-8dce8c5e51a7,JavaScript,867137fb-ff1b-4ca3-99f3-cb6969aa2c68,TypeScript,BGE-small,0.6277,0.687,0.9031,balanced_hard,0
+4c016b68-4116-468c-9dc6-42710c239e4a,C#,56a7f561-1d55-43c9-9cd7-36a0a9bc6c50,ASP.NET,BGE-small,0.7306,0.7168,0.8955,balanced_hard,0
+52cf3037-ab53-4806-85ed-7fd21ea7f6a1,Groovy,ffddfc7c-a9dd-449f-9e96-882dc447c8b6,Scala,BGE-small,0.5928,0.5591,0.8951,balanced_hard,0
+58d7a289-dafd-4363-833f-d1dc4140885e,APL,eb0e5615-1575-4a86-a1a2-7d39595033c5,ABAP,BGE-small,0.6068,0.6467,0.8933,balanced_hard,0
+000f1d3d-220f-4789-9c0a-cc742521fb02,Haskell,0de61385-de6d-4146-ba32-1cc1bc102220,Lisp,BGE-small,0.5498,0.6615,0.8865,balanced_hard,0
+3cd569a2-4f88-4c1e-9995-8dce8c5e51a7,JavaScript,b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282,AJAX,BGE-small,0.6462,0.6127,0.8856,balanced_hard,0
+13bdd41a-2a18-441f-96db-41252c519413,Visual Basic,dcdd5ddf-82a6-4ac3-8edc-d4b23cae9a88,VBScript,BGE-small,0.7128,0.7543,0.885,balanced_hard,0
+976455eb-5bbe-4493-ae64-ed16c3b009ea,mobile operating systems,ce26e71f-2d47-474e-89b6-7920931ac4fc,iOS,BGE-small,0.7843,0.7333,0.8848,balanced_hard,0
+9973a5a2-7822-4161-99e9-95c781eb63f8,Objective-C,eb0e5615-1575-4a86-a1a2-7d39595033c5,ABAP,BGE-small,0.5276,0.5205,0.8841,balanced_hard,0
+52cf3037-ab53-4806-85ed-7fd21ea7f6a1,Groovy,dcdd5ddf-82a6-4ac3-8edc-d4b23cae9a88,VBScript,BGE-small,0.4378,0.4954,0.8834,balanced_hard,0
+034c29fa-c3ba-45ea-b8f3-bf8e3705e386,Erlang,ffddfc7c-a9dd-449f-9e96-882dc447c8b6,Scala,BGE-small,0.4869,0.512,0.8822,balanced_hard,0
+13bdd41a-2a18-441f-96db-41252c519413,Visual Basic,4c016b68-4116-468c-9dc6-42710c239e4a,C#,BGE-small,0.6803,0.5744,0.8807,balanced_hard,0
+04fe962b-4017-4eb7-9139-7d69b6922bc9,use an application-specific interface,b0096dc5-2e2d-4bc1-8172-05bf486c3968,design application interfaces,BGE-small,0.6684,0.6716,0.8797,balanced_hard,0
+034c29fa-c3ba-45ea-b8f3-bf8e3705e386,Erlang,401eb8d8-6daa-4f8b-90ad-60afc71eb4f8,Perl,BGE-small,0.5188,0.6633,0.8777,balanced_hard,0
+993b1e23-f2de-4bd8-b33f-f86dde1c8e9d,CoffeeScript,def007fa-5fed-4a5f-91a2-b0d7e3db1be1,COBOL,BGE-small,0.4221,0.5425,0.8747,balanced_hard,0
+143769cb-b61e-47d8-a61e-eedfbec1016c,business intelligence,98a1dec3-8138-4f46-a596-5e2a83b884b9,business analytics,BGE-small,0.5512,0.6954,0.8735,balanced_hard,0
+ce26e71f-2d47-474e-89b6-7920931ac4fc,iOS,d8829a1d-dbde-435b-b921-29d6462f35c9,Android (mobile operating systems),BGE-small,0.6998,0.6709,0.8732,balanced_hard,0
+8ff015a0-98ea-4d80-a23e-1f68110a919e,software design methodologies,dba46f87-0831-49cd-a1c7-340a653c0221,Agile development,BGE-small,0.732,0.6962,0.8715,balanced_hard,0
+a47d194d-0ffd-4aaa-b695-fbbe0255000e,design information system,fae27053-8924-4bfd-b565-c9fe502044c9,system design,BGE-small,0.7709,0.7129,0.8712,balanced_hard,1
+21d2f96d-35f7-4e3f-9745-c533d2dd6e97,computer programming,e8b89eb6-51e8-4c3a-babb-88b2e110376b,Pascal (computer programming),BGE-small,0.6879,0.5943,0.8707,balanced_hard,1
+f5ac9226-0ace-4d34-a1c3-7b3845834a98,maintain ICT server,fbbcb9ab-4b95-4e57-a756-30d08b7da7a5,maintain ICT system,MPNet,0.7047,0.8624,0.8551,balanced_hard,0
+14d1e367-3efe-4ec5-86ae-eca48710ee4e,implement ICT security policies,86d2e2ea-1ba2-4aa6-b465-8a1f9abc81b8,apply information security policies,MPNet,0.7476,0.8276,0.8255,balanced_hard,1
+1e7ed56a-6d6b-422f-962e-38543d150755,manage changes in ICT system,fbbcb9ab-4b95-4e57-a756-30d08b7da7a5,maintain ICT system,MPNet,0.7555,0.8141,0.8617,balanced_hard,0
+54c9c155-9293-4329-8ed2-2e76e8b519d4,define data quality criteria,cc7370dd-69fa-4c67-a96f-d4d135d38700,data quality assessment,MPNet,0.7651,0.8139,0.8022,balanced_hard,0
+2239694b-771a-4586-8b54-2794e361a9ae,maintain relationship with customers,3cd35f5d-ce6d-4f14-9a09-53d7a28d834c,maintain relationship with suppliers,MPNet,0.7471,0.8083,0.8548,balanced_hard,0
+339ac029-066a-4985-9f9d-b3d7c8fea0bb,manage staff,cb668e89-6ef5-4ff3-ab4a-506010e7e70b,manage a team,MPNet,0.7307,0.8066,0.8182,balanced_hard,1
+1dae8445-12e5-423a-bb26-824010e299b9,ensure compliance with legal requirements,3d3ee5c3-4286-457f-9f76-1704011f7e11,comply with legal regulations,MPNet,0.7303,0.7958,0.7877,balanced_hard,1
+84f58e3d-8669-4d83-8c1d-5dd1e73a654f,create database diagrams,9ef0f3a0-9ce2-4ef1-a987-0366b5cb2dbe,database development tools,MPNet,0.7591,0.7937,0.8448,balanced_hard,0
+bf5d77ad-e18c-48d8-83f0-bc79c011c74a,develop professional network,cc61f9e5-d4fc-470e-8606-1ce865ff8386,develop professional network with researchers and scientists,MPNet,0.7518,0.7932,0.8023,balanced_hard,1
+6a899482-8bcf-40ca-ae67-579a1cc467ab,manage engineering project,cd5efa8c-e44d-4cbc-91c6-796018dbed68,perform project management,MPNet,0.6674,0.7857,0.8587,balanced_hard,1
+9e06bac6-6b91-48ca-8b7d-c1f48cdecd7c,solve ICT system problems,f5ac9226-0ace-4d34-a1c3-7b3845834a98,maintain ICT server,MPNet,0.7295,0.7851,0.8162,balanced_hard,0
+85c11255-469f-41bd-a6d1-382bc4a87783,interpret technical texts,be48353d-25c7-4f86-bea9-7b9e248fbc6e,interpret technical requirements,MPNet,0.6422,0.7847,0.8066,balanced_hard,0
+00c04e40-35ea-4ed1-824c-82f936c8f876,incremental development,33d49d4f-31ec-473f-9b8a-b555aa5116bb,iterative development,MPNet,0.7321,0.7783,0.8487,balanced_hard,1
+0e0c9c11-b39e-43cf-ba95-2fe646f5de64,identify customer requirements,ddfe79e2-c2e3-4ba7-9bdf-3820b4f75b54,identify ICT user needs,MPNet,0.6279,0.7781,0.8297,balanced_hard,0
+979cf728-896f-4f2c-8fa8-2698ca0d4930,publish academic research,c3c2420c-ce9a-4371-8eed-1db479c3a562,write scientific publications,MPNet,0.6802,0.7751,0.7178,balanced_hard,0
+be48353d-25c7-4f86-bea9-7b9e248fbc6e,interpret technical requirements,d9e5349e-8791-49c2-8ba4-839fdd1606c2,define technical requirements,MiniLM,0.8175,0.7584,0.8095,balanced_hard,0
+976455eb-5bbe-4493-ae64-ed16c3b009ea,mobile operating systems,f9a6f35b-01a7-40c9-8b61-b6ee46f97272,operating systems,MiniLM,0.805,0.7529,0.8506,balanced_hard,0
+ad59afe4-6f8a-4bc4-acfd-0f228277508a,statistical analysis system software,e5a6e1e0-1b07-4432-83ba-77d593b2cb47,SAS Data Management,MiniLM,0.7984,0.6956,0.8044,balanced_hard,0
+67a118f4-8a5f-48f7-8e5f-de34b9ca2c37,hybrid model,83218cac-3599-417e-93d2-26013cdccd98,service-oriented modelling,MiniLM,0.7972,0.6722,0.8427,balanced_hard,0
+69cfc5ed-6569-4aca-a4cc-fd782ba51d9c,implement ICT risk management,fe1c2b32-7fe9-4668-affa-07ff658a68cf,identify ICT security risks,MiniLM,0.7937,0.7197,0.8107,balanced_hard,0
+0a9acb6b-1139-4be9-b431-3a80a959f2f4,Agile project management,bec4359e-cb92-468f-a997-8fb28e32fba9,ICT project management methodologies,MiniLM,0.7932,0.7161,0.8467,balanced_hard,0
+ca73ac82-867a-4afa-9732-834aebe896ff,ICT system user requirements,ddfe79e2-c2e3-4ba7-9bdf-3820b4f75b54,identify ICT user needs,MiniLM,0.7877,0.7724,0.8474,balanced_hard,0
+03a74eee-2dc6-4147-8667-5cdeb65f122d,manage ICT data classification,4d85b881-e490-4b4c-897a-2faa4ef53956,manage ICT data architecture,MiniLM,0.7874,0.7439,0.8092,balanced_hard,0
+0c766ca3-9364-4203-916b-fed16e4814c1,gather data for forensic purposes,118a9b27-1c5a-4214-b685-1a4d9e6365ea,computer forensics,MiniLM,0.7824,0.6727,0.7998,balanced_hard,0
+90be83d9-56f1-46a4-a6bc-96c51f6c9025,acquire system component,ed8de897-adbe-4f0e-b4d2-534953e64c72,integrate system components,MiniLM,0.7806,0.6592,0.759,balanced_hard,0
+913e7e83-b8f8-4574-b1ca-1b38f3fd974a,execute software tests,ff25cbf0-6978-4c4c-887e-d4b185410d74,perform software recovery testing,MiniLM,0.7781,0.7249,0.8504,balanced_hard,0
+2450c3b3-e78e-435b-b84d-e05d984e71dc,software architecture models,f7e2eb04-3e50-4561-bce1-7e51a1fec308,define software architecture,MiniLM,0.7775,0.7695,0.8416,balanced_hard,0
+29fb0fb5-dfc4-4098-ac9b-3a712000f48f,manage database,ab1e97ed-2319-4293-a8b7-072d2648822f,database management systems,MiniLM,0.7754,0.7536,0.8275,balanced_hard,0
+283cbcd3-7101-4dbb-be37-56f3625515b1,provide ICT consulting advice,3cfa46e9-b7da-44ac-b09e-9596dffe0425,optimise choice of ICT solution,MiniLM,0.774,0.5926,0.8411,balanced_hard,0
+14d1e367-3efe-4ec5-86ae-eca48710ee4e,implement ICT security policies,7814e88f-c133-4c3b-b27f-857afa145d42,ICT security legislation,MiniLM,0.7724,0.7203,0.8398,balanced_hard,0

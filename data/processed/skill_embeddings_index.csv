@@ -1,0 +1,700 @@
+embedding_index,skill_id,skill_name
+0,000f1d3d-220f-4789-9c0a-cc742521fb02,Haskell
+1,00b9a3aa-7070-4bb5-8020-f228a97cf42f,draft scientific or academic papers and technical documentation
+2,00c04e40-35ea-4ed1-824c-82f936c8f876,incremental development
+3,013441c1-1f13-47e9-80c4-9a53e8e1bc05,KDevelop
+4,02058de6-4b98-449f-8a45-8588b0eb2446,network engineering
+5,020918ef-4b55-47c1-8430-ab7b8f6a7377,migrate existing data
+6,022dc430-872a-473a-9cf4-fed4895e58ad,define database physical structure
+7,024037ca-96a9-4cb8-ba86-2cd5a209c90a,Maltego
+8,034c29fa-c3ba-45ea-b8f3-bf8e3705e386,Erlang
+9,03a74eee-2dc6-4147-8667-5cdeb65f122d,manage ICT data classification
+10,03b9b491-fc9b-4868-914a-bf7cd47b5041,create solutions to problems
+11,03ff0d53-573a-47a0-a0ad-1995815a4339,information structure
+12,0458f6a0-cb54-4ff5-a543-b2c5354e17c0,keep up with digital transformation of industrial processes
+13,04f1b938-d4d4-4cb1-a863-982af76b9d93,SAS language
+14,04fe962b-4017-4eb7-9139-7d69b6922bc9,use an application-specific interface
+15,06358891-8424-43c5-891e-d40f226bef40,manage IT security compliances
+16,071233c4-ad2b-4f50-b79f-768d2231163e,domain name service
+17,0760bfac-9a03-427a-ad84-ccd33a2f2ae8,mathematical modelling
+18,07889c08-7220-47c8-96f7-6068fbea00dc,normalise data
+19,07e47d58-dd0e-4302-9e68-70a188e89065,apply system organisational policies
+20,07e51c60-763a-4335-b4ec-70a15f66d328,propose ICT solutions to business problems
+21,0823ccef-813f-4f22-afef-ac0d68615e8f,computer simulation
+22,0868eef3-2213-4572-9343-74931345a7d3,administer ICT system
+23,08a3dcea-12de-447b-a3a5-aa657abc5e97,execute social engineering tests
+24,08b04e53-ed25-41a2-9f90-0b9cd939ba3d,manage research data
+25,08f0af26-2178-40d2-9267-6d50a7346555,combine business technology with user experience
+26,08fe5910-8c4c-4679-a988-eb2ded3c4909,labour legislation
+27,09cf2c34-6f93-4a19-a9f1-c0d866414bcc,Cain and Abel (penetration testing tool)
+28,09f2f811-a3fb-4de3-a70f-6420a6935575,systems development life-cycle
+29,0a099c81-6a0c-4f00-bb3b-990d23ec03a5,manage ICT change request process
+30,0a30e5a8-60a8-4fda-9f89-8e9cee38da5a,use interface description language
+31,0a43729f-2a79-4dae-9faa-95520daae79f,apply company policies
+32,0a52bed5-fd29-45fb-aba6-e32bccfda1c1,plan migration to cloud
+33,0a9acb6b-1139-4be9-b431-3a80a959f2f4,Agile project management
+34,0af062de-eb43-41e9-9b96-249e2cd22d26,use markup languages
+35,0b0335f3-0aa1-491e-895e-81fc8774a300,develop automated migration methods
+36,0c766ca3-9364-4203-916b-fed16e4814c1,gather data for forensic purposes
+37,0cc9c234-f817-4f4c-908a-4d28fe3b0f4a,coach employees
+38,0ccdfe98-f845-4598-84a1-3dca66e9d9a3,Ruby (computer programming)
+39,0cd6dcf1-5778-42a5-b685-4d01ae4a4871,Common Lisp
+40,0d168770-4d9c-4096-b048-a6577818d306,Apache Maven
+41,0d282d6e-8cb9-4339-8e7d-cfafed96b5ed,conduct literature research
+42,0daaf096-1639-461c-bf1a-bbeea77e6b67,internal risk management policy
+43,0dc7aa1b-b5af-4f4b-81ce-ee22ed8b6926,assess ICT knowledge
+44,0de61385-de6d-4146-ba32-1cc1bc102220,Lisp
+45,0e0c9c11-b39e-43cf-ba95-2fe646f5de64,identify customer requirements
+46,0e1fe34b-f4e7-4642-8c8b-5a05ac3438e5,manage schedule of tasks
+47,0e8d16c9-e2db-4862-ac06-1567f01ef806,building systems monitoring technology
+48,0ee7b0d6-db98-4785-9948-f2ef415d155a,write research proposals
+49,0ee94af1-b445-4973-9c3f-459fab250342,apply conflict management
+50,0ee94c0a-3716-494a-95a2-dcbab9e58be2,business requirements techniques
+51,0f00f63f-3ab4-4057-b92f-500584b51757,Informatica PowerCenter
+52,0fb753a1-2ef2-4429-84d2-ecb2b24daf7a,Apache Tomcat
+53,0ffdb6ac-03b5-4f1c-bfcc-3d9cb874fdf9,ethical hacking principles
+54,11430d93-c835-48ed-8e70-285fa69c9ae6,design cloud architecture
+55,114c9698-c999-4369-8498-81bf641fe871,establish an ICT security prevention plan
+56,118a9b27-1c5a-4214-b685-1a4d9e6365ea,computer forensics
+57,11c56452-fcec-4b00-9695-cca4728e5048,marketing analytics
+58,11eebd42-44ab-401d-8a2c-bdb9fc9beb50,information security strategy
+59,13bdd41a-2a18-441f-96db-41252c519413,Visual Basic
+60,143769cb-b61e-47d8-a61e-eedfbec1016c,business intelligence
+61,14d1e367-3efe-4ec5-86ae-eca48710ee4e,implement ICT security policies
+62,14fdac88-6d4a-4e47-9df5-02c6d1e86fdd,IBM InfoSphere DataStage
+63,1557b114-8222-46d5-acff-d2838909c302,provide connected car solutions
+64,1605025e-a179-421f-8f35-5b07d182a6b2,web analytics
+65,16a00c69-9c74-4c37-96d7-6301d285e5ce,use e-services
+66,172020d1-e151-445b-8173-e2a5fb16fe51,utilise computer-aided software engineering tools
+67,1774bd31-8893-44cf-9498-7e3d95508419,screen reader
+68,17924c75-45f4-4593-afac-eea0d51f04b5,defence standard procedures
+69,17c9a790-5664-4673-8237-c4cf3c5a8da5,conduct impact evaluation of ICT processes on business
+70,1973c966-f236-40c9-b2d4-5d71a89019be,use spreadsheets software
+71,19a8293b-8e95-4de3-983f-77484079c389,Java (computer programming)
+72,1a4cc54f-1e53-442b-a6d2-1682dc8ef8f9,creatively use digital technologies
+73,1b3fc0e0-c6f9-45fc-9c6e-14bbba662979,develop information standards
+74,1b70a55d-b8a4-49fc-96c6-15ab4cff2522,use data processing techniques
+75,1b7c716e-af95-4cda-a42f-6479c8b139f5,MDX
+76,1bba98a7-92b9-450b-9235-e0c905f8f3c4,information architecture
+77,1c08d63d-1c5e-4b9b-ad3e-f7ba7debb2d1,forecast organisational risks
+78,1c2978b8-bb0d-4249-9c23-877571a4dffa,cloud security and compliance
+79,1ce4cddd-4a74-458e-a2d4-152ca939475a,OWASP ZAP
+80,1dae8445-12e5-423a-bb26-824010e299b9,ensure compliance with legal requirements
+81,1dd23dba-dd00-45ab-abf4-642902538317,perform risk analysis
+82,1de3942b-99d8-41e8-9ef0-fbc9e9f6307b,Drupal
+83,1e77e42a-181f-4b48-8e74-201ce50ffc29,interpret current data
+84,1e7ed56a-6d6b-422f-962e-38543d150755,manage changes in ICT system
+85,1f6eac42-e5aa-4fa7-a75d-a4eea12c618e,disseminate internal communications
+86,1fcce318-3212-487a-ac07-4941bc85060d,carry out project activities
+87,209a5498-3449-4689-8ed9-bd08cab4fd78,engineering principles
+88,20a8fe89-d4eb-4698-8521-8881c13377e0,interact professionally in research and professional environments
+89,20c920d4-7ff7-4676-ba61-3f04490d9416,keep up with the latest information systems solutions
+90,2180bd8c-86de-4889-8165-adac902eee9d,embedded systems
+91,21c5790c-0930-4d74-b3b0-84caf5af12ea,manage budgets
+92,21d2f96d-35f7-4e3f-9745-c533d2dd6e97,computer programming
+93,21e0cad8-4eef-42be-b18b-0f8e37f0dbd0,product life-cycle
+94,21fecc8a-392e-49ce-ac26-fb0696ccfead,create project specifications
+95,2239694b-771a-4586-8b54-2794e361a9ae,maintain relationship with customers
+96,22902bf9-cc3f-495b-811a-c441e28e23f6,manage project information
+97,22b8039c-c890-4610-9228-5527e3b98f12,set quality assurance objectives
+98,234aeb8d-56c3-4531-9193-1c5e6a8d16cb,use presentation software
+99,23900e3d-06fa-424c-a5dc-c0ea42edde1e,Oracle Warehouse Builder
+100,23ac233d-84ad-4517-b0f5-8ca19ba2614e,monitor developments in field of expertise
+101,23b45aa6-a479-486d-9e6f-062cbab7c68a,interfacing techniques
+102,24310a7b-5db1-4917-a705-4835630227ca,create incident reports
+103,2450c3b3-e78e-435b-b84d-e05d984e71dc,software architecture models
+104,248894d1-42dc-474f-af6e-2da52ac0c679,define technology strategy
+105,24c200e5-be20-4370-a137-ab53797f3a17,software frameworks
+106,251b5528-693c-4ef9-a7f6-9924bb8d7ef8,decentralized application frameworks
+107,2522a6ce-3202-4ac8-9f5b-b9cb5a3a83a1,debug software
+108,25b291b5-8245-4d9d-b391-86a8a31d7109,use concurrent programming
+109,25df422a-bf0a-4f76-8631-d0be91cb8751,model based system engineering
+110,25f0ea33-b4a2-4f31-b7b4-7d20e827b180,data mining
+111,269b8734-fa1d-4c6f-a843-523fa3bbae6e,behavioural science
+112,279a4b1d-21df-4d78-9f4d-324c73fd7536,manage human resources
+113,27ed854c-15b8-4ba2-90e9-ae888a219703,perform business analysis
+114,283cbcd3-7101-4dbb-be37-56f3625515b1,provide ICT consulting advice
+115,2857540c-180b-4208-9127-e94a01871966,align software with system architectures
+116,2891f0dc-4426-4a9a-8fbb-db4fb0a66f91,Nessus
+117,29fb0fb5-dfc4-4098-ac9b-3a712000f48f,manage database
+118,2a3a96a3-709e-4d60-81f6-d247d6933f13,manage system security
+119,2b1e2927-3542-48da-9063-02925e7562c1,disseminate results to the scientific community
+120,2b34764d-637c-48f5-aa70-31e15c965db6,operate open source software
+121,2b34a99f-9813-4c91-9509-b6b9b8c3132e,collaborate through digital technologies
+122,2b7a79e5-84d8-4880-be66-3d9bb05bea17,use software design patterns
+123,2b92a5b2-6758-4ee3-9fb4-b6387a55cc8f,perform data analysis
+124,2bde42ae-e776-41c1-9ded-b07b30bfe985,Prolog (computer programming)
+125,2c28fc20-8a60-4311-8899-5ef8729c05b3,design process
+126,2c4e11ef-da18-4e19-816b-e6bc19e12424,use logic programming
+127,2d140a3a-45a6-4248-80dd-b3760ebc9cc6,operations management
+128,2d6d4784-0992-48e7-b100-22d7229b3f0a,translate requirements into visual design
+129,2daec0e6-f0c1-43e8-8178-aedba99130ec,establish data processes
+130,2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80,ICT network security risks
+131,2de4572a-4724-4f76-afc2-72a568a264ac,speak different languages
+132,2f04bb71-d476-43b3-a60b-5df1d05f5681,Octopus Deploy
+133,2fb8480e-de3c-462b-b169-e8bbb344da68,innovation processes
+134,300d432b-f457-4cd3-9cb1-1858c7d14954,OpenEdge Advanced Business Language
+135,31c69100-b612-4a61-8db5-fd314318854c,execute analytical mathematical calculations
+136,327d15c8-29ff-4ad4-a4fe-6536d777a45f,documentation types
+137,334e3e49-fb02-4051-809a-f06adfdc1c40,troubleshoot
+138,339ac029-066a-4985-9f9d-b3d7c8fea0bb,manage staff
+139,33a82b83-c838-4889-ae62-fae1317481eb,protect personal data and privacy
+140,33d49d4f-31ec-473f-9b8a-b555aa5116bb,iterative development
+141,33e584f9-ff7a-4979-bfc0-5a3a374a145a,social network analysis
+142,348b74cd-49ce-4844-8bdf-ec188b497213,visual presentation techniques
+143,3579208e-49b3-4ce4-98e7-20e41b1ce8d4,develop information security strategy
+144,37bc4dc0-1233-4008-98db-1116d0c1cfcc,define security policies
+145,382c11ed-20d5-4ae7-b60e-15fec527fa6c,apply statistical analysis techniques
+146,385479b7-5da5-4367-9763-0d15b41bb65b,provide user documentation
+147,38716afc-a93b-44ab-96cc-2ecf67edcf32,do cloud refactoring
+148,38788a64-6271-40ff-9e0b-5644c38322ff,consultation methods
+149,38d49d88-9069-467b-b29e-3cae739bdd4d,build predictive models
+150,397da142-ab35-48fe-b154-7c38f447adfb,digital systems
+151,39f67488-cfd3-4370-8d7e-da98163102d9,evaluate research activities
+152,3a5231a0-8c30-48ee-b671-08e2debd4441,organisational policies
+153,3af687cb-8c7a-46ea-a730-32dbaed040c6,Oracle Data Integrator
+154,3bddfd7c-ab6d-40c2-883d-5e97fb7640ba,create software design
+155,3be6b84a-fa78-42b9-a8df-150cdb40b9d7,ICT quality policy
+156,3c03ee71-4a23-448f-b79e-81fd75d27dca,apply change management
+157,3c2e6f38-42c1-46ec-b782-5854b2db330d,blockchain openness
+158,3c76296d-4bbd-44ba-8eaa-95bf275f79b7,manage ICT project
+159,3cd35f5d-ce6d-4f14-9a09-53d7a28d834c,maintain relationship with suppliers
+160,3cd569a2-4f88-4c1e-9995-8dce8c5e51a7,JavaScript
+161,3ce1fe19-7f9e-4070-941d-651673a5693b,decision support systems
+162,3cee858e-79e8-4a4b-b99f-93c7f735d58b,DB2
+163,3cfa46e9-b7da-44ac-b09e-9596dffe0425,optimise choice of ICT solution
+164,3d03c40c-1b83-4793-8902-2523f40af59e,Microsoft Access
+165,3d3ee5c3-4286-457f-9f76-1704011f7e11,comply with legal regulations
+166,3e23db60-0c3d-498a-a6ac-ffbed0ecb033,ICT accessibility standards
+167,3e2ab38a-4519-4bef-b762-a8bf4836a775,perform dimensionality reduction
+168,3e9b580d-811b-48df-a5d1-a7bdd26f901f,prepare financial auditing reports
+169,3ec2e4d6-7000-4905-bf1a-c5b1679416de,data warehouse
+170,3f4dab51-572b-4e2c-85ef-3b4c3f7094e1,XQuery
+171,3ff589b7-68df-4ea5-ae41-b395bdb2378f,ICT security standards
+172,401eb8d8-6daa-4f8b-90ad-60afc71eb4f8,Perl
+173,4134622c-c3fb-4a41-beb6-6d58ba5107db,demonstrate disciplinary expertise
+174,41437077-2522-49bf-bcb2-083a23d52958,inform on workplace safety standards
+175,415abd43-e8e5-4643-b5da-5f11307af57a,use different communication channels
+176,418a56a2-7cfc-4b6d-8cf5-5c2add99a849,provide ICT system training
+177,41bf7ede-fc84-4a57-8c89-b548d11b0ba1,manage business knowledge
+178,41ec47dd-08b3-464a-9c45-c706f3e74467,industrial software
+179,4216e465-7baa-4884-a241-54b197bb9278,perform data mining
+180,426ceaba-6867-481c-bb6b-aee3933da7d2,ICT safety
+181,42c3287f-5e50-4559-a2d1-2000c70e0aab,Pentaho Data Integration
+182,42cb7669-c371-4903-9c0b-13db67b2e4bb,emergent technologies
+183,42ed3bfb-1a01-4c8b-9758-fc6438865734,Smalltalk (computer programming)
+184,42fcf80d-7b45-40f3-bd2f-5411c4c0dfa0,identify technological needs
+185,4350c38d-0fe9-4ca7-bab9-40ed7f72b04f,PHP
+186,438ff259-d086-4004-acda-1ec3e1631bc6,software anomalies
+187,43ae58b9-5e56-4524-b45a-b422777a0576,database
+188,43b13058-68d0-40c6-8031-caf5a7b7d20c,keep task records
+189,43dfbe7f-9e10-4871-b171-e5076737b4cf,digital marketing techniques
+190,43ec6db6-33f7-449b-a566-5779a7e8997a,OpenEdge Database
+191,440d5784-52a5-4729-8b04-29f978bd896d,respond to incidents in cloud
+192,4463a721-69f3-413d-8321-43e3af13a4f1,use databases
+193,449d119b-2d66-43a9-9230-7d27f16afbb6,Xcode
+194,4539aeca-b56f-4d03-ba86-8f675a7f2536,develop solutions to information issues
+195,45f1ae17-c20d-40fc-9307-7d33b6ca9213,image recognition
+196,46e93774-7c6a-4dc5-bae9-be97cc461093,inter-organisational middleware system
+197,46ec0033-3c71-415e-bcff-b065675ba2dc,integrate ICT data
+198,4754d9fe-dc3a-4f8f-8ea6-5dbcea3a21ca,develop computer vision system
+199,477173ca-5fc2-406b-9122-95d92811f284,communicate with stakeholders
+200,47a49cd6-097d-457a-9f7b-c290c14930d5,analyse big data
+201,47b9bbcf-356c-4782-83a4-7f5a1b2b51a3,Assembly (computer programming)
+202,47ca0da1-cae5-4395-ae6b-fd97b9ff48d3,system backup best practice
+203,47d491a9-f7c0-4b13-a10f-983d3aa0113e,safety engineering
+204,4840338b-ac6c-486a-be1d-9ddfe00b8bdf,Spiral development
+205,484d048c-a5d1-46a5-b57f-45b69c0ac552,analyse pipeline database information
+206,484df271-bb52-49f1-8f50-f19624bf4df2,software components libraries
+207,485cdafb-3c7f-4104-ab1c-773e6131a39a,conduct scholarly research
+208,48b68726-0fd6-4e03-a5eb-82236516ee7a,provide cost benefit analysis reports
+209,48db96bf-3314-45c6-bad8-fdb6e20e5639,data engineering
+210,4913d0c0-133a-4c46-aac3-f5d4989a982e,product usage risks analysis
+211,4918ec9a-0204-4935-8b09-b0112370daa8,establish an Information Security Management System
+212,4959697d-3a24-4f46-af0c-b752318e6c54,ObjectStore
+213,496932f1-0b6b-4f73-9432-d95c7ddcd43b,recruit employees
+214,49f85a99-086c-45b6-a6fa-eb90305af7b1,Chef (tools for software configuration management)
+215,4a193795-fa63-414e-9f2e-bfdb3924571e,handle data samples
+216,4b2c4de9-43d7-4905-9d58-bc2e7d84b2e1,manage tender processes
+217,4b51e76e-9e8a-455f-a289-5b48246345c4,hardware components
+218,4bf37ee3-2c8b-44cc-9f91-3eeda46e8c5b,assess informational needs
+219,4c016b68-4116-468c-9dc6-42710c239e4a,C#
+220,4cd85845-f31c-4306-994d-e12d45114d83,teach in academic or vocational contexts
+221,4d30ad07-9e39-4899-81dd-02b280f162f9,apply systemic design thinking
+222,4d39b27a-b34f-4c89-8d46-df844d42f728,increase the impact of science on policy and society
+223,4d85b881-e490-4b4c-897a-2faa4ef53956,manage ICT data architecture
+224,4da171e5-779c-4983-a76f-91c16751e99f,MySQL
+225,4da4587a-fd0b-4ca2-886c-c42a1562d432,design cloud networks
+226,4df7a57a-9405-4995-8e02-4ca404832247,manage project changes
+227,4e5687e3-3d3a-4f5e-b76a-93da0124d453,operational tactics for emergency responses
+228,4e6d2538-a48e-48a7-8dad-14b067cfcb8b,TripleStore
+229,4f060129-8b75-4d58-a8dd-515bd8fef349,develop financial statistics reports
+230,4f5c1208-62fd-4e5a-a51e-306c06947e11,manage findable accessible interoperable and reusable data
+231,4fabca9a-7435-4f33-b1da-3cdb00340fdc,perform scientific research
+232,501537a7-9d63-491d-ae02-09f04767ff1e,attack vectors
+233,50597e96-9b6a-4736-ac79-dd80f36c0269,Metasploit
+234,505e4ef3-7ce4-437d-b7b4-5c608f71c258,build recommender systems
+235,5063a99f-975b-4a7c-85e3-69ecb375b4d3,internet governance
+236,50b100ea-74fd-4706-99db-3e4ca55e51b8,perform data cleansing
+237,51586df8-1c46-4b47-8583-773cb63bf00b,R
+238,518dc04d-092d-4fa1-bd82-88b7a9278ef7,manage intellectual property rights
+239,51b18096-85e6-425b-bb15-03a74eeda0dc,identify market requirements for ICT documentation
+240,52cf3037-ab53-4806-85ed-7fd21ea7f6a1,Groovy
+241,541561bc-510c-4a99-881c-2d8bf5a85462,use technical drawing software
+242,54924a2c-daca-40d3-9716-4b38ceb04f38,algorithms
+243,54ae8c54-2aad-46fc-bff2-9d44d0ec7a6e,manage information access aids
+244,54c9c155-9293-4329-8ed2-2e76e8b519d4,define data quality criteria
+245,54d774a3-de3b-4425-b0d7-c03bc99a0937,set up cybersecurity training programmes
+246,553ad092-b799-44c9-a94c-65a84fdc7526,identify processes for re-engineering
+247,553e1d2d-abf1-4b37-8ac4-c5c78a8edbc0,proxy servers
+248,557e9247-1a2d-4497-aa7f-0cded7768da1,Aircrack (penetration testing tool)
+249,55c16653-343c-4d02-a9de-7d8e864a4592,Codenvy
+250,56042303-972b-41be-9310-58467599ff7e,analyse business processes
+251,5608d5a0-6d5e-43b7-be37-616501729bb4,artificial neural networks
+252,561c2525-5bd8-4d86-8f45-820f4be7db93,report test findings
+253,56a10e3e-c9e7-4d39-b6f1-6013398fcb3a,use content management system software
+254,56a7f561-1d55-43c9-9cd7-36a0a9bc6c50,ASP.NET
+255,57231a22-4da7-49c8-97b8-75672feadf1e,manage quantitative data
+256,58783f72-5098-4807-b1d1-954ec2ae94c4,Backbox (penetration testing tool)
+257,5898d99a-62a4-4e10-a2e3-0d815ce44248,cyber attack counter-measures
+258,58d7a289-dafd-4363-833f-d1dc4140885e,APL
+259,598de5b0-5b58-4ea7-8058-a4bc4d18c742,SQL
+260,59ea80e1-463a-4dba-82c6-d0b6d577d532,technical drawings
+261,5acf6408-e084-4202-9442-ffcf0119811c,security threats
+262,5b26f08b-88bc-45f0-b901-530d7786466b,scientific computing
+263,5b9cde20-f1b9-4adc-bfb3-dbf70b14138d,use object-oriented programming
+264,5be3d306-6cf1-4b49-aa1d-01651dd4ba4c,object-oriented modelling
+265,5c606d18-6404-4047-b235-350f18e11827,contract law
+266,5d34adde-0b78-42b4-9d3d-69e9388d8398,oversee quality control
+267,5d9e766b-8f17-4e17-bfab-3bb0e0719791,define quality standards
+268,5da3c765-10a3-49eb-934c-ec401ceb1a34,analyse business plans
+269,5da8018b-ae85-4cde-ad93-0394369018f3,SPARQL
+270,5ef0c719-5bcb-49f8-b8eb-824388225333,use scripting programming
+271,5f0082ab-2131-49b5-94d6-a1821daf57d6,apply for research funding
+272,5fd5c985-eaaa-47aa-8314-62359c54505a,develop digital content
+273,6014921e-1d25-4039-adc2-04852d61880e,ICT debugging tools
+274,60d48be0-4260-4b2e-85b9-aedff7a9b7d9,ICT capacity planning strategies
+275,611ed16b-99bf-4840-9cab-f55d1d286e0a,store digital data and systems
+276,6195c5f7-a4fb-425d-a3dd-c4467c4471a3,deploy cloud resource
+277,625b57ee-29d4-425b-bf99-9fd54dd021fe,Kali Linux
+278,628664ec-a63b-4486-8d65-02aba81c82a0,ICT sales methodologies
+279,629685b8-5f9e-4522-8cff-b3e2c4ec625a,digital data processing
+280,6360a934-cc87-4954-9656-b32db20592e3,quantitative analysis
+281,63f0aa84-5e4c-4eb6-8e8c-876d9feedf1f,Outsourcing model
+282,6417a4cc-6f61-4459-a114-761a7fa0279d,Puppet (tools for software configuration management)
+283,6430eb0d-c6de-46b7-a7fc-3dd2e8e62a69,use ICT ticketing system
+284,64852ade-6ae1-4760-ba4a-976bf07ca255,manage disaster recovery plans
+285,64db87c7-2360-4e20-88d3-d222402e477c,write database documentation
+286,65e58886-bd1e-4c5b-8ca5-8d9b353c8aa1,data visualisation software
+287,670f8eea-f25b-4c3f-97ef-a4729d4c63d6,smart contract
+288,67a118f4-8a5f-48f7-8e5f-de34b9ca2c37,hybrid model
+289,6833e58b-eceb-4599-9375-1b7e6ec64087,ensure information security
+290,68ef0e4d-5542-4e64-84f4-752cce5a3c22,statistical modeling techniques
+291,694dc996-52f3-4afa-a802-672e19f061b7,crowdsourcing strategy
+292,695c3249-18e7-4435-bdb8-54a16011159d,develop documentation in accordance with legal requirements
+293,696e3b5b-8b61-45af-ae4c-3ab700f197ec,information extraction
+294,697dcc9f-ae92-4506-b5f2-e770d7589f74,utilise regular expressions
+295,69bbd53f-fbb0-4476-b4b2-ef7844464e28,web programming
+296,69cfc5ed-6569-4aca-a4cc-fd782ba51d9c,implement ICT risk management
+297,69f0167e-75d9-46cf-847f-72a592880ebb,STAF
+298,6a322874-e32f-4cd8-9683-badce67a7f73,develop automated software tests
+299,6a536b36-c5c7-4d10-bf67-a4fb0f8549b2,audit techniques
+300,6a7792a9-888a-46ad-afc9-2c0d94c8fde6,create business process models
+301,6a876489-7ad8-4a13-b09c-c9b8e97a302e,Waterfall development
+302,6a899482-8bcf-40ca-ae67-579a1cc467ab,manage engineering project
+303,6abb92c9-0553-4d3d-add8-8240494e182d,implement operational business plans
+304,6aef2baa-5fa7-4c16-bd28-3e070ec4e4df,educate on data confidentiality
+305,6b3afb82-c4ea-4f14-be54-a757fb762663,Vagrant
+306,6b643893-0a1f-4f6c-83a1-e7eef75849b9,develop with cloud services
+307,6b6a9252-2ed7-4862-a02f-1578f4a532ea,Eclipse (integrated development environment software)
+308,6c08403c-a5bb-4868-b8c2-b7d039c0e511,design database scheme
+309,6d289e8b-2cc1-4eda-ab1f-ad1090ef98f0,WordPress
+310,6e4f75b4-c60f-4623-a9ba-760c8245753b,ICT communications protocols
+311,6eff134b-e34f-4d6e-a6e8-5e47cf2228d0,risk management
+312,6f1edc19-191f-4ba5-a048-ee69aff05bab,security engineering
+313,6f7512ab-d46d-402a-8c30-a8878d7c1f88,SQL Server Integration Services
+314,6f8a40d6-f9ce-43ec-a72f-d4213a53f3ed,Ansible
+315,6f8baa62-bc2b-4cc1-942b-f540c837cfa2,outsourcing strategy
+316,6fa1c2c0-a012-4ca0-9642-e01569ba322c,ICT system integration
+317,7111b95d-0ce3-441a-9d92-4c75d05c4388,project management
+318,713fb616-118e-40bc-9366-4a69879a49d5,implement data quality processes
+319,7159e587-c7cb-4ec0-a662-03e1dee2cccb,research design
+320,71717c33-dd63-4acf-b052-a5fd5d9fc490,ensure information privacy
+321,71746a0b-e58d-4dc4-ad03-bd84082eae21,collect customer feedback on applications
+322,7193cb6d-8334-494f-86e5-21e6d03a47c3,unified modelling language
+323,71c2f41e-14de-4b23-82ad-5dbcd54ba5b0,deploy ICT systems
+324,7253d98c-4a6d-4e37-8b6c-accca9f4b639,develop ICT test suite
+325,726abd5a-d23c-44b9-abb0-f22bbe95f1d3,operational research
+326,72a74f69-5cf1-43c5-99b9-62a444578919,engineering processes
+327,732cb4dd-af91-4c88-9a9f-5fc62144e500,provide information
+328,7364cc39-b9c0-449f-9416-57723e2fd9c4,use methodologies for user-centered design
+329,7369f779-4b71-4aab-8836-48b69c676eec,operate relational database management system
+330,736ef286-fbd3-4e5c-a4b4-d1e2008c9898,plan digital marketing
+331,744442ac-c157-4350-8be0-ce454df4f5c5,perform ICT troubleshooting
+332,7482a123-e801-48de-9733-262125671410,task algorithmisation
+333,74e49482-75e8-4637-bdb1-fff868d02f7a,scientific literature
+334,751941a0-5645-4f8b-b97e-b252909d5edb,develop ICT workflow
+335,7557f0f4-b8bc-4ac0-b91e-222ab1ba744f,tools for ICT test automation
+336,75b30aeb-34c0-40f4-b77d-271d75a98b14,improve business processes
+337,75f839c2-fd9a-4ad3-8921-6e734608568d,use query languages
+338,76ef6ed3-1658-4a1a-9593-204d799c6d0c,NoSQL
+339,770d4956-b5e0-4d44-bf42-3a766b232c5d,maintain a central project repository
+340,778ca7ad-6c5d-4868-9b96-a7777dca799c,ICT help platforms
+341,7814e88f-c133-4c3b-b27f-857afa145d42,ICT security legislation
+342,78a74fd1-efc6-49dc-adb1-1b0fbe35c22c,provide software testing documentation
+343,7961413f-61d0-4722-9cd9-20a050a29899,perform software unit testing
+344,797a4416-0b8d-44f3-8fcd-eb10bd0be6b4,develop software prototype
+345,79e29b8b-47d1-470d-b7b1-32506bfe7d9a,collect ICT data
+346,79f24a62-7718-46e1-9b41-37be0560a5ca,organisational resilience
+347,7a17d7ce-01a2-4746-bbcc-22ffe22fa16e,monitor technology trends
+348,7adb8473-bcc6-4ff8-9850-76d945d40092,analyse ICT system
+349,7af6e9e8-1e11-4c0b-b7c6-ac96bbbbc674,coordinate engineering teams
+350,7b0d5000-00da-4864-b776-6de49a87a669,computer vision
+351,7b5cce4d-c7fe-4119-b48f-70aa05391787,computer science
+352,7bf4539a-3f2e-4485-876b-1c9306b181af,John The Ripper (penetration testing tool)
+353,7d10fcb2-b368-48ab-996b-7c9fafcf68ed,use automatic programming
+354,7e1f9657-ab4e-407c-842f-b846197060e3,execute ICT audits
+355,7e5a7bec-0e19-4a35-b27b-1c4a6d9c4de0,mathematical physics
+356,7e796b51-49d7-4e73-95af-2e7323763f15,design database in the cloud
+357,7ee4c2ea-b349-4bd2-81a3-ec31475d4833,statistics
+358,7f0b1a66-ebaf-4c8a-b606-4c1844eb692e,attend to ICT systems quality
+359,7f27f1ff-2e17-4b69-990e-c23334478313,assessment of risks and threats
+360,7f2afce6-e98b-4bbe-8441-d52b45e28ab8,telecom regulations
+361,7f70572d-f0c1-4039-9954-b57dc69981f6,keep updated on innovations in various business fields
+362,8088750d-8388-4170-a76f-48354c469c44,cyber security
+363,8181aa4c-42bc-4036-a3d2-5cb6bbb34239,handle cybersecurity incidents
+364,81b082fb-9a00-4660-976a-10c985979100,IBM InfoSphere Information Server
+365,82de2df7-0d6c-42b1-94ac-b3e9a029e917,use back-up and recovery tools
+366,8300443c-c793-4102-bff5-aa917a0cb39f,define roadmap for blockchain in applications
+367,8316979b-df5a-4dc7-98ef-61ec6a10df84,conduct quantitative research
+368,83218cac-3599-417e-93d2-26013cdccd98,service-oriented modelling
+369,8327754d-3990-4056-b07e-4faa49cfcd26,innovate in ICT
+370,833289fa-3646-4010-9d9e-93ba8c9ef2d8,apply research ethics and scientific integrity principles in research activities
+371,8359bd04-d2cb-4757-af1f-39a921df9efe,remove computer virus or malware from a computer
+372,8369c2d6-c100-4cf6-bd83-9668d8678433,utilise machine learning
+373,8369ede5-4200-4a44-be2e-bc60ef959259,Microsoft Visual C++
+374,83b33952-3872-46ec-9a2e-b28f91303a7e,oversee development of software
+375,84251cb1-babf-4d17-a3cd-baa642c24c8d,IBM Informix
+376,84f583f4-f32a-4202-9b92-e25f0c978410,core banking software
+377,84f58e3d-8669-4d83-8c1d-5dd1e73a654f,create database diagrams
+378,85616cc4-98bf-4355-9cf1-72ff11752848,develop ICT device driver
+379,85c11255-469f-41bd-a6d1-382bc4a87783,interpret technical texts
+380,85f46538-ae70-498a-bfbc-b8ddafe96c7d,levels of software testing
+381,861313ba-3a1a-4d33-842a-1b8e45e2415b,manage ICT legacy implication
+382,867137fb-ff1b-4ca3-99f3-cb6969aa2c68,TypeScript
+383,8696aff0-18c0-4ba6-a4d0-9a21861b3e5e,World Wide Web Consortium standards
+384,86d2e2ea-1ba2-4aa6-b465-8a1f9abc81b8,apply information security policies
+385,872a1632-f1db-4feb-bb27-0a6a359b7591,promote open innovation in research
+386,875eeec4-fc70-4e6a-80ef-4d18356976e3,forecast workload
+387,8764d4b1-e069-44f2-8baa-fb1eee1850ec,Oracle Application Development Framework
+388,896563fc-6255-4419-89c2-ffed30159ad6,conduct research interview
+389,897b393f-e7e0-4248-a40d-d77119694e83,distributed computing
+390,89f6560b-2194-45c9-9ece-d33049a73eef,computer engineering
+391,8a30eb28-eca0-4ab6-8c05-32c47d3e0dd6,BlackArch
+392,8b0f73ff-d36b-4196-bb83-464c3a6ef07d,game theory
+393,8b94aa1e-89c9-459d-b3b4-1dfab8dec2df,use software libraries
+394,8c4c49d4-9708-433f-8ca7-bf2c5211ee49,develop creative ideas
+395,8c88d336-c249-4537-b26e-d679a85c4b9b,Ajax Framework
+396,8d4271ca-c9fd-40b3-875f-15f78332a49e,quality standards
+397,8dcbcabe-09f7-4d11-940d-125af57bbc40,track key performance indicators
+398,8efa6a7a-6556-4cb8-908d-59d3b5c58d2f,cloud monitoring and reporting
+399,8f6ed69b-29d0-4c01-81ba-f05920a185f3,digital curation
+400,8fa510d0-a8a6-4932-a361-00f8442cfe23,Wireshark
+401,8ff015a0-98ea-4d80-a23e-1f68110a919e,software design methodologies
+402,901105f8-3a08-453e-b1dc-23619e317fd3,create flowchart diagram
+403,902fb91c-3113-4004-9b4f-79aa86b638b7,web application security threats
+404,9035afc4-5317-455d-ab60-f32e2ecc6bfc,blockchain platforms
+405,906323f4-00c4-4c3b-ab5a-8af77be3456e,create data sets
+406,909a28ce-d4b6-4567-9b74-d111f1ed9633,maintain plan for continuity of operations
+407,90be83d9-56f1-46a4-a6bc-96c51f6c9025,acquire system component
+408,913e7e83-b8f8-4574-b1ca-1b38f3fd974a,execute software tests
+409,918f5211-b99f-4b29-9a34-6e475583ef55,write work-related reports
+410,9190d87f-9792-42e0-bb7f-64294a656bcd,monitor system performance
+411,925463a7-d51f-4d5b-9f79-4d28cf30acde,integrated development environment software
+412,92721092-fe7c-4689-96bd-4f02385bc0e7,manage contracts
+413,93aaf65c-5aad-4e6f-a7ba-ce9bf7c0e6e6,information categorisation
+414,93b22bbf-ece1-4e2d-8d47-0c9392c5a4fd,develop blockchain technology
+415,949ced5f-7536-4614-ac60-563ffc91a2f2,strategic planning
+416,94b2c46e-6338-4a1d-950a-d44eef018c53,collaborate with engineers
+417,94dd823c-148e-4614-a6e8-99249b16357d,ICT project management
+418,9531fe02-1e1f-4a36-95f7-a76a77cd4b8d,consult with business clients
+419,953445c0-4770-4be0-91cf-270a64c0e297,implement strategic management
+420,958b8802-ec3e-4813-97f7-6c8f48610dbd,identify process improvements
+421,95ee5e38-5c1e-4cd2-a21d-6921390025a9,usability engineering
+422,96eb286a-58b7-45ff-a916-5578d0b79b8c,Rapid application development
+423,9707091a-323b-4240-877a-5999a19286f0,apply ICT system usage policies
+424,9710092c-f174-4e84-95bf-2064d39ad7a0,manage content metadata
+425,9714735d-6f60-440b-bdbc-aaf45ebcbe78,analyse the context of an organisation
+426,976455eb-5bbe-4493-ae64-ed16c3b009ea,mobile operating systems
+427,978db6a1-7297-4c89-819a-47605f2c3ba8,manage software releases
+428,979cf728-896f-4f2c-8fa8-2698ca0d4930,publish academic research
+429,97bd1c21-66b2-4b7e-ad0f-e3cda590e378,data analytics
+430,97bdd757-29d4-4126-92a6-07608825aa3b,QlikView Expressor
+431,98301d4a-2cc3-439d-8d7f-0b6ac76302bb,business process modelling
+432,988f4ac3-a37c-4b0a-a40f-4e0e56b5919e,promote the transfer of knowledge
+433,98a1dec3-8138-4f46-a596-5e2a83b884b9,business analytics
+434,99207709-d076-4cce-ba38-e90d3bb28806,resource description framework query language
+435,993b1e23-f2de-4bd8-b33f-f86dde1c8e9d,CoffeeScript
+436,9973a5a2-7822-4161-99e9-95c781eb63f8,Objective-C
+437,99c4c69a-025c-464f-adda-874c7f107a31,engage with stakeholders
+438,9a0d0abc-010d-440b-8242-7e31510471ba,information governance compliance
+439,9a58cd26-58eb-4a1c-b1b6-64037fe9cfa1,think abstractly
+440,9b9de2a4-d8af-4a7b-933a-a8334ae60067,JavaScript Framework
+441,9ba8fd27-275d-4bad-8c48-f668aa99a578,balance database resources
+442,9bb7a97a-1a16-431e-8ea6-ad0f9f59aa0a,control objectives for information and related technology
+443,9cf681c7-89ec-470c-b651-7fe03786f586,query languages
+444,9d0d89be-bffa-4393-b6f6-8d05bea49051,"data extraction, transformation and loading tools"
+445,9d1b08b3-ba1e-41f6-a466-1ac1e62eb5f0,conduct ICT code review
+446,9d2e926f-53d9-41f5-98f3-19dfaa687f3f,tools for software configuration management
+447,9e06bac6-6b91-48ca-8b7d-c1f48cdecd7c,solve ICT system problems
+448,9e84a506-df06-4be3-874a-fa01293e3dd5,business processes
+449,9e9a4209-c7cf-4f6e-973e-dc2ffadccc74,perform procurement processes
+450,9ef0f3a0-9ce2-4ef1-a987-0366b5cb2dbe,database development tools
+451,9fc400ac-8ed2-4aff-915f-aa4f2609ec7b,multidisciplinary research
+452,9ff9db9d-d14b-426e-83f3-e7449af6c79f,manage data
+453,a1eef0f4-133f-464a-a8f1-68fe3e8cc1b4,healthcare analytics
+454,a23659b1-a8bc-4331-a58d-eef263ca6a14,follow work procedures
+455,a2fef437-6719-47c2-8552-73b9fe81df86,plan ICT capacity
+456,a3ce2bf7-5562-4639-9b52-fdb4850a3904,ICT problem management techniques
+457,a4346013-a967-4a58-a533-6b32ad1364c5,data protection
+458,a47d194d-0ffd-4aaa-b695-fbbe0255000e,design information system
+459,a4a882a1-0263-4dd2-b29a-f0028cac2393,define integration strategy
+460,a4c2aa71-086f-4a46-b481-2619673c9dfe,execute ICT user research activities
+461,a4d336a6-9ffd-402a-91cc-f359716ba4e0,ML (computer programming)
+462,a4e31589-3632-4926-91d0-15b889c90b9b,IBM WebSphere
+463,a56dec32-05ef-45de-a256-ee6741f356db,information confidentiality
+464,a57a54b6-2f2e-43e4-9621-b52f4a63cb08,LDAP
+465,a584a638-a2c0-4b3c-bdf3-a64f87225be9,mentor individuals
+466,a7a14be2-78b5-4b4a-ba77-2658285e2756,apply reverse engineering
+467,a7f0fbe0-c546-4f30-8e41-34a58c64567e,data storage
+468,a80fb090-63f4-4b05-83a5-2f090deb7757,manage data collection systems
+469,a846cb9e-c152-41e7-bd34-45e7ff941e3b,legal requirements of ICT products
+470,a8797f21-1af0-4c5e-98ca-bf1442929363,interact with users to gather requirements
+471,a8b3957f-08b4-4a76-927d-0b2e3d0dbd39,synthesise research publications
+472,a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996,PostgreSQL
+473,a8d24a95-47b3-4f88-92e7-06600bcd3612,manage personal professional development
+474,a9bf8565-8a09-4118-9922-932d65a79d69,manage localisation
+475,aa0d8201-5a8e-417f-81f4-c04601139582,digitization
+476,aa238394-8126-4ada-be2f-9dfe065cf314,adhere to organisational guidelines
+477,ab1e97ed-2319-4293-a8b7-072d2648822f,database management systems
+478,ab20726a-14dd-4536-9aa1-6166bc1a5832,evaluate cost of software products
+479,ab49f767-296b-47d5-af56-0b4a69515b03,maintain ICT identity management
+480,ab67fbfb-0ca7-4345-8bf6-af8f59480212,design database backup specifications
+481,ac516e9b-8bfa-4b72-8e3e-340b0a3a51d5,manage content development projects
+482,acf0a78c-f4e3-4bd9-a5cc-9cf4791b3b95,implement a virtual private network
+483,ad59afe4-6f8a-4bc4-acfd-0f228277508a,statistical analysis system software
+484,ae4f0cc6-e0b9-47f5-bdca-2fc2e6316dce,manage ICT virtualisation environments
+485,af313ba1-a39e-49ac-99ec-94630fbe4f7f,develop code exploits
+486,af607e5e-4ba1-4e5f-a2a6-dc05806567c7,coordinate technological activities
+487,af7ae54f-4649-4c16-87c7-59ba41d4d57f,SPARK
+488,afd63e8c-a4e7-42d3-86c9-3b2dd549a353,Parrot Security OS
+489,b0096dc5-2e2d-4bc1-8172-05bf486c3968,design application interfaces
+490,b04f377b-ee80-4b38-aca1-19d266a23b17,analyse business requirements
+491,b0a3bb25-a02f-43ed-ab1f-994fa66a424a,online analytical processing
+492,b105ec9b-0857-41d6-8d07-a83e58b73d90,ICT system programming
+493,b1604a2d-c26a-427d-bda9-b8073a319fe9,adjust ICT system capacity
+494,b16200f4-4f39-4b8b-aa9d-3568054d6bdb,Open source model
+495,b16bcbcb-1d3f-42b3-a6a5-b91348a72b70,WildFly
+496,b216d9a2-7d4e-4312-8d05-e375f4ab44d8,ensure cross-department cooperation
+497,b363bb5f-2c79-40af-94da-33e06f9dee9f,apply blended learning
+498,b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282,AJAX
+499,b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f,C++
+500,b63ba4e4-ebf4-4e17-b0d6-662244022a4f,provide guidelines for content development
+501,b769f524-0f25-44d7-8538-5c46710a040e,manage digital documents
+502,b8271c8a-cba6-4baa-80f5-6361af3f07e3,ensure adherence to organisational ICT standards
+503,b8eb2517-37d8-43e6-9856-9c29d5c51fde,Filemaker (database management systems)
+504,b91535d7-1265-455d-a565-901e2eafa883,lead technology development of an organisation
+505,b9bf9e17-ae47-417b-bbb1-e8b7c263ccac,identify legal requirements
+506,b9f16465-56a9-426b-a047-0f9f1f95ec92,address problems critically
+507,ba04b19b-0b18-4d5c-b799-4db31a98e58d,BlackBerry
+508,ba1b0441-a6b8-4e57-8ccc-871012f63e42,trading software
+509,ba2c6181-b036-40b4-8f6d-51499463ccbb,develop company strategies
+510,baf1fadb-975a-42be-9744-d8ba02304d09,Samurai Web Testing Framework
+511,bb165899-d95f-4433-95f2-173fefd716d2,develop statistical software
+512,bb2b4485-2bad-402f-8517-44bf7d9afff4,implement anti-virus software
+513,bb99af26-71ff-4dca-bde7-1eb1f6194426,SAP R3
+514,bc067d2e-e151-408f-8e34-24effd2b7fd6,use e-procurement
+515,bc0b0b5d-f6be-405a-b224-b6902a4dbe97,manage digital identity
+516,bd14968e-e409-45af-b362-3495ed7b10e0,cloud technologies
+517,bd698bbe-7003-4508-b422-46c2ff4d5e95,business strategy concepts
+518,be20d05c-f6b4-4580-9fcf-f00f4baab562,make data-driven decisions
+519,be48353d-25c7-4f86-bea9-7b9e248fbc6e,interpret technical requirements
+520,be727774-46d7-43d7-aee9-1a51b5cd8c71,carry out statistical forecasts
+521,be80acfc-b6f2-4411-9b8d-b19d9cd2556a,Swift (computer programming)
+522,bec4359e-cb92-468f-a997-8fb28e32fba9,ICT project management methodologies
+523,bf12b461-1c53-4d81-a395-8ba77f7483c4,investment analysis
+524,bf298db2-b90e-4739-85ca-9c3003103fab,manage software localisation
+525,bf5d77ad-e18c-48d8-83f0-bc79c011c74a,develop professional network
+526,c062bab3-3ea0-4291-9220-a2d8fef4bead,SQL Server
+527,c13fb093-5ffb-491a-b8b7-fa2d42a57e2e,implement cloud security and compliance
+528,c1df8590-4b5a-4598-84a1-431f639ba66c,analyse ICT technical proposals
+529,c2296e2e-5fef-4f24-a24f-e5b3792268be,provide ICT support
+530,c241f5a5-e23f-47bf-ad24-d83ea0010166,ensure proper document management
+531,c2cbbccf-4ffd-4626-86e7-505b39c872a0,implement spam protection
+532,c2d48b3a-1f91-4442-8f18-6c43a589737b,develop media strategy
+533,c3687b34-fe53-4db2-ad1b-5055a6c5b6fd,organise project meetings
+534,c3a03c5a-c260-4c26-9b9a-873abb396f4d,MATLAB
+535,c3c2420c-ce9a-4371-8eed-1db479c3a562,write scientific publications
+536,c3e36d05-8ae8-447f-bb2b-6f9409f85389,deliver visual presentation of data
+537,c453cf81-6197-428e-84c6-70c773b63f27,ICT architectural frameworks
+538,c4b626c1-e71c-44ec-9f88-042766f37fcc,application usability
+539,c544a9f3-5945-4b54-afed-de0697852817,report analysis results
+540,c55caed2-de9e-4a25-819e-a0b0e83fba1b,give live presentation
+541,c5e8abde-d2ba-4e8e-a65e-720b71180666,unstructured data
+542,c5ed451b-ef39-47a3-aee7-8f5be0aa8431,CA Datacom/DB
+543,c7451027-8249-405a-bb1b-342ff0f3fb3b,Salt (tools for software configuration management)
+544,c7cc6dc5-d56b-4323-8e5c-47c4022f615f,quality assurance methodologies
+545,c7d24594-0c11-4b27-9039-fe0bb903da8e,LINQ
+546,c9e96450-421d-48af-9ee6-d9c50e29afc2,ICT recovery techniques
+547,ca71c597-51c2-4ead-a7b0-b108bce89caf,cognitive computing
+548,ca73ac82-867a-4afa-9732-834aebe896ff,ICT system user requirements
+549,cb1b0777-0388-4b01-a0cf-7c6bbfbbd61d,review development process of an organisation
+550,cb5cccc9-abe4-4b11-abe6-d27e5cd85fb1,manage standards for data exchange
+551,cb668e89-6ef5-4ff3-ab4a-506010e7e70b,manage a team
+552,cbe2c304-1e7d-489a-97d9-a7d3e37a9db6,apply ICT systems theory
+553,cc61f9e5-d4fc-470e-8606-1ce865ff8386,develop professional network with researchers and scientists
+554,cc716f65-a0d0-4fba-95d9-64c358f697c0,monitor ICT research
+555,cc7370dd-69fa-4c67-a96f-d4d135d38700,data quality assessment
+556,cc9b4fbb-65f1-4c92-9229-1392d03b6e20,structure information
+557,ccb2e5f2-4279-48fd-9d85-a1db42ff1e13,project configuration management
+558,ccc28081-a273-45f8-98f6-0fd70e935263,monitor customer behaviour
+559,ccd0a1d9-afda-43d9-b901-96344886e14d,Python (computer programming)
+560,ccdbd9bb-4faf-403c-a968-e8bf487f8a53,business ICT systems
+561,cd50d616-1f8b-481e-983f-68d2674ff82d,integrate gender dimension in research
+562,cd5efa8c-e44d-4cbc-91c6-796018dbed68,perform project management
+563,cdd8b6b2-2fd9-453c-8d62-8a1dc6efcd49,systems theory
+564,ce26e71f-2d47-474e-89b6-7920931ac4fc,iOS
+565,ce354460-500e-4eaa-8e95-8f243fcea3db,manage system testing
+566,ce8ae6ca-61d8-4174-b457-641de96cbff4,automate cloud tasks
+567,cef5c0f8-1e40-4c09-b6a7-aa7811849e5d,ethics
+568,cf3e976d-2c3e-495c-a874-f9e8a66d3b48,perform backups
+569,cf532795-a1fd-43bd-8407-6e43f877e6e3,mobile device management
+570,d0c6d77e-cb25-4770-bf77-2073fc5f7523,ICT infrastructure
+571,d12e9d68-84c5-444e-aa98-d36533bf03f6,apply operations for an ITIL-based environment
+572,d31fab87-2a7d-485c-b699-2901ca294b15,use functional programming
+573,d3286405-49f8-4e8a-8046-a4376b4e7963,manage cloud data and storage
+574,d32db06e-bd06-4415-a7ab-1b0ee68caa9a,ICT encryption
+575,d38871eb-b988-495e-8fca-345677b597a8,state estimation
+576,d3e9b00a-0891-4fa8-836d-8240ec3d2758,GDPR
+577,d3eccb86-f02d-4950-bfbd-20b9510774a1,apply organisational techniques
+578,d4cc5022-7801-4885-bcff-166552788d35,provide improvement strategies
+579,d5145a9a-602e-40bf-b3e1-f04cf9c3ef86,leadership principles
+580,d53b04fb-1bbb-4a25-92f8-8ceb308d276f,define organisational standards
+581,d54a1355-05c8-45eb-9c42-267d2cfcdf44,provide technical training
+582,d56fc2b5-4b0a-4e7e-9bde-a33736f6ff18,Scratch (computer programming)
+583,d5a59ca8-2e91-472e-8571-d12ce4478679,Process-based management
+584,d6cdef49-b669-4507-91d1-3f959cf98e47,maintain database performance
+585,d74df140-eb69-43e2-bac9-1cafc824d702,execute feasibility study
+586,d78dedfc-21d2-45fd-ba05-e56b7a8865e6,network standards
+587,d83cba15-8511-4d07-b89a-9fde0d1d8241,perform quality audits
+588,d8829a1d-dbde-435b-b921-29d6462f35c9,Android (mobile operating systems)
+589,d9e5349e-8791-49c2-8ba4-839fdd1606c2,define technical requirements
+590,d9eaf831-9348-4330-a83e-b7c099cdc8f6,Teradata Database
+591,da6393d5-a53c-4863-abc7-51f36281d74e,lean project management
+592,da930e2f-6047-4616-a598-bba8ecef3039,manage open publications
+593,dad7e408-162f-46a4-8567-db560e19e2fc,identify ICT system weaknesses
+594,db36f7f1-5900-45bd-9ffb-f2b19c4362ac,support ICT system users
+595,dba46f87-0831-49cd-a1c7-340a653c0221,Agile development
+596,dc72ad0a-c5dc-4abd-bc0d-ca43e82162e1,build business relationships
+597,dcdd5ddf-82a6-4ac3-8edc-d4b23cae9a88,VBScript
+598,ddb65832-91a7-4157-9488-719a0e2ad87b,lead disaster recovery exercises
+599,ddfe79e2-c2e3-4ba7-9bdf-3820b4f75b54,identify ICT user needs
+600,de586dcf-d7e5-4340-bf5b-d59026f1b436,penetration testing tool
+601,de9f85ba-e77f-48fd-8c66-f5ebaf32d655,Oracle Relational Database
+602,def007fa-5fed-4a5f-91a2-b0d7e3db1be1,COBOL
+603,df0612db-366c-4ff5-b106-40b9e385195c,utilise decision support system
+604,df329d70-87b0-466b-a214-3431f36e2a5e,protect ICT devices
+605,dfff95c6-9758-4c04-a228-7eaa88dec6cd,design for organisational complexity
+606,e043aeeb-78f5-4049-afbf-12bba52225bc,hardware architectures
+607,e1b9df19-98c3-45d3-9f85-371eb385cf88,deal with changing operational demand
+608,e207163b-7963-4c3e-9494-7a4bb000211b,estimate duration of work
+609,e2103a1d-4a84-47a9-b4f7-774787573449,copyright legislation
+610,e2fb1ee4-fbf9-4690-b677-3e6ff7cfdc48,test ICT queries
+611,e46291c7-52b9-4174-bd59-178884861038,Hadoop
+612,e464363b-8346-421d-9035-52118b76d8c8,computational biology
+613,e465a154-93f7-4973-9ce1-31659fe16dd2,principles of artificial intelligence
+614,e54ff029-1ce9-447d-a5b2-eb7283a23e6e,train employees
+615,e5609f89-0daf-40bb-bd6b-94f5d7498131,ICT market
+616,e5a6e1e0-1b07-4432-83ba-77d593b2cb47,SAS Data Management
+617,e5b5053e-0ef6-4c4e-a3f2-42f955f4322c,implement a firewall
+618,e5beeff8-7c98-490a-ae2c-16fbb6a87305,manage keys for data protection
+619,e6b8f934-7f35-4dc6-9a64-f6c43acdc00b,software components suppliers
+620,e71c6cee-7247-49f4-829a-141c880ae938,advice on security risk management
+621,e74f4f21-8d45-412c-b5c3-652e6167ee32,content development processes
+622,e79a3803-dd53-46b0-906b-13e6d46ef687,quantum computing
+623,e79dab00-fe87-48f2-b8cc-f48b68bc7f35,WhiteHat Sentinel
+624,e819cc1e-09d9-47f2-b418-93972852daef,MarkLogic
+625,e8b89eb6-51e8-4c3a-babb-88b2e110376b,Pascal (computer programming)
+626,e8f80ec5-c423-4eb2-9f0f-805d22f844ae,incidents and accidents recording
+627,e9575f7f-053a-439e-8074-f93df3334e92,data ethics
+628,ea1bf5e5-e7f0-4d2c-a415-1c39c00512b1,document management
+629,ea412de3-9d7a-4943-8d8c-c6d3c7495d0e,execute integration testing
+630,ead58f22-0af5-467c-ac1e-b750e4e1ac6a,develop business plans
+631,eb0e5615-1575-4a86-a1a2-7d39595033c5,ABAP
+632,eb3aa8c1-fb14-47b4-a352-b7975abd2480,replicate customer software issues
+633,ec85cc63-4e24-4631-bf92-8789db2605c0,maintain database security
+634,ecc4552a-92c5-4222-b18d-faf5ac841080,deep learning
+635,ed0718f6-5823-4c74-9749-2936c9c06203,develop audit plan
+636,ed1d8bd4-cd2a-4c64-b665-56d70651026c,Prototyping development
+637,ed1fbdc3-1071-423c-9bb4-e3288ca6d1fe,hardware components suppliers
+638,ed39edd3-44d0-4a16-9796-bfb99f92baf3,ICT performance analysis methods
+639,ed3f3dba-3a35-4ed5-b113-67f4d10ef4c8,scientific research methodology
+640,ed8de897-adbe-4f0e-b4d2-534953e64c72,integrate system components
+641,edebd83d-35f6-4ed5-a940-6c203d178c01,data science
+642,ee3b1553-2dc5-434b-8dcf-4ae3a40b3a48,verify formal ICT specifications
+643,ee3c1d54-f46a-43c7-a0f9-0ba3648164d0,design enterprise architecture
+644,ee7f90cc-922e-4da7-a7ae-83c2688fed10,align efforts towards business development
+645,eff1bb34-b454-4482-8c29-65f820619f3c,insourcing strategy
+646,f0010b93-5552-45cb-ad26-168c8168f319,Nexpose
+647,f0393af3-bcd9-41af-a36e-0cfb83b60081,manage standard enterprise resource planning system
+648,f049d050-12da-4e40-813a-2b5eb6df6b51,Internet of Things
+649,f0de4973-0a70-4644-8fd4-3a97080476f4,DevOps
+650,f0ff6f10-cbb4-44c0-acd5-ed17046b1396,install signal repeaters
+651,f14ff4b7-be1e-4b55-b39b-520005f8a97e,liaise with managers
+652,f17f94f1-88cb-4815-873a-2a9639f10729,draft project documentation
+653,f263da7f-0708-42c2-b1a9-39083416f632,communicate analytical insights
+654,f28617ad-afdd-4041-814c-216153a38998,analyse software specifications
+655,f2c63b7a-ed6c-4890-9f8c-7685d172624c,implement corporate governance
+656,f2d57f41-43b4-4f5b-8100-3df5c21eda50,process data
+657,f47a1998-0beb-43be-9f46-380aa4d183da,Jenkins (tools for software configuration management)
+658,f4a85869-1855-45d5-a43c-7ee8cd451996,perform ICT security testing
+659,f5308e60-d763-4ead-be95-88c96fb3e02b,adapt to changes in technological development plans
+660,f597f772-24d3-4cec-813c-cf5a7027c794,N1QL
+661,f5ac9226-0ace-4d34-a1c3-7b3845834a98,maintain ICT server
+662,f5dd06b8-5d17-4932-9d03-957d0c4f5051,perform resource planning
+663,f5f5b244-6cea-4fbc-8a50-8f712791bc09,follow company standards
+664,f6424ebb-8401-446b-9f7e-10d7c854da02,ICT network simulation
+665,f6ac6241-adb2-4ce2-b35f-09832cbb11ea,empirical analysis
+666,f715be1d-5fc4-49d3-82a5-0b8090d12849,synthesise information
+667,f7b071bf-4882-4cfc-ae0a-7e0e0ab94c61,conduct research across disciplines
+668,f7b5d916-52f0-4865-b6a6-e1a3b711cb5e,implement strategic planning
+669,f7e2eb04-3e50-4561-bce1-7e51a1fec308,define software architecture
+670,f84a433f-34f1-4083-b0a3-24802623509c,web services
+671,f88002a8-6355-4d33-9496-285c166ff375,ICT power consumption
+672,f8e3425c-fe44-4ffb-bafe-0e20d91dadf4,SAP Data Services
+673,f9670490-8aa4-4540-b121-d440a8294aab,develop data processing applications
+674,f975091a-e5a5-4472-ac17-11680e53e98f,seek innovation in current practices
+675,f9a6f35b-01a7-40c9-8b61-b6ee46f97272,operating systems
+676,fa465db3-56e8-4b5d-a781-e2a313a4ed2d,conduct qualitative research
+677,fa642fc3-5cc5-41cf-8926-6617a8b976a7,promote the participation of citizens in scientific and research activities
+678,fae27053-8924-4bfd-b565-c9fe502044c9,system design
+679,faf208ae-d4a4-43b4-bb82-846b7348b740,manage information sources
+680,fafe0b9d-dbd9-46bd-b770-26299539ce66,ICT process quality models
+681,fb221711-05c3-4196-ba72-813ed5bd040e,lead the brand strategic planning process
+682,fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8,software metrics
+683,fbafa41f-cd05-4109-a649-8b44d306d779,create data models
+684,fbbcb9ab-4b95-4e57-a756-30d08b7da7a5,maintain ICT system
+685,fc2f1d4f-a46f-471e-a618-cbd4d0496a53,implement ICT recovery system
+686,fc94266b-322d-4f1d-87a0-03f999e72344,blockchain mining principles
+687,fcbb3a90-cdde-49ff-9ecc-8e2c0a6dfca2,collect cyber defence data
+688,fd33c66c-70c4-40e6-b87c-5495bd3bf26e,design user interface
+689,fd6d2981-3d4a-4ce2-9741-cfc98c5b74bd,implement data warehousing techniques
+690,fda917eb-0d6a-4371-8c93-2a10bf950966,manage ICT semantic integration
+691,fde186df-c9c4-49f5-b2a5-d66adc7c43a5,negotiate buying conditions
+692,fdf15b35-9028-4acb-bfd2-43f00a015cd9,use personal organization software
+693,fe1c2b32-7fe9-4668-affa-07ff658a68cf,identify ICT security risks
+694,fe1ec582-d63b-466c-9149-e7fc4fe93e22,supplier management
+695,fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5,data models
+696,ff25cbf0-6978-4c4c-887e-d4b185410d74,perform software recovery testing
+697,ff64e9fc-36dd-4035-872a-83aa41dc1ad9,communicate with a non-scientific audience
+698,ffddfc7c-a9dd-449f-9e96-882dc447c8b6,Scala
