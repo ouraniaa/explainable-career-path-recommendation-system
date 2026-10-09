@@ -20,7 +20,7 @@ print("BOTH COVERAGE PER OCCUPATION")
 print("=" * 100)
 
 print(
-    summary.sort_values("BothSkills",ascending=True).to_string(index=False,formatters={"BothAsPercentOfEsco": lambda x: f"{x:.2f}%"})
+    summary.sort_values("BothSkills").to_string(index=False,formatters={"BothAsPercentOfEsco": lambda x: f"{x:.2f}%"})
 )
 
 print("\n")

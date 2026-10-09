@@ -3,7 +3,8 @@ from collections import defaultdict
 
 INPUT_FILE = "skillab_jobs_isco25_deduplicated.json"
 
-with open(INPUT_FILE, "r", encoding="utf-8") as f:jobs = json.load(f)
+with open(INPUT_FILE, "r", encoding="utf-8") as f:
+    jobs = json.load(f)
 
 occupation_support = defaultdict(set)
 
