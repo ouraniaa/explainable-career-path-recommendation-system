@@ -21,7 +21,7 @@ for title_to_test in titles_to_test:
     )
 
     if job is None:
-        print(f"\nΔεν βρέθηκε: {title_to_test}")
+        print(f"\nJob not found: {title_to_test}")
         continue
 
     print("\n" + "=" * 80)
@@ -37,7 +37,6 @@ for title_to_test in titles_to_test:
         print(f"\n--- THRESHOLD {threshold} ---")
 
         extractor = SkillExtractor(occupation_threshold=threshold)
-
         result = extractor.get_occupations([description])
 
         print(result)

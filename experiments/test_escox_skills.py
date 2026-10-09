@@ -7,7 +7,6 @@ JSON_FILE = "skillab_jobs_isco25.json"
 
 THRESHOLDS = [0.55, 0.60, 0.65, 0.70]
 
-# Load the specific job
 with open(JSON_FILE, "r", encoding="utf-8") as f:
     jobs = json.load(f)
 
@@ -31,10 +30,8 @@ for skill in job.get("skills", []):
     print("-", skill)
 
 
-# Test different thresholds
 for threshold in THRESHOLDS:
-    print("\n")
-    print("=" * 80)
+    print("\n" + "=" * 80)
     print(f"SKILL THRESHOLD = {threshold}")
     print("=" * 80)
 
@@ -42,7 +39,6 @@ for threshold in THRESHOLDS:
 
     result = extractor.get_skills([description])
 
-    #get_skills receives a list of texts, therefore result[0] corresponds to our job.
     extracted_skills = result[0]
 
     print(

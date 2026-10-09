@@ -378,16 +378,9 @@ def generate_random_pairs(skills, excluded_pairs, n=20):
 
 
 def main():
-
     random.seed(RANDOM_SEED)
 
     occupation_ids = (load_analytical_occupation_ids())
-
-    print("=" * 80)
-    print("SEMANTIC VALIDATION PAIR GENERATION")
-    print("=" * 80)
-
-    print("Analytical occupations loaded:", len(occupation_ids))
 
     driver = GraphDatabase.driver(URI, auth=(USER, PASSWORD))
 
@@ -404,10 +397,6 @@ def main():
         )
 
     driver.close()
-
-    print("Canonical skills loaded:", len(skills))
-
-    print("Diverse same-occupation pairs:", len(same_occupation_pairs))
 
     used_pairs = {
         make_pair_key(
@@ -426,28 +415,12 @@ def main():
         )
     )
 
-    print("Positive candidate pairs:", len(positive_candidates))
-
     random_pairs = generate_random_pairs(skills, used_pairs, n=20)
-
-    print("Random candidate pairs:", len(random_pairs))
 
     all_pairs = (same_occupation_pairs + positive_candidates + random_pairs)
 
     df = pd.DataFrame(all_pairs)
-
     df.to_csv(OUTPUT_FILE, index=False)
-
-    print("\nCandidate pairs saved to:")
-    print(OUTPUT_FILE)
-
-    print("\nTotal candidate pairs:", len(df))
-    print("\nCandidate type distribution:")
-    print(
-        df["candidate_type"]
-        .value_counts()
-        .to_string()
-    )
 
 if __name__ == "__main__":
     main()

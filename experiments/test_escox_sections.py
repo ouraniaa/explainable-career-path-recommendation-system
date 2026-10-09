@@ -5,7 +5,6 @@ JOB_ID = 5319595
 JSON_FILE = "skillab_jobs_isco25.json"
 THRESHOLD = 0.60
 
-#Load job
 with open(JSON_FILE, "r", encoding="utf-8") as f:
     jobs = json.load(f)
 
@@ -22,8 +21,6 @@ print("=" * 80)
 print("ID:", JOB_ID)
 print("Title:", job.get("title"))
 
-
-#Try to isolate the job-specific section
 marker = "The position"
 
 if marker in description:
@@ -38,15 +35,11 @@ print("Position-only length:", len(position_only))
 
 extractor = SkillExtractor(skills_threshold=THRESHOLD)
 
-print("\n")
-print("=" * 80)
+print("\n" + "=" * 80)
 print("FULL DESCRIPTION")
 print("=" * 80)
 
-full_result = extractor.get_skills([
-    description
-])
-
+full_result = extractor.get_skills([description])
 full_skills = full_result[0]
 
 print(f"Extracted skills: {len(full_skills)}")
@@ -54,17 +47,11 @@ print(f"Extracted skills: {len(full_skills)}")
 for skill in full_skills:
     print("-", skill)
 
-
-# Position-only description
-print("\n")
-print("=" * 80)
+print("\n" + "=" * 80)
 print("POSITION-ONLY DESCRIPTION")
 print("=" * 80)
 
-position_result = extractor.get_skills([
-    position_only
-])
-
+position_result = extractor.get_skills([position_only])
 position_skills = position_result[0]
 
 print(f"Extracted skills: {len(position_skills)}")
@@ -80,8 +67,7 @@ removed = full_set - position_set
 remaining = full_set & position_set
 new_skills = position_set - full_set
 
-print("\n")
-print("=" * 80)
+print("\n" + "=" * 80)
 print("COMPARISON")
 print("=" * 80)
 
