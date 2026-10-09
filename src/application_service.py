@@ -4,13 +4,10 @@ from src.personalized_skill_recommendation import (generate_personalized_skill_r
 from src.personalized_career_skill_roadmap import (generate_personalized_career_skill_roadmap)
 from src.explainability.job_match_explanation import (generate_job_match_explanation)
 from src.explainability.skill_gap_explanation import (generate_skill_gap_explanation)
-from src.explainability.career_path_explanation import (generate_career_skill_roadmap_explanation)
 from src.explainability.overall_explanation import (generate_overall_explanation)
 from src.career_transition_recommendation import (generate_career_transition_recommendations, generate_career_discovery_recommendations)
-from src.explainability.career_path_explanation import (generate_career_transition_explanation, generate_career_discovery_explanation)
-
-import time
-
+from src.explainability.career_path_explanation import (generate_career_skill_roadmap_explanation, generate_career_transition_explanation, generate_career_discovery_explanation,
+    generate_career_path_comparison_explanation)
 """
 Application service for the main career analysis workflows.
 
@@ -19,7 +16,6 @@ roadmap, and explainability modules. It does not calculate new scores itself. In
 it coordinates the existing components and combines their outputs into the structured
 responses used by the frontend.
 """
-
 def analyze_target_occupation(
     session,
     occupation_id,
@@ -37,7 +33,6 @@ def analyze_target_occupation(
     orchestration only; the actual scoring and recommendation logic remains inside the
     specialized modules.
     """
-
     if not occupation_id:
         raise ValueError("occupation_id is required.")
 
@@ -63,7 +58,6 @@ def analyze_target_occupation(
         user_skill_ids=user_skill_ids
     )
 
-
     #Ranks the missing or partially covered skills by their estimated ESCO improvement.
     learning_priority = (
         calculate_learning_priority(
@@ -85,7 +79,6 @@ def analyze_target_occupation(
         )
     )
 
-
     #Builds a step-by-step learning roadmap, recalculating the profile after each step.
     roadmap = (
         generate_personalized_career_skill_roadmap(
@@ -98,10 +91,7 @@ def analyze_target_occupation(
 
 
     #Converts the analytical results into deterministic, user-facing explanations.
-    job_match_explanation = (
-        generate_job_match_explanation(occupation_name=occupation_name, recommendation_result=recommendation)
-    )
-
+    job_match_explanation = (generate_job_match_explanation(occupation_name=occupation_name, recommendation_result=recommendation))
 
     #The highest-priority skill receives its own explanation when available.
     ranked_skills = (learning_priority.get("ranked_skills", []))
@@ -157,7 +147,6 @@ def analyze_career_paths(
     career discovery from the user's profile. The function only coordinates existing
     recommendation and explainability logic.
     """
-
     if not user_skill_ids:
         raise ValueError("user_skill_ids must contain at least one skill.")
 
@@ -173,8 +162,6 @@ def analyze_career_paths(
 
     #A known current occupation activates the career-transition workflow.
     if current_occupation_id is not None:
-        start = time.perf_counter()
-
         career_result = (
             generate_career_transition_recommendations(
                 session=session,
@@ -186,31 +173,20 @@ def analyze_career_paths(
             )
         )
 
-        transition_duration = (time.perf_counter() - start)
-
-        print(
-            f"[TIMING] Career Transition core: "
-            f"{transition_duration:.2f} seconds"
-        )
-
-        start = time.perf_counter()
-
         career_explanation = (generate_career_transition_explanation(career_result))
+        recommendations = career_result.get("recommendations", [])
 
-        explanation_duration = (time.perf_counter() - start)
-
-        print(
-            f"[TIMING] Career Transition explanation: "
-            f"{explanation_duration:.2f} seconds"
-        )
-
+        if len(recommendations) >= 2:
+            comparison_explanation = generate_career_path_comparison_explanation(
+                preferred_candidate=recommendations[0],
+                alternative_candidate=recommendations[1]
+            )
+        else:
+            comparison_explanation = None
         mode = "career_transition"
-
 
     else:
         #Without a current occupation, recommendations are generated directly from the profile.
-        start = time.perf_counter()
-
         career_result = (
             generate_career_discovery_recommendations(
                 session=session,
@@ -219,26 +195,18 @@ def analyze_career_paths(
             )
         )
 
-        discovery_duration = (time.perf_counter() - start)
-
-        print(
-            f"[TIMING] Career Discovery core: "
-            f"{discovery_duration:.2f} seconds"
-        )
-
-        start = time.perf_counter()
-
         career_explanation = (generate_career_discovery_explanation(career_result))
+        recommendations = career_result.get("recommendations", [])
 
-        explanation_duration = (time.perf_counter() - start)
-
-        print(
-            f"[TIMING] Career Discovery explanation: "
-            f"{explanation_duration:.2f} seconds"
-        )
+        if len(recommendations) >= 2:
+            comparison_explanation = generate_career_path_comparison_explanation(
+                preferred_candidate=recommendations[0],
+                alternative_candidate=recommendations[1]
+            )
+        else:
+            comparison_explanation = None
 
         mode = "career_discovery"
-
 
     return {
         "analysis_type": "career_paths",
@@ -246,5 +214,6 @@ def analyze_career_paths(
         "current_occupation_id": current_occupation_id,
         "user_skill_count": len(user_skill_ids),
         "career_result": career_result,
-        "explanation": career_explanation
+        "explanation": career_explanation,
+        "comparison_explanation": comparison_explanation
     }

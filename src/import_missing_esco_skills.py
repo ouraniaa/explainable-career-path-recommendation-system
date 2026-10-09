@@ -63,20 +63,11 @@ def import_missing_skills():
     driver = GraphDatabase.driver(URI, auth=(USER, PASSWORD))
 
     with driver.session() as session:
-
         existing_ids = get_existing_skill_ids(session)
 
         missing_skills = esco_skills[~esco_skills["skill_id"].isin(existing_ids)].copy()
 
-        print("=" * 80)
-        print("ESCO SKILL IMPORT")
-        print("=" * 80)
-        print("Unique ESCO skills required by analytical profiles:", len(esco_skills))
-        print("Already existing in Neo4j:", len(esco_skills) - len(missing_skills))
-        print("Missing Skill nodes to import:", len(missing_skills))
-
         if missing_skills.empty:
-            print("\nNo missing ESCO skills found.")
             driver.close()
             return
 
@@ -94,16 +85,6 @@ def import_missing_skills():
                 END
         """, rows=records)
 
-        print("\nMissing ESCO Skill nodes imported successfully.")
-
-        result = session.run("""
-            MATCH (s:Skill)
-            RETURN count(DISTINCT s.esco_id) AS skill_count
-        """)
-
-        total = result.single()["skill_count"]
-
-        print("Total Skill nodes after import:", total)
 
     driver.close()
 

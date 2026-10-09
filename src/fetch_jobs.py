@@ -25,12 +25,20 @@ ISCO_CODE_IT = "http://data.europa.eu/esco/isco/C25"
 
 def get_token() -> str:
     """Authenticate with the Skillab API and return the access token."""
-    print("Trying to login...")
     try:
-        res = req.post(f"{API}/login", json={"username": USERNAME, "password": PASSWORD})
+        res = req.post(
+            f"{API}/login", 
+            json={
+                "username": USERNAME, 
+                "password": PASSWORD
+            }
+        )
         res.raise_for_status() 
+        
         print("Login Successful!")
+
         return res.text.replace('"', '')
+    
     except Exception as e:
         print(f"Login Failed: {e}")
         exit()
@@ -49,13 +57,10 @@ def fetch_jobs_by_occupation(occupation_code):
         "occupation_ids": [occupation_code] 
     }
 
-    print(f"Fetching jobs for Occupation Code: {occupation_code}...")
-
     response = req.post(f"{API}/jobs", headers=headers, params=params, data=request_body)
     data = response.json()
     
     total_count = data.get("count", 0)
-    print(f"Found {total_count} jobs via API.")
     
     if total_count == 0:
         return []
@@ -67,15 +72,21 @@ def fetch_jobs_by_occupation(occupation_code):
     pages_to_download = min(number_of_pages, MAX_PAGES)
 
     for i in range(1, pages_to_download + 1):
-        print(f"Downloading page {i}/{pages_to_download} (Total available: {number_of_pages})...")
         params["page"] = i
         
         try:
-            res = req.post(f"{API}/jobs", headers=headers, params=params, data=request_body)
+            res = req.post(
+                f"{API}/jobs",
+                headers=headers,
+                params=params,
+                data=request_body
+            )
             page_data = res.json()
             items = page_data.get("items", [])
             all_jobs.extend(items)
+
             time.sleep(0.5)
+            
         except Exception as e:
             print(f"Error on page {i}: {e}")
 
@@ -88,4 +99,3 @@ if __name__ == "__main__":
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(jobs, f, indent=4, ensure_ascii=False)
         
-    print(f"Done! Saved {len(jobs)} jobs to {filename}")

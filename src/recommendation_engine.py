@@ -15,7 +15,10 @@ the scoring logic.
 from src.match_esco import calculate_match_esco
 from src.match_market import calculate_match_market
 from src.skill_gap_analysis import calculate_skill_gaps
-from src.match_improvement import (calculate_match_improvement,calculate_market_improvement)
+from src.match_improvement import (
+    calculate_match_improvement,
+    calculate_market_improvement
+)
 
 def recommend_occupation(session, occupation_id, user_skill_ids):
     """
@@ -42,7 +45,7 @@ def recommend_occupation(session, occupation_id, user_skill_ids):
         "exact_match_count": esco_result["exact_match_count"],
         "semantic_match_count": esco_result["semantic_match_count"],
 
-        "match_market":market_result["match_market"],
+        "match_market": market_result["match_market"],
         "both_skill_count": market_result["both_skill_count"],
         "market_reason": market_result.get("reason"),
 

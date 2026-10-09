@@ -1,15 +1,13 @@
 """
 Imports ESCO occupations into the Neo4j knowledge graph.
 
-This file exists to make sure the occupation nodes required by the analytical
-scope are present in Neo4j before recommendation and graph-based modules use them.
-It reads the processed occupation data, creates one node per ESCO occupation, and
-stores the identifiers and labels needed by the rest of the system.
+The script extracts ESCO occupation identifiers from the job-posting dataset, creates
+the corresponding Occupation nodes and BELONGS_TO relationships, and then enriches
+those nodes with occupation names and ISCO groups from the official ESCO occupations file.
 
 Keeping this import step separate also makes it easier to rebuild or refresh the
 occupation part of the graph without changing the recommendation logic.
 """
-
 import csv
 import json
 import os
@@ -62,8 +60,6 @@ def enrich_occupation_names(tx, batch):
 
 
 def import_occupations():
-    print("Reading Skillab JSON...")
-
     with open(JSON_FILE, "r", encoding="utf-8") as f:
         jobs = json.load(f)
 
@@ -85,8 +81,6 @@ def import_occupations():
                     "occupation_id": occupation_id
                 })
 
-    print(f"{len(rows)} JobPosting-Occupation mappings were found .")
-
     batch_size = 1000
 
     with GraphDatabase.driver(URI, auth=AUTH) as driver:
@@ -99,12 +93,8 @@ def import_occupations():
                     batch
                 )
 
-    print("The creation of Occupation nodes and BELONGS_TO relationships has been completed.")
-
 
 def enrich_occupations():
-    print("Reading ESCO occupations CSV...")
-
     occupations_mapping = []
 
     with open(OCCUPATIONS_FILE, mode="r", encoding="utf-8") as f:
@@ -129,11 +119,6 @@ def enrich_occupations():
                 "isco_group": isco_group
             })
 
-    print(
-        f"{len(occupations_mapping)} occupations were found"
-        f"in ESCO occupations CSV."
-    )
-
     batch_size = 1000
 
     with GraphDatabase.driver(URI, auth=AUTH) as driver:
@@ -145,8 +130,6 @@ def enrich_occupations():
                     enrich_occupation_names,
                     batch
                 )
-
-    print("The enrichment of Occupation nodes was completed successfully.")
 
 
 if __name__ == "__main__":

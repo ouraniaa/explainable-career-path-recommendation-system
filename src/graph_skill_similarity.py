@@ -23,7 +23,6 @@ def get_skill_occupation_neighbors(session, skill_id):
         s.name AS skill_name,
         collect(DISTINCT o.esco_id) AS occupation_ids
     """
-
     record = session.run(query, skill_id=skill_id).single()
 
     if record is None:

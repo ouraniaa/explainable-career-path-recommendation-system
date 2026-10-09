@@ -6,7 +6,6 @@ This file's role is only to aggregate existing Job Match, Skill Gap, Career
 Path, and Graph explanations into one coherent summary.
 """
 
-
 def generate_overall_explanation(job_match_explanation=None, skill_gap_explanation=None, career_path_explanation=None, graph_explanation=None):
     """
     Combines already generated explanation outputs into a single deterministic overall explanation.
@@ -133,7 +132,7 @@ def generate_overall_explanation(job_match_explanation=None, skill_gap_explanati
         explanation_type = (career_path_explanation.get("explanation_type"))
 
         if explanation_type == "career_transition":
-            recommendations = (career_path_explanation.get("recommendations",[]))
+            recommendations = career_path_explanation.get("recommendations",[])
             if recommendations:
                 top_candidate = recommendations[0]
 

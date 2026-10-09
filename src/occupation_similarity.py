@@ -30,7 +30,6 @@ def get_occupation_skill_neighbors(session, occupation_id):
         o.isco_group AS isco_group,
         collect(DISTINCT s.esco_id) AS skill_ids
     """
-
     record = session.run(query, occupation_id=occupation_id).single()
 
     if record is None:

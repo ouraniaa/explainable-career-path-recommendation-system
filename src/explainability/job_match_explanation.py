@@ -31,7 +31,10 @@ def generate_job_match_explanation(occupation_name, recommendation_result):
     missing_fields = (required_fields - set(recommendation_result.keys()))
 
     if missing_fields:
-        raise ValueError("recommendation_result is missing " f"required fields: {sorted(missing_fields)}")
+        raise ValueError(
+            "recommendation_result is missing "
+            f"required fields: {sorted(missing_fields)}"
+        )
 
     match_esco = recommendation_result["match_esco"]
     canonical_skill_count = recommendation_result["canonical_skill_count"]
@@ -142,9 +145,9 @@ def generate_job_match_explanation(occupation_name, recommendation_result):
         "market_available": market_available,
         "match_market": match_market,
         "match_market_percent": match_market_percent,
-        "both_skill_count":both_skill_count,
+        "both_skill_count": both_skill_count,
         "market_reason": market_reason,
-        "esco_explanation":esco_explanation,
+        "esco_explanation": esco_explanation,
         "market_explanation": market_explanation,
         "explanation_text": explanation_text
     }

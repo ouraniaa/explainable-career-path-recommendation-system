@@ -54,6 +54,11 @@ type CareerDiscoveryResult = {
   recommendations: CareerRecommendation[];
 };
 
+type CareerPathComparisonExplanation = {
+  explanation_type: "career_path_comparison";
+  explanation_text: string;
+};
+
 type CareerDiscoveryResponse = {
   analysis_type: "career_paths";
   mode: "career_discovery";
@@ -65,6 +70,7 @@ type CareerDiscoveryResponse = {
   career_result: CareerDiscoveryResult;
 
   explanation?: unknown;
+  comparison_explanation?: CareerPathComparisonExplanation | null;
 };
 
 type Props = {
@@ -141,6 +147,7 @@ export default function CareerDiscoveryResults({
   data
 }: Props) {
   const result = data.career_result;
+  const comparisonExplanation = data.comparison_explanation;
 
   return (
     <section
@@ -1256,6 +1263,44 @@ export default function CareerDiscoveryResults({
           }
         )}
       </div>
+        {comparisonExplanation && (
+          <ResultCard>
+            <div
+              style={{
+                fontSize: "13px",
+                color: "#6B7280",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.06em",
+                marginBottom: "8px"
+              }}
+            >
+              Why this path?
+            </div>
+
+            <h3
+              style={{
+                margin: 0,
+                fontSize: "24px",
+                color: "#111827"
+              }}
+            >
+              Why the first recommendation appears above the next alternative
+            </h3>
+
+            <p
+              style={{
+                marginTop: "10px",
+                marginBottom: 0,
+                color: "#4B5563",
+                lineHeight: 1.65,
+                fontSize: "14px"
+              }}
+            >
+              {comparisonExplanation.explanation_text}
+            </p>
+          </ResultCard>
+        )}
 
       {/* METHODOLOGY */}
 

@@ -33,43 +33,20 @@ with open(JSON_FILE, "r", encoding="utf-8") as f:
 
 job_ids = [job["id"] for job in jobs]
 
-print(f"Deduplicated job ids loaded: {len(job_ids)}")
-
-driver = GraphDatabase.driver(
-    URI,
-    auth=(USERNAME, PASSWORD)
-)
+driver = GraphDatabase.driver(URI, auth=(USERNAME, PASSWORD))
 
 with driver.session() as session:
-
-    result = session.run("""
+    session.run("""
         MATCH (j:JobPosting)
         SET j.is_deduplicated = false
-        RETURN count(j) AS UpdatedJobs
     """)
 
-    print(
-        "Jobs marked false:",
-        result.single()["UpdatedJobs"]
-    )
-
-
-with driver.session() as session:
-    result = session.run("""
+    session.run("""
         UNWIND $job_ids AS job_id
 
         MATCH (j:JobPosting {job_id: job_id})
 
         SET j.is_deduplicated = true
-
-        RETURN count(j) AS UpdatedJobs
     """, job_ids=job_ids)
 
-    print(
-        "Jobs marked true:",
-        result.single()["UpdatedJobs"]
-    )
-
 driver.close()
-
-print("Done.")

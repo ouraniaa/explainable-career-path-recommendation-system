@@ -65,15 +65,8 @@ def load_canonical_skills(session, occupation_ids):
     return skills
 
 def build_embeddings(skills):
-    print("\nLoading embedding model:")
-    print(MODEL_NAME)
-
     model = SentenceTransformer(MODEL_NAME)
-
     skill_names = [skill["skill_name"] for skill in skills]
-
-    print("\nGenerating embeddings for", len(skill_names), "skills...")
-
     embeddings = model.encode(skill_names, normalize_embeddings=True, show_progress_bar=True)
 
     return embeddings
@@ -96,33 +89,16 @@ def save_embeddings(skills, embeddings):
     index_df = pd.DataFrame(index_rows)
     index_df.to_csv(INDEX_FILE, index=False)
 
-    print("\nFiles saved successfully.")
-    print("\nEmbeddings file:")
-    print(EMBEDDINGS_FILE)
-    print("\nIndex file:")
-    print(INDEX_FILE)
-    print("\nEmbedding matrix shape:", embeddings.shape)
 
 def main():
-    print("=" * 80)
-    print("BUILD CANONICAL SKILL EMBEDDINGS")
-    print("=" * 80)
-
     occupation_ids = (load_analytical_occupation_ids())
-
-    print("Analytical occupations loaded:", len(occupation_ids))
 
     driver = GraphDatabase.driver(URI, auth=(USER, PASSWORD))
 
     with driver.session() as session:
-        skills = load_canonical_skills(
-            session,
-            occupation_ids
-        )
+        skills = load_canonical_skills(session, occupation_ids)
 
     driver.close()
-
-    print("Canonical skills loaded:", len(skills))
 
     if not skills:
         print("\nNo canonical skills found.")

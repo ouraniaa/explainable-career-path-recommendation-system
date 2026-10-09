@@ -7,7 +7,6 @@ relationships between Occupation and Skill nodes in the knowledge graph.
 The importer is kept separate from the analytical code so the graph can be rebuilt
 or refreshed without changing the recommendation logic itself.
 """
-
 import pandas as pd
 import os
 
@@ -69,12 +68,6 @@ df = df[
     & (df["skill_id"] != "")
 ]
 
-
-print("=" * 90)
-print("ESCO RELATION IMPORT")
-print("=" * 90)
-print(f"Official rows loaded: {len(df)}")
-
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
 
 query = """
@@ -94,40 +87,16 @@ SET
     r.relation_type = row.relation_type,
     r.skill_type = row.skill_type
 """
-
 total_processed = 0
 
 with driver.session() as session:
     records = df.to_dict("records")
 
-    for start in range(
-        0,
-        len(records),
-        BATCH_SIZE
-    ):
-
+    for start in range(0, len(records),BATCH_SIZE):
         batch = records[start:start + BATCH_SIZE]
 
         session.run(query, rows=batch)
 
         total_processed += len(batch)
 
-        print(
-            f"Processed "
-            f"{total_processed}/{len(records)} "
-            f"official relations..."
-        )
-
 driver.close()
-
-
-print("\n")
-print("=" * 90)
-print("IMPORT COMPLETED")
-print("=" * 90)
-
-print("Official ESCO relations processed:", total_processed)
-
-print(
-    "\nNote: only relations where BOTH the Occupation and Skill already existed in Neo4j were created."
-)

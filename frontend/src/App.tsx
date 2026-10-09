@@ -218,8 +218,6 @@ function App() {
         };
       }
 
-      console.log("Sending request:", endpoint, payload);
-
       const response = await fetch(endpoint, {
         method: "POST",
         headers: {
@@ -241,7 +239,6 @@ function App() {
       }
 
       setAnalysisResult(data);
-      console.log("Analysis result:", data);
     } catch (error) {
       console.error("Analysis error:", error);
 

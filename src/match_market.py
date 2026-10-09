@@ -20,11 +20,7 @@ PROFILE_FILE = ("data/processed/occupation_skill_profiles.csv")
 
 MIN_BOTH_SKILLS = 5
 
-print("Loading occupation profiles for Market Match...")
-
 PROFILES_DF = pd.read_csv(PROFILE_FILE)
-
-print("Occupation profiles loaded:", len(PROFILES_DF))
 
 def calculate_match_market(occupation_id, user_skill_ids, coverage_lookup=None):
     """

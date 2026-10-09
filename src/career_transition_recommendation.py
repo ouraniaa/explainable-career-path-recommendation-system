@@ -11,8 +11,6 @@ The module coordinates existing scoring functions and prepares the result object
 used by the API and frontend; it does not introduce a new combined score.
 """
 from pathlib import Path
-import time
-
 import pandas as pd
 
 from src.occupation_similarity import (find_similar_occupations)
@@ -42,7 +40,6 @@ def generate_career_transition_recommendations(
     MatchMarket and skill-gap information are returned
     as supplementary explanatory signals.
     """
-
     if not current_occupation_id:
         raise ValueError("current_occupation_id cannot be empty.")
 
@@ -57,8 +54,6 @@ def generate_career_transition_recommendations(
 
     user_skill_ids = list(dict.fromkeys(user_skill_ids))
 
-    structural_start = time.perf_counter()
-
     structural_result = find_similar_occupations(
         session=session,
         current_occupation_id=current_occupation_id,
@@ -66,32 +61,12 @@ def generate_career_transition_recommendations(
         min_shared_skills=min_shared_skills
     )
 
-    structural_duration = (time.perf_counter() - structural_start)
-
-    print(
-        f"[TIMING] Transition structural search: "
-        f"{structural_duration:.2f}s"
-    )
-
     structural_candidates = (structural_result["similar_occupations"])
 
     evaluated_candidates = []
 
-    evaluation_start = time.perf_counter()
-
-    for index, candidate in enumerate(structural_candidates, start=1):
-        candidate_start = time.perf_counter()
-
+    for candidate in structural_candidates:
         recommendation = recommend_occupation(session=session, occupation_id=candidate["occupation_id"], user_skill_ids=user_skill_ids)
-
-        candidate_duration = (time.perf_counter() - candidate_start)
-
-        print(
-            f"[TIMING] Transition candidate "
-            f"{index}/{len(structural_candidates)} "
-            f"{candidate['occupation_name']}: "
-            f"{candidate_duration:.2f}s"
-        )
 
         evaluated_candidates.append({
             "occupation_id": candidate["occupation_id"],
@@ -113,13 +88,6 @@ def generate_career_transition_recommendations(
             "average_gap": recommendation["average_gap"],
             "skill_gaps": recommendation["skill_gaps"]
         })
-
-    evaluation_duration = (time.perf_counter() - evaluation_start)
-
-    print(
-        f"[TIMING] Transition candidate evaluation total: "
-        f"{evaluation_duration:.2f}s"
-    )
 
     evaluated_candidates.sort(
         key=lambda item: (
@@ -168,11 +136,8 @@ def get_discovery_candidate_occupations():
 
     No additional ranking is performed here.
     """
-
     project_root = (Path(__file__).resolve().parent.parent)
-
     profile_path = (project_root/ "data"/ "processed"/ "occupation_skill_profiles.csv")
-
     profiles = pd.read_csv(profile_path)
 
     required_columns = {
@@ -189,9 +154,7 @@ def get_discovery_candidate_occupations():
             f"{sorted(missing_columns)}"
         )
 
-    occupations = (
-        profiles[["occupation_id", "occupation_name", "isco_group"]].copy()
-    )
+    occupations = (profiles[["occupation_id", "occupation_name", "isco_group"]].copy())
 
     occupations["has_isco_group"] = (occupations["isco_group"].notna())
 
@@ -246,24 +209,11 @@ def generate_career_discovery_recommendations(session, user_skill_ids, recommend
 
     evaluated_candidates = []
 
-    total_start = time.perf_counter()
-
-    for index, candidate in enumerate(candidate_occupations, start=1):
-        occupation_start = time.perf_counter()
-
+    for candidate in candidate_occupations:
         recommendation = recommend_occupation(
             session=session,
             occupation_id=candidate["occupation_id"],
             user_skill_ids=user_skill_ids
-        )
-
-        occupation_duration = (time.perf_counter() - occupation_start)
-
-        print(
-            f"[TIMING] Discovery occupation "
-            f"{index}/{len(candidate_occupations)} "
-            f"{candidate['occupation_name']}: "
-            f"{occupation_duration:.2f}s"
         )
 
         evaluated_candidates.append({
@@ -281,13 +231,6 @@ def generate_career_discovery_recommendations(session, user_skill_ids, recommend
             "average_gap": recommendation["average_gap"],
             "skill_gaps": recommendation["skill_gaps"]
         })
-
-    total_duration = (time.perf_counter() - total_start)
-
-    print(
-        f"[TIMING] Discovery evaluation total: "
-        f"{total_duration:.2f}s"
-    )
 
     evaluated_candidates.sort(
         key=lambda item: (

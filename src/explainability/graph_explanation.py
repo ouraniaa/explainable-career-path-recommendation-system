@@ -55,8 +55,11 @@ def generate_skill_graph_explanation(skill_graph_result):
         missing_item_fields = (required_item_fields - set(item.keys()))
 
         if missing_item_fields:
-            raise ValueError("Related skill result is missing fields: {sorted(missing_item_fields)}")
-
+            raise ValueError(
+                f"Related skill result is missing fields: "
+                f"{sorted(missing_item_fields)}"
+            )
+        
         jaccard_percent = (item["jaccard_similarity"] * 100)
 
         explanation_text = (
@@ -87,7 +90,7 @@ def generate_skill_graph_explanation(skill_graph_result):
         "skill_id": skill_graph_result["skill_id"],
         "skill_name": skill_name,
         "occupation_count": skill_occupation_count,
-        "ranking_criterion":skill_graph_result["ranking_criterion"],
+        "ranking_criterion": skill_graph_result["ranking_criterion"],
         "general_explanation": general_explanation,
         "related_skills": explained_related_skills
     }
@@ -160,7 +163,7 @@ def generate_occupation_graph_explanation(occupation_similarity_result):
         )
 
         explained_occupations.append({
-            "rank":item["rank"], 
+            "rank": item["rank"], 
             "occupation_id": item["occupation_id"],
             "occupation_name": item["occupation_name"],
             "isco_group": item["isco_group"],

@@ -68,6 +68,11 @@ type CareerTransitionResult = {
   recommendations: CareerTransitionRecommendation[];
 };
 
+type CareerPathComparisonExplanation = {
+  explanation_type: "career_path_comparison";
+  explanation_text: string;
+};
+
 type CareerTransitionResponse = {
   analysis_type: "career_paths";
   mode: "career_transition";
@@ -78,6 +83,7 @@ type CareerTransitionResponse = {
   career_result: CareerTransitionResult;
 
   explanation?: unknown;
+  comparison_explanation?: CareerPathComparisonExplanation | null;
 };
 
 type Props = {
@@ -109,6 +115,7 @@ export default function CareerTransitionResults({
   data
 }: Props) {
   const result = data.career_result;
+  const comparisonExplanation = data.comparison_explanation;
 
   return (
     <section
@@ -1218,6 +1225,28 @@ export default function CareerTransitionResults({
           }
         )}
       </div>
+        {comparisonExplanation && (
+          <ResultCard>
+            <SectionHeader
+              eyebrow="Why this path?"
+              title="Why the first recommendation appears above the next alternative"
+              description="A direct comparison between the two highest-ranked career recommendations."
+            />
+
+            <div
+              style={{
+                marginTop: "18px",
+                color: "#4B5563",
+                lineHeight: 1.65,
+                fontSize: "14px"
+              }}
+            >
+              {comparisonExplanation.explanation_text}
+            </div>
+          </ResultCard>
+        )}
+
+
 
       {/* METHODOLOGY */}
 

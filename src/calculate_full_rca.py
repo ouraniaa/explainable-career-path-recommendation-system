@@ -45,10 +45,7 @@ official_relation_type = {
 
 official_pairs = set(official_relation_type.keys())
 
-driver = GraphDatabase.driver(
-    NEO4J_URI,
-    auth=(NEO4J_USER, NEO4J_PASSWORD)
-)
+driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
 
 query = """
 MATCH (j:JobPosting)-[:BELONGS_TO]->(o:Occupation)
@@ -82,7 +79,6 @@ RETURN
     s.name AS skill,
     x_os
 """
-
 with driver.session() as session:
     records = list(session.run(query))
 
@@ -103,18 +99,13 @@ for record in records:
 
 df = pd.DataFrame(rows)
 
-
 #Total skill observations for each occupation: sum_s x(o,s).
-occupation_totals = (
-    df.groupby("occupation_id")["x_os"].sum().to_dict()
-)
+occupation_totals = (df.groupby("occupation_id")["x_os"].sum().to_dict())
 
 df["occupation_skill_total"] = df["occupation_id"].map(occupation_totals)
 
 #Total observations of each skill across all occupations: sum_o x(o,s).
-skill_totals = (
-    df.groupby("skill_id")["x_os"].sum().to_dict()
-)
+skill_totals = (df.groupby("skill_id")["x_os"].sum().to_dict())
 
 df["skill_total"] = df["skill_id"].map(skill_totals)
 
@@ -149,72 +140,4 @@ df["esco_relation_type"] = df.apply(get_relation_type, axis=1)
 #This sorts each occupation's skills from highest to lowest RCA.
 df = df.sort_values(by=["occupation", "rca"], ascending=[True, False])
 
-df.to_csv(
-    OUTPUT_FILE,
-    index=False,
-    encoding="utf-8-sig"
-)
-
-print("=" * 100)
-print("FULL RCA DIAGNOSTIC")
-print("=" * 100)
-
-print(f"Occupation-skill pairs: {len(df)}")
-print(f"Distinct occupations: {df['occupation_id'].nunique()}")
-print(f"Distinct skills: {df['skill_id'].nunique()}")
-print(f"GlobalSkillTotal: {global_skill_total}")
-
-print()
-
-print("ESCO-confirmed pairs:", int(df["esco_confirmed"].sum()))
-
-print("Not ESCO-confirmed pairs:", int((~df["esco_confirmed"]).sum()))
-
-print()
-
-print(f"Saved to: {OUTPUT_FILE}")
-
-print("\n")
-print("=" * 100)
-print("TOP 30 RCA PAIRS OVERALL")
-print("=" * 100)
-
-top_pairs = df.sort_values(by="rca", ascending=False).head(30)
-
-for _, row in top_pairs.iterrows():
-    print(
-        f"{row['occupation']} "
-        f"→ {row['skill']} | "
-        f"x_os={row['x_os']} | "
-        f"skill_total={row['skill_total']} | "
-        f"RCA={row['rca']:.2f} | "
-        f"ESCO={row['esco_confirmed']} | "
-        f"type={row['esco_relation_type']}"
-    )
-
-#Here we review a small set of known suspicious skills as a sanity check on the market data.
-suspicious_skills = [
-    "gender studies",
-    "recreation activities",
-    "oversee operational safety on trains",
-    "tend to elderly people",
-    "prepare fishing equipment",
-    "child psychiatry"
-]
-
-print("\n")
-print("=" * 100)
-print("KNOWN SUSPICIOUS SKILLS")
-print("=" * 100)
-
-suspicious_df = df[df["skill"].isin(suspicious_skills)].sort_values(by="rca", ascending=False)
-
-for _, row in suspicious_df.iterrows():
-    print(
-        f"{row['occupation']} "
-        f"→ {row['skill']} | "
-        f"x_os={row['x_os']} | "
-        f"skill_total={row['skill_total']} | "
-        f"RCA={row['rca']:.2f} | "
-        f"ESCO={row['esco_confirmed']}"
-    )
+df.to_csv(OUTPUT_FILE, index=False, encoding="utf-8-sig")

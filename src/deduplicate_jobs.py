@@ -28,10 +28,7 @@ for job in jobs:
         deduplicated_jobs.append(job)
         continue
 
-    key = (
-        title.strip().lower(),
-        description.strip()
-    )
+    key = (title.strip().lower(), description.strip())
 
     if key not in seen:
         seen.add(key)
@@ -48,5 +45,3 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         ensure_ascii=False,
         indent=2
     )
-
-print(f"\nSaved to: {OUTPUT_FILE}")

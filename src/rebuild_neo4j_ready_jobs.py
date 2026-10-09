@@ -29,6 +29,3 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         ensure_ascii=False,
         indent=2
     )
-
-print(f"Created {len(neo4j_jobs)} jobs.")
-print(f"Saved to {OUTPUT_FILE}")

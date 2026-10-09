@@ -36,8 +36,11 @@ def generate_skill_gap_explanation(ranked_skill):
     missing_fields = (required_fields - set(ranked_skill.keys()))
 
     if missing_fields:
-        raise ValueError("ranked_skill is missing required fields: " f"{sorted(missing_fields)}")
-
+        raise ValueError(
+            "ranked_skill is missing required fields: "
+            f"{sorted(missing_fields)}"
+        )
+    
     skill_id = ranked_skill["skill_id"]
     skill_name = ranked_skill["skill_name"]
     relation_type = ranked_skill["relation_type"]

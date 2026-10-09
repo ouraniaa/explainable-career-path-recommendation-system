@@ -179,8 +179,6 @@ def analyze_target_occupation_endpoint(request: TargetOccupationRequest):
         raise HTTPException(status_code=503, detail=("Neo4j database operation failed."))
 
     except Exception as exc:
-        print("Unexpected error:", repr(exc))
-
         raise HTTPException(status_code=500, detail=("An unexpected server error occurred."))
 
 
@@ -207,8 +205,6 @@ def analyze_career_paths_endpoint(request: CareerPathsRequest):
         raise HTTPException(status_code=503, detail=("Neo4j database operation failed."))
 
     except Exception as exc:
-        print("Unexpected error:", repr(exc))
-
         raise HTTPException(status_code=500, detail=("An unexpected server error occurred."))
 
 
@@ -263,8 +259,6 @@ def search_occupations(q: str = Query(default=""), limit: int = Query(default=20
         }
 
     except Exception as exc:
-        print("Occupation search error:", repr(exc))
-
         raise HTTPException(status_code=500, detail=("Could not load occupations."))
 
 @app.get("/api/current-occupations")
