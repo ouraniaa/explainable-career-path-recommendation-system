@@ -135,7 +135,31 @@ Skillab_PASSWORD=
 ```
 Do not commit the `.env` file.
 
-### 3. Run the backend
+### 3. Neo4j Database Setup
+A prebuilt Neo4j database dump is included in the repository:
+
+```text
+database/neo4j.dump
+```
+
+This dump contains the Knowledge Graph used by the recommendation system.
+To restore the database:
+1. Install Neo4j Desktop.
+2. Create a local Neo4j instance.
+3. Stop the instance if it is running.
+4. Open the database options menu.
+5. Select Load database from file.
+6. Select: database/neo4j.dump
+7. Start the Neo4j instance.
+8. Configure the .env file with the local Neo4j credentials:
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=ThesisProject
+
+The database dump contains the graph data required by the recommendation system, so the Knowledge Graph does not need to be reconstructed from the original data-preparation scripts.
+
+
+### 4. Run the backend
 From the project root:
 
 
@@ -148,7 +172,7 @@ The FastAPI documentation will be available at:
 http://127.0.0.1:8001/docs
 ```
 
-### 4. Run the frontend
+### 5. Run the frontend
 Open a second terminal:
 
 ```bash
