@@ -129,9 +129,9 @@ Example:
 ```env
 NEO4J_URI=bolt://localhost:7687
 NEO4J_USER=neo4j
-NEO4J_PASSWORD=<your-password>
-TRACKER_USERNAME=
-TRACKER_PASSWORD=
+NEO4J_PASSWORD=<ThesusProject>
+Skillab_USERNAME=
+Skillab_PASSWORD=
 ```
 Do not commit the `.env` file.
 
