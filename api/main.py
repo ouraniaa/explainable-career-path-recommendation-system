@@ -16,9 +16,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from neo4j import GraphDatabase
 from neo4j.exceptions import Neo4jError
 from pydantic import BaseModel, Field
+from dotenv import load_dotenv
 
 from src.application_service import (analyze_career_paths, analyze_target_occupation)
 from src.career_transition_recommendation import (get_discovery_candidate_occupations)
+
+load_dotenv()
 
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
