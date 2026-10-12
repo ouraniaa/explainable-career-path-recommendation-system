@@ -90,13 +90,8 @@ type Props = {
   data: CareerTransitionResponse;
 };
 
-function toPercent(
-  value: number | null | undefined
-) {
-  if (
-    value === null ||
-    value === undefined
-  ) {
+function toPercent(value: number | null | undefined) {
+  if (value === null || value === undefined) {
     return null;
   }
 
@@ -122,12 +117,10 @@ export default function CareerTransitionResults({
       style={{
         marginTop: "32px",
         width: "100%",
-        fontFamily:
-          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
         color: "#111827"
       }}
     >
-      {/* HEADER */}
 
       <div
         style={{
@@ -175,8 +168,6 @@ export default function CareerTransitionResults({
         </p>
       </div>
 
-      {/* CURRENT OCCUPATION */}
-
       <ResultCard>
         <SectionHeader
           eyebrow="Starting point"
@@ -217,8 +208,6 @@ export default function CareerTransitionResults({
           )}
         </div>
       </ResultCard>
-
-      {/* RECOMMENDATIONS */}
 
       <div
         style={{
@@ -268,71 +257,28 @@ export default function CareerTransitionResults({
           gap: "20px"
         }}
       >
-        {result.recommendations.map(
-          (recommendation) => {
-            const currentFit =
-              toPercent(
-                recommendation.match_esco
-              ) ?? 0;
-
-            const marketFit =
-              toPercent(
-                recommendation.match_market
-              );
-
-            const marketDetails =
-              recommendation.market_details ?? [];
-
-            const coveredMarketSkills =
-              marketDetails.filter(
-                (skill) => skill.coverage > 0
-              );
-
-            const uncoveredMarketSkills =
-              marketDetails.filter(
-                (skill) => skill.coverage <= 0
-              );
-
-            const structuralPercent =
-              toPercent(
-                recommendation.occupation_similarity
-              ) ?? 0;
-
-            const relatedMatches =
-              recommendation.skill_gaps
-                .filter(
-                  (skill) =>
-                    skill.match_type === "semantic"
-                )
-                .sort(
-                  (a, b) =>
-                    b.coverage - a.coverage
-                );
-
-            const visibleRelatedMatches =
-              relatedMatches.slice(0, 5);
-
-            const topMissingSkills =
-              recommendation.skill_gaps
-                .filter(
-                  (skill) =>
-                    skill.match_type === "none"
-                )
-                .slice(0, 5);
+        {result.recommendations.map((recommendation) => {
+            const currentFit = toPercent(recommendation.match_esco) ?? 0;
+            const marketFit = toPercent(recommendation.match_market);
+            const marketDetails = recommendation.market_details ?? [];
+            const coveredMarketSkills = marketDetails.filter((skill) => skill.coverage > 0);
+            const uncoveredMarketSkills = marketDetails.filter((skill) => skill.coverage <= 0);
+            const structuralPercent = toPercent(recommendation.occupation_similarity) ?? 0;
+            const relatedMatches =recommendation.skill_gaps.filter((skill) => skill.match_type === "semantic")
+                .sort((a, b) => b.coverage - a.coverage);
+            const visibleRelatedMatches = relatedMatches.slice(0, 5);
+            const topMissingSkills = recommendation.skill_gaps.filter((skill) => skill.match_type === "none").slice(0, 5);
 
             return (
               <ResultCard
                 key={recommendation.occupation_id}
               >
-                {/* TOP ROW */}
 
                 <div
                   style={{
                     display: "flex",
-                    justifyContent:
-                      "space-between",
-                    alignItems:
-                      "flex-start",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
                     gap: "20px",
                     flexWrap: "wrap"
                   }}
@@ -343,10 +289,8 @@ export default function CareerTransitionResults({
                         fontSize: "13px",
                         fontWeight: 700,
                         color: "#6B7280",
-                        textTransform:
-                          "uppercase",
-                        letterSpacing:
-                          "0.05em",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em",
                         marginBottom: "6px"
                       }}
                     >
@@ -358,13 +302,10 @@ export default function CareerTransitionResults({
                       style={{
                         margin: 0,
                         fontSize: "24px",
-                        textTransform:
-                          "capitalize"
+                        textTransform: "capitalize"
                       }}
                     >
-                      {formatLabel(
-                        recommendation.occupation_name
-                      )}
+                      {formatLabel(recommendation.occupation_name)}
                     </h3>
 
                     {recommendation.isco_group && (
@@ -417,13 +358,10 @@ export default function CareerTransitionResults({
                   </div>
                 </div>
 
-                {/* MATCH METRICS */}
-
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns:
-                      "repeat(auto-fit, minmax(150px, 1fr))",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
                     gap: "14px",
                     marginTop: "24px"
                   }}
@@ -457,7 +395,6 @@ export default function CareerTransitionResults({
                   />
                 </div>
 
-                {/* WHY THIS TRANSITION */}
 
                 <details
                   style={{
@@ -500,16 +437,13 @@ export default function CareerTransitionResults({
                   </div>
                 </details>
 
-                {/* MARKET */}
-
                 <div
                   style={{
                     marginTop: "20px",
                     padding: "18px",
                     borderRadius: "12px",
                     background: "#F9FAFB",
-                    border:
-                      "1px solid #E5E7EB"
+                    border: "1px solid #E5E7EB"
                   }}
                 >
                   <div
@@ -517,10 +451,8 @@ export default function CareerTransitionResults({
                       fontSize: "13px",
                       fontWeight: 700,
                       color: "#6B7280",
-                      textTransform:
-                        "uppercase",
-                      letterSpacing:
-                        "0.05em",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
                       marginBottom: "8px"
                     }}
                   >
@@ -544,8 +476,7 @@ export default function CareerTransitionResults({
                         Market score not available
                       </strong>
 
-                      {recommendation.market_reason ||
-                        "There is not enough occupation-specific market evidence to calculate this score."}
+                      {recommendation.market_reason || "There is not enough occupation-specific market evidence to calculate this score."}
                     </div>
                   ) : (
                     <>
@@ -569,17 +500,12 @@ export default function CareerTransitionResults({
 
                         <div
                           style={{
-                            color:
-                              marketFit === 0
-                                ? "#92400E"
-                                : "#4B5563",
+                            color: marketFit === 0 ? "#92400E" : "#4B5563",
                             fontSize: "14px",
                             fontWeight: 600
                           }}
                         >
-                          {marketFit === 0
-                            ? "No current market-supported overlap"
-                            : "Market-supported skill coverage"}
+                          {marketFit === 0 ? "No current market-supported overlap" : "Market-supported skill coverage"}
                         </div>
                       </div>
 
@@ -612,12 +538,9 @@ export default function CareerTransitionResults({
                           style={{
                             marginTop: "14px",
                             padding: "12px 14px",
-                            background:
-                              "#FFFBEB",
-                            border:
-                              "1px solid #FDE68A",
-                            borderRadius:
-                              "8px",
+                            background: "#FFFBEB",
+                            border: "1px solid #FDE68A",
+                            borderRadius: "8px",
                             color: "#92400E",
                             fontSize: "14px",
                             lineHeight: 1.55
@@ -634,8 +557,7 @@ export default function CareerTransitionResults({
                         </div>
                       )}
 
-                      {marketDetails.length > 0 && (
-                        <details
+                      {marketDetails.length > 0 && (<details
                           style={{
                             marginTop: "16px"
                           }}
@@ -689,13 +611,8 @@ export default function CareerTransitionResults({
                             >
                               {marketDetails.map(
                                 (skill) => {
-                                  const coverage =
-                                    toPercent(
-                                      skill.coverage
-                                    ) ?? 0;
-
-                                  const isCovered =
-                                    skill.coverage > 0;
+                                  const coverage = toPercent(skill.coverage) ?? 0;
+                                  const isCovered = skill.coverage > 0;
 
                                   return (
                                     <div
@@ -703,68 +620,42 @@ export default function CareerTransitionResults({
                                         skill.skill_id
                                       }
                                       style={{
-                                        padding:
-                                          "14px 16px",
-                                        borderRadius:
-                                          "10px",
-                                        background:
-                                          "#FFFFFF",
-                                        border:
-                                          "1px solid #E5E7EB"
+                                        padding: "14px 16px",
+                                        borderRadius: "10px",
+                                        background: "#FFFFFF",
+                                        border: "1px solid #E5E7EB"
                                       }}
                                     >
                                       <div
                                         style={{
-                                          display:
-                                            "flex",
-                                          justifyContent:
-                                            "space-between",
-                                          alignItems:
-                                            "flex-start",
+                                          display: "flex",
+                                          justifyContent: "space-between",
+                                          alignItems: "flex-start",
                                           gap: "14px",
-                                          flexWrap:
-                                            "wrap"
+                                          flexWrap: "wrap"
                                         }}
                                       >
                                         <strong
                                           style={{
-                                            fontSize:
-                                              "15px"
+                                            fontSize: "15px"
                                           }}
                                         >
-                                          {formatLabel(
-                                            skill.skill_name
-                                          )}
+                                          {formatLabel(skill.skill_name)}
                                         </strong>
 
                                         <span
                                           style={{
-                                            display:
-                                              "inline-flex",
-                                            padding:
-                                              "4px 9px",
-                                            borderRadius:
-                                              "999px",
-                                            fontSize:
-                                              "12px",
-                                            fontWeight:
-                                              700,
-                                            background:
-                                              isCovered
-                                                ? "#F0FDF4"
-                                                : "#F3F4F6",
-                                            color:
-                                              isCovered
-                                                ? "#166534"
-                                                : "#4B5563",
-                                            border:
-                                              isCovered
-                                                ? "1px solid #BBF7D0"
-                                                : "1px solid #E5E7EB"
+                                            display: "inline-flex",
+                                            padding: "4px 9px",
+                                            borderRadius: "999px",
+                                            fontSize: "12px",
+                                            fontWeight: 700,
+                                            background: isCovered ? "#F0FDF4" : "#F3F4F6",
+                                            color: isCovered ? "#166534" : "#4B5563",
+                                            border: isCovered ? "1px solid #BBF7D0" : "1px solid #E5E7EB"
                                           }}
                                         >
-                                          {isCovered
-                                            ? `${coverage.toFixed(
+                                          {isCovered ? `${coverage.toFixed(
                                                 1
                                               )}% coverage`
                                             : "No current coverage"}
@@ -773,14 +664,10 @@ export default function CareerTransitionResults({
 
                                       <p
                                         style={{
-                                          margin:
-                                            "9px 0 0",
-                                          color:
-                                            "#4B5563",
-                                          fontSize:
-                                            "14px",
-                                          lineHeight:
-                                            1.55
+                                          margin: "9px 0 0",
+                                          color: "#4B5563",
+                                          fontSize: "14px",
+                                          lineHeight: 1.55
                                         }}
                                       >
                                         {isCovered
@@ -797,8 +684,7 @@ export default function CareerTransitionResults({
                                         <summary
                                           style={{
                                             ...summaryStyle,
-                                            fontSize:
-                                              "13px"
+                                            fontSize: "13px"
                                           }}
                                         >
                                           Technical evidence
@@ -806,20 +692,13 @@ export default function CareerTransitionResults({
 
                                         <div
                                           style={{
-                                            marginTop:
-                                              "8px",
-                                            padding:
-                                              "10px 12px",
-                                            borderRadius:
-                                              "8px",
-                                            background:
-                                              "#F8FAFC",
-                                            color:
-                                              "#4B5563",
-                                            fontSize:
-                                              "13px",
-                                            lineHeight:
-                                              1.55
+                                            marginTop: "8px",
+                                            padding: "10px 12px",
+                                            borderRadius: "8px",
+                                            background: "#F8FAFC",
+                                            color: "#4B5563",
+                                            fontSize: "13px",
+                                            lineHeight: 1.55
                                           }}
                                         >
                                           <div>
@@ -833,8 +712,7 @@ export default function CareerTransitionResults({
 
                                           <div
                                             style={{
-                                              marginTop:
-                                                "4px"
+                                              marginTop: "4px"
                                             }}
                                           >
                                             Weighted contribution:{" "}
@@ -847,8 +725,7 @@ export default function CareerTransitionResults({
 
                                           <p
                                             style={{
-                                              margin:
-                                                "8px 0 0"
+                                              margin: "8px 0 0"
                                             }}
                                           >
                                             RCA is the
@@ -879,10 +756,7 @@ export default function CareerTransitionResults({
                   )}
                 </div>
 
-                {/* SEMANTIC / RELATED MATCHES */}
-
-                {visibleRelatedMatches.length >
-                  0 && (
+                {visibleRelatedMatches.length > 0 && (
                   <details
                     style={{
                       marginTop: "18px"
@@ -904,10 +778,7 @@ export default function CareerTransitionResults({
                     >
                       {visibleRelatedMatches.map(
                         (skill) => {
-                          const coverage =
-                            toPercent(
-                              skill.coverage
-                            ) ?? 0;
+                          const coverage = toPercent(skill.coverage) ?? 0;
 
                           return (
                             <div
@@ -915,54 +786,38 @@ export default function CareerTransitionResults({
                                 skill.skill_id
                               }
                               style={{
-                                padding:
-                                  "14px 16px",
-                                borderRadius:
-                                  "10px",
-                                background:
-                                  "#F8FAFC",
-                                border:
-                                  "1px solid #E2E8F0"
+                                padding: "14px 16px",
+                                borderRadius: "10px",
+                                background: "#F8FAFC",
+                                border: "1px solid #E2E8F0"
                               }}
                             >
                               <div
                                 style={{
-                                  display:
-                                    "flex",
-                                  justifyContent:
-                                    "space-between",
-                                  alignItems:
-                                    "flex-start",
+                                  display: "flex",
+                                  justifyContent: "space-between",
+                                  alignItems: "flex-start",
                                   gap: "14px",
-                                  flexWrap:
-                                    "wrap"
+                                  flexWrap: "wrap"
                                 }}
                               >
                                 <strong
                                   style={{
-                                    fontSize:
-                                      "15px"
+                                    fontSize: "15px"
                                   }}
                                 >
-                                  {formatLabel(
-                                    skill.skill_name
+                                  {formatLabel(skill.skill_name
                                   )}
                                 </strong>
 
                                 <span
                                   style={{
-                                    padding:
-                                      "4px 9px",
-                                    borderRadius:
-                                      "999px",
-                                    background:
-                                      "#EEF2FF",
-                                    color:
-                                      "#4338CA",
-                                    fontSize:
-                                      "12px",
-                                    fontWeight:
-                                      700
+                                    padding: "4px 9px",
+                                    borderRadius: "999px",
+                                    background: "#EEF2FF",
+                                    color: "#4338CA",
+                                    fontSize: "12px",
+                                    fontWeight: 700
                                   }}
                                 >
                                   {coverage.toFixed(
@@ -976,18 +831,13 @@ export default function CareerTransitionResults({
                               {skill.best_user_skill_name ? (
                                 <p
                                   style={{
-                                    margin:
-                                      "9px 0 0",
-                                    color:
-                                      "#4B5563",
-                                    fontSize:
-                                      "14px",
-                                    lineHeight:
-                                      1.55
+                                    margin: "9px 0 0",
+                                    color: "#4B5563",
+                                    fontSize: "14px",
+                                    lineHeight: 1.55
                                   }}
                                 >
-                                  Your selected
-                                  skill{" "}
+                                  Your selected skill{" "}
                                   <strong>
                                     {formatLabel(
                                       skill.best_user_skill_name
@@ -1001,14 +851,10 @@ export default function CareerTransitionResults({
                               ) : (
                                 <p
                                   style={{
-                                    margin:
-                                      "9px 0 0",
-                                    color:
-                                      "#4B5563",
-                                    fontSize:
-                                      "14px",
-                                    lineHeight:
-                                      1.55
+                                    margin: "9px 0 0",
+                                    color: "#4B5563",
+                                    fontSize: "14px",
+                                    lineHeight: 1.55
                                   }}
                                 >
                                   This required
@@ -1022,14 +868,10 @@ export default function CareerTransitionResults({
 
                               <p
                                 style={{
-                                  margin:
-                                    "8px 0 0",
-                                  color:
-                                    "#6B7280",
-                                  fontSize:
-                                    "13px",
-                                  lineHeight:
-                                    1.5
+                                  margin: "8px 0 0",
+                                  color: "#6B7280",
+                                  fontSize: "13px",
+                                  lineHeight: 1.5
                                 }}
                               >
                                 Partial semantic
@@ -1044,14 +886,11 @@ export default function CareerTransitionResults({
                         }
                       )}
 
-                      {relatedMatches.length >
-                        visibleRelatedMatches.length && (
+                      {relatedMatches.length > visibleRelatedMatches.length && (
                         <div
                           style={{
-                            color:
-                              "#6B7280",
-                            fontSize:
-                              "13px"
+                            color: "#6B7280",
+                            fontSize: "13px"
                           }}
                         >
                           Showing{" "}
@@ -1069,10 +908,7 @@ export default function CareerTransitionResults({
                   </details>
                 )}
 
-                {/* MISSING SKILLS */}
-
-                {topMissingSkills.length >
-                  0 && (
+                {topMissingSkills.length > 0 && (
                   <details
                     style={{
                       marginTop: "20px"
@@ -1094,15 +930,13 @@ export default function CareerTransitionResults({
                           margin: 0
                         }}
                       >
-                        {topMissingSkills.map(
-                          (skill) => (
+                        {topMissingSkills.map((skill) => (
                             <li
                               key={
                                 skill.skill_id
                               }
                               style={{
-                                marginBottom:
-                                  "6px"
+                                marginBottom: "6px"
                               }}
                             >
                               {
@@ -1113,17 +947,13 @@ export default function CareerTransitionResults({
                         )}
                       </ul>
 
-                      {recommendation.missing_skill_count >
-                        topMissingSkills.length && (
+                      {recommendation.missing_skill_count > topMissingSkills.length && (
                         <p
                           style={{
                             marginBottom: 0,
-                            marginTop:
-                              "10px",
-                            color:
-                              "#6B7280",
-                            fontSize:
-                              "13px"
+                            marginTop: "10px",
+                            color: "#6B7280",
+                            fontSize: "13px"
                           }}
                         >
                           Showing{" "}
@@ -1142,8 +972,6 @@ export default function CareerTransitionResults({
                   </details>
                 )}
 
-                {/* TECHNICAL DETAILS */}
-
                 <details
                   style={{
                     marginTop: "18px"
@@ -1161,15 +989,13 @@ export default function CareerTransitionResults({
                       padding: "16px",
                       borderRadius: "10px",
                       background: "#F9FAFB",
-                      border:
-                        "1px solid #E5E7EB"
+                      border: "1px solid #E5E7EB"
                     }}
                   >
                     <div
                       style={{
                         display: "grid",
-                        gridTemplateColumns:
-                          "repeat(auto-fit, minmax(145px, 1fr))",
+                        gridTemplateColumns: "repeat(auto-fit, minmax(145px, 1fr))",
                         gap: "12px"
                       }}
                     >
@@ -1248,16 +1074,13 @@ export default function CareerTransitionResults({
 
 
 
-      {/* METHODOLOGY */}
-
       <details
         style={{
           marginTop: "28px",
           padding: "20px",
           background: "#F9FAFB",
           borderRadius: "12px",
-          border:
-            "1px solid #E5E7EB"
+          border: "1px solid #E5E7EB"
         }}
       >
         <summary
@@ -1331,13 +1154,11 @@ function ResultCard({
   return (
     <article
       style={{
-        border:
-          "1px solid #E5E7EB",
+        border: "1px solid #E5E7EB",
         borderRadius: "16px",
         padding: "28px",
         background: "#FFFFFF",
-        boxShadow:
-          "0 1px 3px rgba(0,0,0,0.05)"
+        boxShadow: "0 1px 3px rgba(0,0,0,0.05)"
       }}
     >
       {children}
@@ -1409,8 +1230,7 @@ function Metric({
         padding: "16px",
         borderRadius: "12px",
         background: "#F9FAFB",
-        border:
-          "1px solid #E5E7EB"
+        border: "1px solid #E5E7EB"
       }}
     >
       <div
@@ -1444,13 +1264,8 @@ function CoverageBar({
   percent: number;
   variant: "esco" | "market";
 }) {
-  const safePercent = Math.min(
-    100,
-    Math.max(0, percent)
-  );
-
-  const [displayedPercent, setDisplayedPercent] =
-    useState(0);
+  const safePercent = Math.min(100, Math.max(0, percent));
+  const [displayedPercent, setDisplayedPercent] = useState(0);
 
   useEffect(() => {
     setDisplayedPercent(0);
@@ -1462,15 +1277,8 @@ function CoverageBar({
     return () => cancelAnimationFrame(frame);
   }, [safePercent]);
 
-  const fillColor =
-    variant === "esco"
-      ? "#4F46E5"
-      : "#0F766E";
-
-  const trackColor =
-    variant === "esco"
-      ? "#E0E7FF"
-      : "#CCFBF1";
+  const fillColor = variant === "esco" ? "#4F46E5" : "#0F766E";
+  const trackColor = variant === "esco" ? "#E0E7FF" : "#CCFBF1";
 
   return (
     <div
@@ -1484,9 +1292,7 @@ function CoverageBar({
       }}
       role="progressbar"
       aria-label={
-        variant === "esco"
-          ? "Current ESCO skill coverage"
-          : "Market-supported skill coverage"
+        variant === "esco" ? "Current ESCO skill coverage": "Market-supported skill coverage"
       }
       aria-valuemin={0}
       aria-valuemax={100}
@@ -1498,8 +1304,7 @@ function CoverageBar({
           height: "100%",
           background: fillColor,
           borderRadius: "999px",
-          transition:
-            "width 650ms cubic-bezier(0.22, 1, 0.36, 1)"
+          transition: "width 650ms cubic-bezier(0.22, 1, 0.36, 1)"
         }}
       />
     </div>

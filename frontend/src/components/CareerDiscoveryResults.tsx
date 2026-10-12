@@ -77,13 +77,8 @@ type Props = {
   data: CareerDiscoveryResponse;
 };
 
-function toPercent(
-  value: number | null | undefined
-) {
-  if (
-    value === null ||
-    value === undefined
-  ) {
+function toPercent(value: number | null | undefined) {
+  if (value === null || value === undefined) {
     return null;
   }
 
@@ -103,22 +98,13 @@ function formatRelationType(value: string) {
     return "Required";
   }
 
-  return value
-    .replaceAll("_", " ")
-    .replace(/\b\w/g, (char) =>
-      char.toUpperCase()
-    );
+  return value.replaceAll("_", " ").replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
-function relationBadgeStyle(
-  relationType: string
-) {
-  const normalized =
-    relationType.toLowerCase();
+function relationBadgeStyle(relationType: string) {
+  const normalized = relationType.toLowerCase();
 
-  if (
-    normalized.includes("essential")
-  ) {
+  if (normalized.includes("essential")) {
     return {
       background: "#FEF2F2",
       color: "#991B1B",
@@ -126,9 +112,7 @@ function relationBadgeStyle(
     };
   }
 
-  if (
-    normalized.includes("optional")
-  ) {
+  if (normalized.includes("optional")) {
     return {
       background: "#F3F4F6",
       color: "#4B5563",
@@ -154,13 +138,10 @@ export default function CareerDiscoveryResults({
       style={{
         marginTop: "32px",
         width: "100%",
-        fontFamily:
-          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
         color: "#111827"
       }}
     >
-      {/* HEADER */}
-
       <div
         style={{
           marginBottom: "32px"
@@ -214,12 +195,9 @@ export default function CareerDiscoveryResults({
             color: "#6B7280"
           }}
         >
-          {result.candidate_count} occupations
-          evaluated
+          {result.candidate_count} occupations evaluated
         </div>
       </div>
-
-      {/* RECOMMENDATIONS */}
 
       <div
         style={{
@@ -227,83 +205,28 @@ export default function CareerDiscoveryResults({
           gap: "20px"
         }}
       >
-        {result.recommendations.map(
-          (recommendation) => {
-            const currentFit =
-              toPercent(
-                recommendation.match_esco
-              ) ?? 0;
-
-            const marketFit =
-              toPercent(
-                recommendation.match_market
-              );
-
-            const marketDetails =
-              recommendation.market_details ?? [];
-
-            const coveredMarketSkills =
-              marketDetails.filter(
-                (skill) => skill.coverage > 0
-              );
-
-            const uncoveredMarketSkills =
-              marketDetails.filter(
-                (skill) => skill.coverage <= 0
-              );
-
-            const missingSkills =
-              recommendation.skill_gaps
-                .filter(
-                  (skill) =>
-                    skill.match_type === "none"
-                )
+        {result.recommendations.map((recommendation) => {
+            const currentFit = toPercent(recommendation.match_esco) ?? 0;
+            const marketFit = toPercent(recommendation.match_market);
+            const marketDetails = recommendation.market_details ?? [];
+            const coveredMarketSkills = marketDetails.filter((skill) => skill.coverage > 0);
+            const uncoveredMarketSkills = marketDetails.filter((skill) => skill.coverage <= 0);
+            const missingSkills = recommendation.skill_gaps.filter((skill) => skill.match_type === "none")
                 .sort((a, b) => {
-                  const aEssential =
-                    a.relation_type
-                      .toLowerCase()
-                      .includes("essential")
-                      ? 0
-                      : 1;
+                  const aEssential = a.relation_type.toLowerCase().includes("essential") ? 0 : 1;
+                  const bEssential = b.relation_type.toLowerCase().includes("essential") ? 0 : 1;
 
-                  const bEssential =
-                    b.relation_type
-                      .toLowerCase()
-                      .includes("essential")
-                      ? 0
-                      : 1;
-
-                  if (
-                    aEssential !== bEssential
-                  ) {
-                    return (
-                      aEssential - bEssential
-                    );
+                  if (aEssential !== bEssential) {
+                    return (aEssential - bEssential);
                   }
 
-                  return (
-                    b.gap - a.gap
-                  );
+                  return (b.gap - a.gap);
                 });
 
-            const relatedMatches =
-              recommendation.skill_gaps
-                .filter(
-                  (skill) =>
-                    skill.match_type ===
-                    "semantic"
-                )
-                .sort(
-                  (a, b) =>
-                    b.coverage -
-                    a.coverage
-                );
-
-            const visibleMissingSkills =
-              missingSkills.slice(0, 5);
-
-            const visibleRelatedMatches =
-              relatedMatches.slice(0, 5);
+            const relatedMatches = recommendation.skill_gaps.filter((skill) => skill.match_type === "semantic")
+                .sort((a, b) => b.coverage - a.coverage);
+            const visibleMissingSkills = missingSkills.slice(0, 5);
+            const visibleRelatedMatches = relatedMatches.slice(0, 5);
 
             return (
               <ResultCard
@@ -311,15 +234,12 @@ export default function CareerDiscoveryResults({
                   recommendation.occupation_id
                 }
               >
-                {/* TOP ROW */}
 
                 <div
                   style={{
                     display: "flex",
-                    justifyContent:
-                      "space-between",
-                    alignItems:
-                      "flex-start",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
                     gap: "20px",
                     flexWrap: "wrap"
                   }}
@@ -330,10 +250,8 @@ export default function CareerDiscoveryResults({
                         fontSize: "13px",
                         fontWeight: 700,
                         color: "#6B7280",
-                        textTransform:
-                          "uppercase",
-                        letterSpacing:
-                          "0.05em",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em",
                         marginBottom: "6px"
                       }}
                     >
@@ -347,9 +265,7 @@ export default function CareerDiscoveryResults({
                         fontSize: "24px"
                       }}
                     >
-                      {formatLabel(
-                        recommendation.occupation_name
-                      )}
+                      {formatLabel(recommendation.occupation_name)}
                     </h3>
 
                     {recommendation.isco_group && (
@@ -357,8 +273,7 @@ export default function CareerDiscoveryResults({
                         style={{
                           marginTop: "6px",
                           fontSize: "13px",
-                          color:
-                            "#6B7280"
+                          color: "#6B7280"
                         }}
                       >
                         ISCO{" "}
@@ -403,13 +318,10 @@ export default function CareerDiscoveryResults({
                   </div>
                 </div>
 
-                {/* FIT METRICS */}
-
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns:
-                      "repeat(auto-fit, minmax(150px, 1fr))",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
                     gap: "14px",
                     marginTop: "24px"
                   }}
@@ -442,8 +354,6 @@ export default function CareerDiscoveryResults({
                     }
                   />
                 </div>
-
-                {/* WHY THIS FIT */}
 
                 <details
                   style={{
@@ -488,8 +398,7 @@ export default function CareerDiscoveryResults({
                       </p>
                     )}
 
-                    {relatedMatches.length >
-                      0 && (
+                    {relatedMatches.length > 0 && (
                       <p>
                         You also have{" "}
                         <strong>
@@ -498,10 +407,7 @@ export default function CareerDiscoveryResults({
                           }
                         </strong>{" "}
                         partially related skill{" "}
-                        {relatedMatches.length ===
-                        1
-                          ? "match"
-                          : "matches"}{" "}
+                        {relatedMatches.length === 1 ? "match" : "matches"}{" "}
                         that contribute to your
                         current fit.
                       </p>
@@ -521,10 +427,7 @@ export default function CareerDiscoveryResults({
                   </div>
                 </details>
 
-                {/* RELATED / SEMANTIC MATCHES */}
-
-                {visibleRelatedMatches.length >
-                  0 && (
+                {visibleRelatedMatches.length > 0 && (
                   <details
                     style={{
                       marginTop: "18px"
@@ -546,10 +449,7 @@ export default function CareerDiscoveryResults({
                     >
                       {visibleRelatedMatches.map(
                         (skill) => {
-                          const coverage =
-                            toPercent(
-                              skill.coverage
-                            ) ?? 0;
+                          const coverage = toPercent(skill.coverage) ?? 0;
 
                           return (
                             <div
@@ -557,95 +457,68 @@ export default function CareerDiscoveryResults({
                                 skill.skill_id
                               }
                               style={{
-                                padding:
-                                  "14px 16px",
-                                borderRadius:
-                                  "10px",
-                                background:
-                                  "#F8FAFC",
-                                border:
-                                  "1px solid #E2E8F0"
+                                padding: "14px 16px",
+                                borderRadius: "10px",
+                                background: "#F8FAFC",
+                                border: "1px solid #E2E8F0"
                               }}
                             >
                               <div
                                 style={{
-                                  display:
-                                    "flex",
-                                  justifyContent:
-                                    "space-between",
-                                  alignItems:
-                                    "flex-start",
+                                  display: "flex",
+                                  justifyContent: "space-between",
+                                  alignItems: "flex-start",
                                   gap: "14px",
-                                  flexWrap:
-                                    "wrap"
+                                  flexWrap: "wrap"
                                 }}
                               >
                                 <strong
                                   style={{
-                                    fontSize:
-                                      "15px"
+                                    fontSize: "15px"
                                   }}
                                 >
-                                  {formatLabel(
-                                    skill.skill_name
-                                  )}
+                                  {formatLabel(skill.skill_name)}
                                 </strong>
 
                                 <span
                                   style={{
-                                    padding:
-                                      "4px 9px",
-                                    borderRadius:
-                                      "999px",
-                                    background:
-                                      "#EEF2FF",
-                                    color:
-                                      "#4338CA",
-                                    fontSize:
-                                      "12px",
-                                    fontWeight:
-                                      700
+                                    padding: "4px 9px",
+                                    borderRadius: "999px",
+                                    background: "#EEF2FF",
+                                    color: "#4338CA",
+                                    fontSize: "12px",
+                                    fontWeight: 700
                                   }}
                                 >
                                   {coverage.toFixed(
                                     1
                                   )}
-                                  % partial
-                                  coverage
+                                  % partial coverage
                                 </span>
                               </div>
 
                               {skill.best_user_skill_name && (
                                 <p
                                   style={{
-                                    margin:
-                                      "9px 0 0",
-                                    color:
-                                      "#4B5563",
-                                    fontSize:
-                                      "14px",
-                                    lineHeight:
-                                      1.55
+                                    margin: "9px 0 0",
+                                    color: "#4B5563",
+                                    fontSize: "14px",
+                                    lineHeight: 1.55
                                   }}
                                 >
-                                  Your selected
-                                  skill{" "}
+                                  Your selected skill{" "}
                                   <strong>
                                     {formatLabel(
                                       skill.best_user_skill_name
                                     )}
                                   </strong>{" "}
-                                  is the closest
-                                  semantic match
-                                  found for this
-                                  required skill.
+                                  is the closest semantic match found for this required skill.
                                 </p>
                               )}
 
                               <div
                                 style={{
-                                  marginTop:
-                                    "9px"
+                                  marginTop: "9px"
                                 }}
                               >
                                 <RelationBadge
@@ -663,10 +536,8 @@ export default function CareerDiscoveryResults({
                         visibleRelatedMatches.length && (
                         <div
                           style={{
-                            color:
-                              "#6B7280",
-                            fontSize:
-                              "13px"
+                            color: "#6B7280",
+                            fontSize: "13px"
                           }}
                         >
                           Showing{" "}
@@ -684,10 +555,7 @@ export default function CareerDiscoveryResults({
                   </details>
                 )}
 
-                {/* MISSING SKILLS */}
-
-                {visibleMissingSkills.length >
-                  0 && (
+                {visibleMissingSkills.length > 0 && (
                   <details
                     style={{
                       marginTop: "18px"
@@ -708,10 +576,7 @@ export default function CareerDiscoveryResults({
                     >
                       {visibleMissingSkills.map(
                         (skill) => {
-                          const gap =
-                            toPercent(
-                              skill.gap
-                            ) ?? 0;
+                          const gap = toPercent(skill.gap) ?? 0;
 
                           return (
                             <div
@@ -719,33 +584,24 @@ export default function CareerDiscoveryResults({
                                 skill.skill_id
                               }
                               style={{
-                                padding:
-                                  "14px 16px",
-                                borderRadius:
-                                  "10px",
-                                border:
-                                  "1px solid #E5E7EB",
-                                background:
-                                  "#FFFFFF"
+                                padding: "14px 16px",
+                                borderRadius: "10px",
+                                border: "1px solid #E5E7EB",
+                                background: "#FFFFFF"
                               }}
                             >
                               <div
                                 style={{
-                                  display:
-                                    "flex",
-                                  alignItems:
-                                    "flex-start",
-                                  justifyContent:
-                                    "space-between",
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                  justifyContent: "space-between",
                                   gap: "14px",
-                                  flexWrap:
-                                    "wrap"
+                                  flexWrap: "wrap"
                                 }}
                               >
                                 <strong
                                   style={{
-                                    fontSize:
-                                      "15px"
+                                    fontSize: "15px"
                                   }}
                                 >
                                   {formatLabel(
@@ -762,14 +618,10 @@ export default function CareerDiscoveryResults({
 
                               <p
                                 style={{
-                                  margin:
-                                    "9px 0 0",
-                                  color:
-                                    "#4B5563",
-                                  fontSize:
-                                    "14px",
-                                  lineHeight:
-                                    1.55
+                                  margin: "9px 0 0",
+                                  color: "#4B5563",
+                                  fontSize: "14px",
+                                  lineHeight: 1.55
                                 }}
                               >
                                 No current match
@@ -794,10 +646,8 @@ export default function CareerDiscoveryResults({
                         visibleMissingSkills.length && (
                         <div
                           style={{
-                            color:
-                              "#6B7280",
-                            fontSize:
-                              "13px"
+                            color: "#6B7280",
+                            fontSize: "13px"
                           }}
                         >
                           Showing{" "}
@@ -816,16 +666,13 @@ export default function CareerDiscoveryResults({
                   </details>
                 )}
 
-                {/* MARKET EVIDENCE */}
-
                 <div
                   style={{
                     marginTop: "22px",
                     padding: "18px",
                     borderRadius: "12px",
                     background: "#F9FAFB",
-                    border:
-                      "1px solid #E5E7EB"
+                    border: "1px solid #E5E7EB"
                   }}
                 >
                   <div
@@ -833,10 +680,8 @@ export default function CareerDiscoveryResults({
                       fontSize: "13px",
                       fontWeight: 700,
                       color: "#6B7280",
-                      textTransform:
-                        "uppercase",
-                      letterSpacing:
-                        "0.05em",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
                       marginBottom: "8px"
                     }}
                   >
@@ -860,8 +705,7 @@ export default function CareerDiscoveryResults({
                         Market score not available
                       </strong>
 
-                      {recommendation.market_reason ||
-                        "There is not enough occupation-specific market evidence to calculate this score."}
+                      {recommendation.market_reason || "There is not enough occupation-specific market evidence to calculate this score."}
                     </div>
                   ) : (
                     <>
@@ -886,14 +730,12 @@ export default function CareerDiscoveryResults({
                         <div
                           style={{
                             color:
-                              marketFit === 0
-                                ? "#92400E"
-                                : "#4B5563",
+                              marketFit === 0 ? "#92400E" : "#4B5563",
                             fontSize: "14px",
                             fontWeight: 600
                           }}
                         >
-                          {marketFit === 0
+                          {marketFit === 0 
                             ? "No current market-supported overlap"
                             : "Market-supported skill coverage"}
                         </div>
@@ -928,12 +770,9 @@ export default function CareerDiscoveryResults({
                           style={{
                             marginTop: "14px",
                             padding: "12px 14px",
-                            background:
-                              "#FFFBEB",
-                            border:
-                              "1px solid #FDE68A",
-                            borderRadius:
-                              "8px",
+                            background: "#FFFBEB",
+                            border: "1px solid #FDE68A",
+                            borderRadius: "8px",
                             color: "#92400E",
                             fontSize: "14px",
                             lineHeight: 1.55
@@ -971,8 +810,7 @@ export default function CareerDiscoveryResults({
                             <div
                               style={{
                                 display: "grid",
-                                gridTemplateColumns:
-                                  "repeat(auto-fit, minmax(150px, 1fr))",
+                                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
                                 gap: "10px",
                                 marginBottom: "14px"
                               }}
@@ -1005,13 +843,8 @@ export default function CareerDiscoveryResults({
                             >
                               {marketDetails.map(
                                 (skill) => {
-                                  const coverage =
-                                    toPercent(
-                                      skill.coverage
-                                    ) ?? 0;
-
-                                  const isCovered =
-                                    skill.coverage > 0;
+                                  const coverage = toPercent(skill.coverage) ?? 0;
+                                  const isCovered = skill.coverage > 0;
 
                                   return (
                                     <div
@@ -1019,33 +852,24 @@ export default function CareerDiscoveryResults({
                                         skill.skill_id
                                       }
                                       style={{
-                                        padding:
-                                          "14px 16px",
-                                        borderRadius:
-                                          "10px",
-                                        background:
-                                          "#FFFFFF",
-                                        border:
-                                          "1px solid #E5E7EB"
+                                        padding: "14px 16px",
+                                        borderRadius: "10px",
+                                        background: "#FFFFFF",
+                                        border: "1px solid #E5E7EB"
                                       }}
                                     >
                                       <div
                                         style={{
-                                          display:
-                                            "flex",
-                                          justifyContent:
-                                            "space-between",
-                                          alignItems:
-                                            "flex-start",
+                                          display: "flex",
+                                          justifyContent: "space-between",
+                                          alignItems: "flex-start",
                                           gap: "14px",
-                                          flexWrap:
-                                            "wrap"
+                                          flexWrap: "wrap"
                                         }}
                                       >
                                         <strong
                                           style={{
-                                            fontSize:
-                                              "15px"
+                                            fontSize: "15px"
                                           }}
                                         >
                                           {formatLabel(
@@ -1055,28 +879,14 @@ export default function CareerDiscoveryResults({
 
                                         <span
                                           style={{
-                                            display:
-                                              "inline-flex",
-                                            padding:
-                                              "4px 9px",
-                                            borderRadius:
-                                              "999px",
-                                            fontSize:
-                                              "12px",
-                                            fontWeight:
-                                              700,
-                                            background:
-                                              isCovered
-                                                ? "#F0FDF4"
-                                                : "#F3F4F6",
-                                            color:
-                                              isCovered
-                                                ? "#166534"
-                                                : "#4B5563",
-                                            border:
-                                              isCovered
-                                                ? "1px solid #BBF7D0"
-                                                : "1px solid #E5E7EB"
+                                            display: "inline-flex",
+                                            padding: "4px 9px",
+                                            borderRadius: "999px",
+                                            fontSize: "12px",
+                                            fontWeight: 700,
+                                            background: isCovered ? "#F0FDF4" : "#F3F4F6",
+                                            color: isCovered ? "#166534" : "#4B5563",
+                                            border: isCovered ? "1px solid #BBF7D0" : "1px solid #E5E7EB"
                                           }}
                                         >
                                           {isCovered
@@ -1089,14 +899,10 @@ export default function CareerDiscoveryResults({
 
                                       <p
                                         style={{
-                                          margin:
-                                            "9px 0 0",
-                                          color:
-                                            "#4B5563",
-                                          fontSize:
-                                            "14px",
-                                          lineHeight:
-                                            1.55
+                                          margin: "9px 0 0",
+                                          color: "#4B5563",
+                                          fontSize: "14px",
+                                          lineHeight: 1.55
                                         }}
                                       >
                                         {isCovered
@@ -1106,15 +912,13 @@ export default function CareerDiscoveryResults({
 
                                       <details
                                         style={{
-                                          marginTop:
-                                            "9px"
+                                          marginTop: "9px"
                                         }}
                                       >
                                         <summary
                                           style={{
                                             ...summaryStyle,
-                                            fontSize:
-                                              "13px"
+                                            fontSize: "13px"
                                           }}
                                         >
                                           Technical evidence
@@ -1122,20 +926,13 @@ export default function CareerDiscoveryResults({
 
                                         <div
                                           style={{
-                                            marginTop:
-                                              "8px",
-                                            padding:
-                                              "10px 12px",
-                                            borderRadius:
-                                              "8px",
-                                            background:
-                                              "#F8FAFC",
-                                            color:
-                                              "#4B5563",
-                                            fontSize:
-                                              "13px",
-                                            lineHeight:
-                                              1.55
+                                            marginTop: "8px",
+                                            padding: "10px 12px",
+                                            borderRadius: "8px",
+                                            background: "#F8FAFC",
+                                            color: "#4B5563",
+                                            fontSize: "13px",
+                                            lineHeight: 1.55
                                           }}
                                         >
                                           <div>
@@ -1149,8 +946,7 @@ export default function CareerDiscoveryResults({
 
                                           <div
                                             style={{
-                                              marginTop:
-                                                "4px"
+                                              marginTop: "4px"
                                             }}
                                           >
                                             Weighted contribution:{" "}
@@ -1163,8 +959,7 @@ export default function CareerDiscoveryResults({
 
                                           <p
                                             style={{
-                                              margin:
-                                                "8px 0 0"
+                                              margin: "8px 0 0"
                                             }}
                                           >
                                             RCA is the
@@ -1195,7 +990,6 @@ export default function CareerDiscoveryResults({
                   )}
                 </div>
 
-                {/* INTERPRETATION */}
 
                 <details
                   style={{
@@ -1234,27 +1028,20 @@ export default function CareerDiscoveryResults({
                       <strong>
                         Related matches
                       </strong>{" "}
-                      are semantic similarities
-                      that provide partial
-                      coverage. They should not
-                      be interpreted as proof
-                      that you possess the
-                      required skill.
+                      are semantic similarities that provide partial coverage. They should not
+                      be interpreted as proof that you possess the required skill.
                     </p>
 
                     <p>
                       <strong>
                         Missing skills
                       </strong>{" "}
-                      are requirements for which
-                      the system found no current
+                      are requirements for which the system found no current
                       match.
                     </p>
 
                     <p>
-                      Labor-market evidence is
-                      supplementary and does not
-                      change the career ranking.
+                      Labor-market evidence is supplementary and does not change the career ranking.
                     </p>
                   </div>
                 </details>
@@ -1302,16 +1089,13 @@ export default function CareerDiscoveryResults({
           </ResultCard>
         )}
 
-      {/* METHODOLOGY */}
-
       <details
         style={{
           marginTop: "28px",
           padding: "20px",
           background: "#F9FAFB",
           borderRadius: "12px",
-          border:
-            "1px solid #E5E7EB"
+          border: "1px solid #E5E7EB"
         }}
       >
         <summary
@@ -1398,13 +1182,11 @@ function ResultCard({
   return (
     <article
       style={{
-        border:
-          "1px solid #E5E7EB",
+        border: "1px solid #E5E7EB",
         borderRadius: "16px",
         padding: "28px",
         background: "#FFFFFF",
-        boxShadow:
-          "0 1px 3px rgba(0,0,0,0.05)"
+        boxShadow: "0 1px 3px rgba(0,0,0,0.05)"
       }}
     >
       {children}
@@ -1425,8 +1207,7 @@ function Metric({
         padding: "16px",
         borderRadius: "12px",
         background: "#F9FAFB",
-        border:
-          "1px solid #E5E7EB"
+        border: "1px solid #E5E7EB"
       }}
     >
       <div
@@ -1460,13 +1241,8 @@ function CoverageBar({
   percent: number;
   variant: "esco" | "market";
 }) {
-  const safePercent = Math.min(
-    100,
-    Math.max(0, percent)
-  );
-
-  const [displayedPercent, setDisplayedPercent] =
-    useState(0);
+  const safePercent = Math.min(100, Math.max(0, percent));
+  const [displayedPercent, setDisplayedPercent] = useState(0);
 
   useEffect(() => {
     setDisplayedPercent(0);
@@ -1478,15 +1254,9 @@ function CoverageBar({
     return () => cancelAnimationFrame(frame);
   }, [safePercent]);
 
-  const fillColor =
-    variant === "esco"
-      ? "#4F46E5"
-      : "#0F766E";
+  const fillColor = variant === "esco" ? "#4F46E5" : "#0F766E";
 
-  const trackColor =
-    variant === "esco"
-      ? "#E0E7FF"
-      : "#CCFBF1";
+  const trackColor = variant === "esco" ? "#E0E7FF" : "#CCFBF1";
 
   return (
     <div
@@ -1500,9 +1270,7 @@ function CoverageBar({
       }}
       role="progressbar"
       aria-label={
-        variant === "esco"
-          ? "Current ESCO skill coverage"
-          : "Market-supported skill coverage"
+        variant === "esco" ? "Current ESCO skill coverage" : "Market-supported skill coverage"
       }
       aria-valuemin={0}
       aria-valuemax={100}
@@ -1514,8 +1282,7 @@ function CoverageBar({
           height: "100%",
           background: fillColor,
           borderRadius: "999px",
-          transition:
-            "width 650ms cubic-bezier(0.22, 1, 0.36, 1)"
+          transition: "width 650ms cubic-bezier(0.22, 1, 0.36, 1)"
         }}
       />
     </div>
@@ -1568,10 +1335,7 @@ function RelationBadge({
 }: {
   relationType: string;
 }) {
-  const style =
-    relationBadgeStyle(
-      relationType
-    );
+  const style = relationBadgeStyle(relationType);
 
   return (
     <span

@@ -9,6 +9,14 @@ type SkillGap = {
   coverage: number;
   gap: number;
 };
+type AffectedEscoSkill = {
+  skill_id: string;
+  skill_name: string;
+  relation_type: string | null;
+  old_coverage: number;
+  new_coverage: number;
+  coverage_increase: number;
+};
 
 type Recommendation = {
   occupation_id: string;
@@ -49,6 +57,7 @@ type LearningPriorityItem = {
   improvement_market: number | null;
 
   affected_esco_skill_count: number;
+  affected_esco_skills: AffectedEscoSkill[];
 };
 
 type LearningPriorityResult = {
@@ -97,6 +106,7 @@ type PersonalizedSkillItem = {
   improvement_market: number | null;
 
   affected_esco_skill_count: number;
+  affected_esco_skills: AffectedEscoSkill[];
 
   structurally_related_skills: RelatedSkill[];
 
@@ -176,16 +186,10 @@ type TargetOccupationResponse = {
   };
 
   user_skill_count: number;
-
   recommendation: Recommendation;
-
   learning_priority: LearningPriorityResult;
-
-  personalized_skill_recommendations:
-    PersonalizedSkillResult;
-
+  personalized_skill_recommendations: PersonalizedSkillResult;
   roadmap: Roadmap;
-
   explanations?: unknown;
 };
 
@@ -193,13 +197,8 @@ type Props = {
   data: TargetOccupationResponse;
 };
 
-function toPercent(
-  value: number | null | undefined
-) {
-  if (
-    value === null ||
-    value === undefined
-  ) {
+function toPercent(value: number | null | undefined) {
+  if (value === null || value === undefined) {
     return null;
   }
 
@@ -209,65 +208,27 @@ function toPercent(
 export default function TargetOccupationResults({
   data,
 }: Props) {
-  const recommendation =
-    data.recommendation;
-
-  const priorities =
-    data.learning_priority?.ranked_skills ?? [];
-
-  const personalized =
-    data.personalized_skill_recommendations
-      ?.recommendations ?? [];
-
-  const roadmapSteps =
-    data.roadmap?.roadmap_steps ?? [];
-
-  const currentFit =
-    toPercent(
-      recommendation.match_esco
-    ) ?? 0;
-
-  const marketFit =
-    toPercent(
-      recommendation.match_market
-    );
-
-  const initialRoadmapMatch =
-    toPercent(
-      data.roadmap?.initial_match_esco
-    );
-
-  const finalRoadmapMatch =
-    toPercent(
-      data.roadmap?.final_match_esco
-    );
-
-  const firstThree =
-    priorities.slice(0, 3);
-
-  const remainingPriorities =
-    priorities.slice(3);
-
-  const missingSkills =
-    recommendation.skill_gaps
-      ?.filter(
-        (skill) =>
-          skill.match_type === "none"
-      )
-      .slice(0, 10) ?? [];
+  const recommendation = data.recommendation;
+  const priorities = data.learning_priority?.ranked_skills ?? [];
+  const personalized = data.personalized_skill_recommendations ?.recommendations ?? [];
+  const roadmapSteps = data.roadmap?.roadmap_steps ?? [];
+  const currentFit = toPercent(recommendation.match_esco) ?? 0;
+  const marketFit = toPercent(recommendation.match_market);
+  const initialRoadmapMatch = toPercent(data.roadmap?.initial_match_esco);
+  const finalRoadmapMatch = toPercent(data.roadmap?.final_match_esco);
+  const firstThree = priorities.slice(0, 3);
+  const remainingPriorities = priorities.slice(3);
+  const missingSkills = recommendation.skill_gaps ?.filter((skill) => skill.match_type === "none").slice(0, 10) ?? [];
 
   return (
     <section
       style={{
         marginTop: "32px",
         width: "100%",
-        fontFamily:
-          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
         color: "#111827",
       }}
     >
-      {/* HEADER */}
-
       <div
         style={{
           marginBottom: "32px",
@@ -314,8 +275,6 @@ export default function TargetOccupationResults({
           may change as you learn them.
         </p>
       </div>
-
-      {/* STEP 1 */}
 
       <ResultCard>
         <SectionHeader
@@ -368,8 +327,7 @@ export default function TargetOccupationResults({
         <div
           style={{
             display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit, minmax(155px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(155px, 1fr))",
             gap: "14px",
           }}
         >
@@ -447,8 +405,6 @@ export default function TargetOccupationResults({
         </details>
       </ResultCard>
 
-      {/* STEP 2 */}
-
       <ResultCard>
         <SectionHeader
           eyebrow="Step 2"
@@ -466,16 +422,9 @@ export default function TargetOccupationResults({
           {firstThree.map(
             (item) => {
               const personalizedItem =
-                personalized.find(
-                  (x) =>
-                    x.skill_id ===
-                    item.skill_id
-                );
+                personalized.find((x) => x.skill_id === item.skill_id);
 
-              const topRelated =
-                personalizedItem
-                  ?.structurally_related_skills
-                  ?.[0];
+              const topRelated = personalizedItem ?.structurally_related_skills ?.[0];
 
               return (
                 <div
@@ -484,17 +433,14 @@ export default function TargetOccupationResults({
                     padding: "20px",
                     borderRadius: "12px",
                     background: "#F9FAFB",
-                    border:
-                      "1px solid #E5E7EB",
+                    border: "1px solid #E5E7EB",
                   }}
                 >
                   <div
                     style={{
                       display: "flex",
-                      justifyContent:
-                        "space-between",
-                      alignItems:
-                        "flex-start",
+                      justifyContent: "space-between",
+                      alignItems: "flex-start",
                       gap: "18px",
                       flexWrap: "wrap",
                     }}
@@ -502,14 +448,10 @@ export default function TargetOccupationResults({
                     <div>
                       <div
                         style={{
-                          color:
-                            "#6B7280",
-                          fontSize:
-                            "13px",
-                          fontWeight:
-                            600,
-                          marginBottom:
-                            "5px",
+                          color: "#6B7280",
+                          fontSize: "13px",
+                          fontWeight: 600,
+                          marginBottom: "5px",
                         }}
                       >
                         Priority #
@@ -518,10 +460,8 @@ export default function TargetOccupationResults({
 
                       <strong
                         style={{
-                          fontSize:
-                            "18px",
-                          color:
-                            "#111827",
+                          fontSize: "18px",
+                          color: "#111827",
                         }}
                       >
                         {
@@ -532,37 +472,25 @@ export default function TargetOccupationResults({
 
                     <div
                       style={{
-                        background:
-                          "#EEF2FF",
-                        color:
-                          "#4338CA",
-                        padding:
-                          "7px 12px",
-                        borderRadius:
-                          "999px",
-                        fontWeight:
-                          700,
-                        fontSize:
-                          "14px",
-                        whiteSpace:
-                          "nowrap",
+                        background: "#EEF2FF",
+                        color: "#4338CA",
+                        padding: "7px 12px",
+                        borderRadius: "999px",
+                        fontWeight: 700,
+                        fontSize: "14px",
+                        whiteSpace: "nowrap",
                       }}
                     >
                       +
-                      {(
-                        item.improvement_esco *
-                        100
-                      ).toFixed(2)}{" "}
+                      {(item.improvement_esco * 100).toFixed(2)}{" "}
                       pp
                     </div>
                   </div>
 
                   <p
                     style={{
-                      margin:
-                        "12px 0 0 0",
-                      color:
-                        "#4B5563",
+                      margin: "12px 0 0 0",
+                      color: "#4B5563",
                       lineHeight: 1.6,
                     }}
                   >
@@ -570,10 +498,7 @@ export default function TargetOccupationResults({
                     to increase your current
                     ESCO coverage by{" "}
                     <strong>
-                      {(
-                        item.improvement_esco *
-                        100
-                      ).toFixed(2)}{" "}
+                      {(item.improvement_esco * 100).toFixed(2)}{" "}
                       percentage points
                     </strong>
                     .
@@ -581,8 +506,7 @@ export default function TargetOccupationResults({
 
                   <details
                     style={{
-                      marginTop:
-                        "14px",
+                      marginTop: "14px",
                     }}
                   >
                     <summary
@@ -598,18 +522,13 @@ export default function TargetOccupationResults({
                         detailBodyStyle
                       }
                     >
-                      {item.current_coverage ===
-                      0 ? (
+                      {item.current_coverage === 0 ? (
                         <p>
-                          This required skill
-                          is currently not
-                          covered by your
-                          selected profile.
+                          This required skill is currently not covered by your selected profile.
                         </p>
                       ) : (
                         <p>
-                          Your current profile
-                          provides{" "}
+                          Your current profile provides{" "}
                           <strong>
                             {(
                               item.current_coverage *
@@ -619,47 +538,76 @@ export default function TargetOccupationResults({
                             )}
                             %
                           </strong>{" "}
-                          estimated coverage
-                          for this skill, so a
-                          gap still remains.
+                          estimated coverage for this skill, so a gap still remains.
                         </p>
                       )}
 
-                      {item
-                        .affected_esco_skill_count >
-                        1 && (
+                      {item.affected_esco_skill_count > 1 && (
                         <p>
-                          Adding this skill
-                          may also improve
-                          coverage of{" "}
+                          Adding this skill may also improve coverage of{" "}
                           <strong>
                             {
                               item.affected_esco_skill_count
                             }
                           </strong>{" "}
-                          ESCO skills in the
-                          current matching
-                          model.
+                          ESCO skills in the current matching model.
                         </p>
+                      )}
+
+                      {item.affected_esco_skills?.length > 0 && (
+                        <details style={{ marginTop: "10px" }}>
+                          <summary style={summaryStyle}>
+                            See affected ESCO skills
+                          </summary>
+
+                          <div
+                            style={{
+                              marginTop: "10px",
+                              display: "grid",
+                              gap: "8px",
+                            }}
+                          >
+                            {item.affected_esco_skills.map((skill) => (
+                              <div
+                                key={skill.skill_id}
+                                style={{
+                                  padding: "10px 12px",
+                                  border: "1px solid #E5E7EB",
+                                  borderRadius: "8px",
+                                  background: "#FFFFFF",
+                                }}
+                              >
+                                <strong>{skill.skill_name}</strong>
+
+                                <div
+                                  style={{
+                                    marginTop: "4px",
+                                    color: "#6B7280",
+                                    fontSize: "13px",
+                                  }}
+                                >
+                                  {(skill.old_coverage * 100).toFixed(1)}%
+                                  {" → "}
+                                  {(skill.new_coverage * 100).toFixed(1)}%
+                                  {"  "}
+                                  (+
+                                  {(skill.coverage_increase * 100).toFixed(1)} pp)
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </details>
                       )}
 
                       {topRelated && (
                         <p>
-                          It also appears in
-                          similar ESCO
-                          occupational
-                          contexts to{" "}
+                          It also appears in similar ESCO occupational contexts to{" "}
                           <strong>
                             {
                               topRelated.skill_name
                             }
                           </strong>
-                          . This graph
-                          information is
-                          supporting context
-                          only and does not
-                          determine the
-                          ranking.
+                          . This graph information is supporting context only and does not determine the ranking.
                         </p>
                       )}
                     </div>
@@ -670,8 +618,7 @@ export default function TargetOccupationResults({
           )}
         </div>
 
-        {remainingPriorities.length >
-          0 && (
+        {remainingPriorities.length > 0 && (
           <details
             style={{
               marginTop: "18px",
@@ -697,16 +644,11 @@ export default function TargetOccupationResults({
                       item.skill_id
                     }
                     style={{
-                      padding:
-                        "12px 14px",
-                      borderRadius:
-                        "8px",
-                      border:
-                        "1px solid #E5E7EB",
-                      display:
-                        "flex",
-                      justifyContent:
-                        "space-between",
+                      padding: "12px 14px",
+                      borderRadius: "8px",
+                      border: "1px solid #E5E7EB",
+                      display: "flex",
+                      justifyContent: "space-between",
                       gap: "12px",
                     }}
                   >
@@ -718,9 +660,7 @@ export default function TargetOccupationResults({
 
                     <strong>
                       +
-                      {(
-                        item.improvement_esco *
-                        100
+                      {(item.improvement_esco * 100
                       ).toFixed(2)}{" "}
                       pp
                     </strong>
@@ -732,8 +672,6 @@ export default function TargetOccupationResults({
         )}
       </ResultCard>
 
-      {/* STEP 3 */}
-
       <ResultCard>
         <SectionHeader
           eyebrow="Step 3"
@@ -741,33 +679,24 @@ export default function TargetOccupationResults({
           description="A sequential simulation of how your ESCO coverage changes as each suggested skill is added."
         />
 
-        {initialRoadmapMatch !== null &&
-          finalRoadmapMatch !==
-            null && (
+        {initialRoadmapMatch !== null && finalRoadmapMatch !== null && (
             <div
               style={{
                 marginTop: "24px",
                 marginBottom: "24px",
                 padding: "20px",
                 borderRadius: "12px",
-                background:
-                  "#F0FDF4",
-                border:
-                  "1px solid #BBF7D0",
+                background: "#F0FDF4",
+                border: "1px solid #BBF7D0",
               }}
             >
               <div
                 style={{
-                  color:
-                    "#166534",
-                  fontSize:
-                    "13px",
-                  fontWeight:
-                    700,
-                  textTransform:
-                    "uppercase",
-                  letterSpacing:
-                    "0.05em",
+                  color: "#166534",
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
                 }}
               >
                 Simulated progression
@@ -776,10 +705,8 @@ export default function TargetOccupationResults({
               <div
                 style={{
                   marginTop: "8px",
-                  fontSize:
-                    "26px",
-                  color:
-                    "#15803D",
+                  fontSize: "26px",
+                  color: "#15803D",
                 }}
               >
                 {initialRoadmapMatch.toFixed(
@@ -788,9 +715,7 @@ export default function TargetOccupationResults({
                 %
                 {" → "}
                 <strong>
-                  {finalRoadmapMatch.toFixed(
-                    1
-                  )}
+                  {finalRoadmapMatch.toFixed(1)}
                   %
                 </strong>
               </div>
@@ -798,10 +723,8 @@ export default function TargetOccupationResults({
               <div
                 style={{
                   marginTop: "5px",
-                  color:
-                    "#166534",
-                  fontSize:
-                    "14px",
+                  color: "#166534",
+                  fontSize: "14px",
                 }}
               >
                 after{" "}
@@ -822,52 +745,32 @@ export default function TargetOccupationResults({
         >
           {roadmapSteps.map(
             (step) => {
-              const before =
-                toPercent(
-                  step.match_esco_before
-                );
-
-              const after =
-                toPercent(
-                  step.match_esco_after
-                );
+              const before = toPercent(step.match_esco_before);
+              const after = toPercent(step.match_esco_after);
 
               return (
                 <div
                   key={step.step}
                   style={{
-                    padding:
-                      "16px 18px",
-                    borderRadius:
-                      "10px",
-                    border:
-                      "1px solid #E5E7EB",
-                    display:
-                      "flex",
-                    alignItems:
-                      "center",
+                    padding: "16px 18px",
+                    borderRadius: "10px",
+                    border: "1px solid #E5E7EB",
+                    display: "flex",
+                    alignItems: "center",
                     gap: "16px",
                   }}
                 >
                   <div
                     style={{
                       width: "30px",
-                      height:
-                        "30px",
-                      borderRadius:
-                        "50%",
-                      background:
-                        "#F3F4F6",
-                      display:
-                        "flex",
-                      alignItems:
-                        "center",
-                      justifyContent:
-                        "center",
-                      fontWeight:
-                        700,
-                      fontSize:
-                        "13px",
+                      height: "30px",
+                      borderRadius: "50%",
+                      background: "#F3F4F6",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: 700,
+                      fontSize: "13px",
                       flexShrink: 0,
                     }}
                   >
@@ -886,33 +789,23 @@ export default function TargetOccupationResults({
                     </strong>
                   </div>
 
-                  {before !== null &&
-                    after !==
-                      null && (
+                  {before !== null && after !== null && (
                       <div
                         style={{
-                          color:
-                            "#4B5563",
-                          fontSize:
-                            "14px",
-                          whiteSpace:
-                            "nowrap",
+                          color: "#4B5563",
+                          fontSize: "14px",
+                          whiteSpace: "nowrap",
                         }}
                       >
-                        {before.toFixed(
-                          1
-                        )}
+                        {before.toFixed(1)}
                         %
                         {" → "}
                         <strong
                           style={{
-                            color:
-                              "#111827",
+                            color: "#111827",
                           }}
                         >
-                          {after.toFixed(
-                            1
-                          )}
+                          {after.toFixed(1)}
                           %
                         </strong>
                       </div>
@@ -931,16 +824,9 @@ export default function TargetOccupationResults({
             lineHeight: 1.55,
           }}
         >
-          The roadmap is greedy and
-          sequential: after each simulated
-          skill acquisition, priorities are
-          recalculated. It is not presented
-          as a globally optimal learning
-          path.
+          The roadmap is greedy and sequential: after each simulated skill acquisition, priorities are recalculated. It is not presented as a globally optimal learning path.
         </div>
       </ResultCard>
-
-      {/* STEP 4 */}
 
       <ResultCard>
         <SectionHeader
@@ -958,47 +844,36 @@ export default function TargetOccupationResults({
             <div
               style={{
                 padding: "16px",
-                background:
-                  "#F9FAFB",
-                borderRadius:
-                  "10px",
-                border:
-                  "1px solid #E5E7EB",
-                color:
-                  "#4B5563",
+                background: "#F9FAFB",
+                borderRadius: "10px",
+                border: "1px solid #E5E7EB",
+                color: "#4B5563",
               }}
             >
               <strong
                 style={{
-                  color:
-                    "#111827",
+                  color: "#111827",
                 }}
               >
-                Market score not
-                available
+                Market score not available
               </strong>
 
               <div
                 style={{
-                  marginTop:
-                    "6px",
+                  marginTop: "6px",
                   lineHeight: 1.55,
                 }}
               >
-                {recommendation.market_reason ||
-                  "There is not enough labor-market evidence available for this occupation."}
+                {recommendation.market_reason || "There is not enough labor-market evidence available for this occupation."}
               </div>
             </div>
           ) : (
             <>
               <div
                 style={{
-                  fontSize:
-                    "38px",
-                  fontWeight:
-                    750,
-                  color:
-                    "#111827",
+                  fontSize: "38px",
+                  fontWeight: 750,
+                  color: "#111827",
                 }}
               >
                 {marketFit.toFixed(
@@ -1016,11 +891,9 @@ export default function TargetOccupationResults({
                 style={{
                   marginTop: "10px",
                   marginBottom: 0,
-                  color:
-                    "#4B5563",
+                  color: "#4B5563",
                   lineHeight: 1.65,
-                  maxWidth:
-                    "700px",
+                  maxWidth: "700px",
                 }}
               >
                 This score reflects how
@@ -1034,20 +907,13 @@ export default function TargetOccupationResults({
               {marketFit === 0 && (
                 <div
                   style={{
-                    marginTop:
-                      "16px",
-                    padding:
-                      "14px",
-                    background:
-                      "#FFFBEB",
-                    border:
-                      "1px solid #FDE68A",
-                    borderRadius:
-                      "10px",
-                    color:
-                      "#92400E",
-                    lineHeight:
-                      1.55,
+                    marginTop: "16px",
+                    padding: "14px",
+                    background: "#FFFBEB",
+                    border: "1px solid #FDE68A",
+                    borderRadius: "10px",
+                    color: "#92400E",
+                    lineHeight: 1.55,
                   }}
                 >
                   Market evaluation is
@@ -1077,16 +943,13 @@ export default function TargetOccupationResults({
         </div>
       </ResultCard>
 
-      {/* METHODOLOGY */}
-
       <details
         style={{
           marginTop: "28px",
           padding: "20px",
           background: "#F9FAFB",
           borderRadius: "12px",
-          border:
-            "1px solid #E5E7EB",
+          border: "1px solid #E5E7EB",
         }}
       >
         <summary
@@ -1097,8 +960,7 @@ export default function TargetOccupationResults({
             fontSize: "16px",
           }}
         >
-          How the recommendations were
-          generated
+          How the recommendations were generated
         </summary>
 
         <div
@@ -1110,8 +972,7 @@ export default function TargetOccupationResults({
           }}
         >
           <p>
-            Skills are ranked by their
-            estimated{" "}
+            Skills are ranked by their estimated{" "}
             <strong>
               ImprovementESCO
             </strong>
@@ -1153,10 +1014,7 @@ export default function TargetOccupationResults({
             >
               {personalized.map(
                 (item) => {
-                  const topRelated =
-                    item
-                      .structurally_related_skills
-                      ?.[0];
+                  const topRelated = item.structurally_related_skills ?.[0];
 
                   return (
                     <div
@@ -1164,20 +1022,15 @@ export default function TargetOccupationResults({
                         item.skill_id
                       }
                       style={{
-                        padding:
-                          "14px",
-                        background:
-                          "#FFFFFF",
-                        border:
-                          "1px solid #E5E7EB",
-                        borderRadius:
-                          "8px",
+                        padding: "14px",
+                        background: "#FFFFFF",
+                        border: "1px solid #E5E7EB",
+                        borderRadius: "8px",
                       }}
                     >
                       <strong
                         style={{
-                          color:
-                            "#111827",
+                          color: "#111827",
                         }}
                       >
                         {
@@ -1187,10 +1040,8 @@ export default function TargetOccupationResults({
 
                       <div
                         style={{
-                          marginTop:
-                            "10px",
-                          display:
-                            "grid",
+                          marginTop: "10px",
+                          display: "grid",
                           gap: "5px",
                         }}
                       >
@@ -1208,8 +1059,7 @@ export default function TargetOccupationResults({
                         </div>
 
                         <div>
-                          Direct
-                          contribution:{" "}
+                          Direct contribution:{" "}
                           {(
                             item.direct_improvement *
                             100
@@ -1220,8 +1070,7 @@ export default function TargetOccupationResults({
                         </div>
 
                         <div>
-                          Semantic
-                          spillover:{" "}
+                          Semantic spillover:{" "}
                           {(
                             item.semantic_spillover *
                             100
@@ -1231,8 +1080,7 @@ export default function TargetOccupationResults({
                           pp
                         </div>
 
-                        {item.rca !==
-                          null && (
+                        {item.rca !== null && (
                           <div>
                             RCA:{" "}
                             {item.rca.toFixed(
@@ -1241,34 +1089,26 @@ export default function TargetOccupationResults({
                           </div>
                         )}
 
-                        {item.market_gap_severity !==
-                          null && (
+                        {item.market_gap_severity !== null && (
                           <div>
-                            Market gap
-                            severity:{" "}
-                            {item.market_gap_severity.toFixed(
-                              4
-                            )}
+                            Market gap severity:{" "}
+                            {item.market_gap_severity.toFixed(4)}
                           </div>
                         )}
 
                         {topRelated && (
                           <>
                             <div>
-                              Most
-                              structurally
-                              related skill:{" "}
+                              Most structurally related skill:{" "}
                               {
                                 topRelated.skill_name
                               }
                             </div>
 
                             <div>
-                              Jaccard
-                              similarity:{" "}
+                              Jaccard similarity:{" "}
                               {(
-                                topRelated.jaccard_similarity *
-                                100
+                                topRelated.jaccard_similarity * 100
                               ).toFixed(
                                 2
                               )}
@@ -1284,8 +1124,7 @@ export default function TargetOccupationResults({
             </div>
           </details>
 
-          {missingSkills.length >
-            0 && (
+          {missingSkills.length > 0 && (
             <details
               style={{
                 marginTop: "16px",
@@ -1294,25 +1133,21 @@ export default function TargetOccupationResults({
               <summary
                 style={summaryStyle}
               >
-                View example missing
-                skills
+                View example missing skills
               </summary>
 
               <ul
                 style={{
-                  marginTop:
-                    "12px",
+                  marginTop: "12px",
                 }}
               >
-                {missingSkills.map(
-                  (skill) => (
+                {missingSkills.map((skill) => (
                     <li
                       key={
                         skill.skill_id
                       }
                       style={{
-                        marginBottom:
-                          "6px",
+                        marginBottom: "6px",
                       }}
                     >
                       {
@@ -1337,13 +1172,8 @@ function CoverageBar({
   percent: number;
   variant: "esco" | "market";
 }) {
-  const safePercent = Math.min(
-    100,
-    Math.max(0, percent)
-  );
-
-  const [displayedPercent, setDisplayedPercent] =
-    useState(0);
+  const safePercent = Math.min(100, Math.max(0, percent));
+  const [displayedPercent, setDisplayedPercent] = useState(0);
 
   useEffect(() => {
     setDisplayedPercent(0);
@@ -1355,15 +1185,8 @@ function CoverageBar({
     return () => cancelAnimationFrame(frame);
   }, [safePercent]);
 
-  const fillColor =
-    variant === "esco"
-      ? "#4F46E5"
-      : "#0F766E";
-
-  const trackColor =
-    variant === "esco"
-      ? "#E0E7FF"
-      : "#CCFBF1";
+  const fillColor = variant === "esco" ? "#4F46E5" : "#0F766E";
+  const trackColor = variant === "esco" ? "#E0E7FF" : "#CCFBF1";
 
   return (
     <div
@@ -1377,9 +1200,7 @@ function CoverageBar({
       }}
       role="progressbar"
       aria-label={
-        variant === "esco"
-          ? "Current ESCO skill coverage"
-          : "Market-supported skill coverage"
+        variant === "esco" ? "Current ESCO skill coverage" : "Market-supported skill coverage"
       }
       aria-valuemin={0}
       aria-valuemax={100}
@@ -1391,8 +1212,7 @@ function CoverageBar({
           height: "100%",
           background: fillColor,
           borderRadius: "999px",
-          transition:
-            "width 650ms cubic-bezier(0.22, 1, 0.36, 1)"
+          transition: "width 650ms cubic-bezier(0.22, 1, 0.36, 1)"
         }}
       />
     </div>
@@ -1407,14 +1227,12 @@ function ResultCard({
   return (
     <div
       style={{
-        border:
-          "1px solid #E5E7EB",
+        border: "1px solid #E5E7EB",
         borderRadius: "16px",
         padding: "30px",
         marginBottom: "24px",
         background: "#FFFFFF",
-        boxShadow:
-          "0 1px 3px rgba(0,0,0,0.05)",
+        boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
       }}
     >
       {children}
@@ -1486,8 +1304,7 @@ function Metric({
         padding: "16px",
         borderRadius: "12px",
         background: "#F9FAFB",
-        border:
-          "1px solid #E5E7EB",
+        border: "1px solid #E5E7EB",
       }}
     >
       <div
