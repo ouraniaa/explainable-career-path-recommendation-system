@@ -20,6 +20,10 @@ type Occupation = {
 
 const API_BASE_URL = "http://127.0.0.1:8001";
 
+function containsGreekCharacters(text: string) {
+  return /[\u0370-\u03FF\u1F00-\u1FFF]/.test(text);
+}
+
 function App() {
   const [mode, setMode] = useState<AnalysisMode>("target");
 
@@ -40,10 +44,14 @@ function App() {
   const [analysisError, setAnalysisError] = useState<string | null>(null);
   const [analysisResult, setAnalysisResult] = useState<unknown>(null);
 
+  const skillQueryContainsGreek = containsGreekCharacters(skillQuery);
+  const targetOccupationQueryContainsGreek = containsGreekCharacters(targetOccupationQuery);
+  const currentOccupationQueryContainsGreek = containsGreekCharacters(currentOccupationQuery);
+
   useEffect(() => {
     const query = skillQuery.trim();
 
-    if (query.length < 2) {
+    if (query.length < 2 || containsGreekCharacters(query)) {
       setSkillResults([]);
       setSkillsLoading(false);
       return;
@@ -77,7 +85,7 @@ function App() {
   useEffect(() => {
     const query = targetOccupationQuery.trim();
 
-    if (mode !== "target" || query.length < 2 || selectedTargetOccupation !== null) {
+    if (mode !== "target" || query.length < 2 || selectedTargetOccupation !== null || containsGreekCharacters(query)) {
       setTargetOccupationResults([]);
       return;
     }
@@ -104,8 +112,7 @@ function App() {
   useEffect(() => {
     const query = currentOccupationQuery.trim();
 
-    if (mode !== "transition" || query.length < 2 || selectedCurrentOccupation !== null
-    ) {
+    if (mode !== "transition" || query.length < 2 || selectedCurrentOccupation !== null || containsGreekCharacters(query)) {
       setCurrentOccupationResults([]);
       return;
     }
@@ -535,6 +542,23 @@ function App() {
               placeholder="Search for a skill, e.g. Python, data analysis..."
             />
 
+            {skillQueryContainsGreek && (
+              <div
+                style={{
+                  marginTop: "8px",
+                  padding: "10px 12px",
+                  borderRadius: "8px",
+                  background: "#FFFBEB",
+                  border: "1px solid #FDE68A",
+                  color: "#92400E",
+                  fontSize: "13px",
+                  lineHeight: 1.5
+                }}
+              >
+                Please use English terms when searching for skills.
+              </div>
+            )}
+
             {skillsLoading && (
               <div
                 style={{
@@ -608,6 +632,23 @@ function App() {
                     }
                     placeholder="Search target career..."
                   />
+
+                  {targetOccupationQueryContainsGreek && (
+                    <div
+                      style={{
+                        marginTop: "8px",
+                        padding: "10px 12px",
+                        borderRadius: "8px",
+                        background: "#FFFBEB",
+                        border: "1px solid #FDE68A",
+                        color: "#92400E",
+                        fontSize: "13px",
+                        lineHeight: 1.5
+                      }}
+                    >
+                      Please use English terms when searching for occupations.
+                    </div>
+                  )}
 
                   {targetOccupationResults.length > 0 && (
                     <SearchDropdown>
@@ -696,6 +737,23 @@ function App() {
                     placeholder="Search current career..."
                   />
 
+                  {currentOccupationQueryContainsGreek && (
+                    <div
+                      style={{
+                        marginTop: "8px",
+                        padding: "10px 12px",
+                        borderRadius: "8px",
+                        background: "#FFFBEB",
+                        border: "1px solid #FDE68A",
+                        color: "#92400E",
+                        fontSize: "13px",
+                        lineHeight: 1.5
+                      }}
+                    >
+                      Please use English terms when searching for occupations.
+                    </div>
+                  )}
+                  
                   {currentOccupationResults.length > 0 && (
                     <SearchDropdown>
                       {currentOccupationResults.map(
