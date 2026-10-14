@@ -16,6 +16,45 @@ import pandas as pd
 from src.occupation_similarity import (find_similar_occupations)
 from src.recommendation_engine import (recommend_occupation)
 
+
+def load_occupation_descriptions():
+    """
+    Loads official ESCO occupation descriptions indexed by occupation concept URI.
+    """
+    project_root = Path(__file__).resolve().parent.parent
+    occupations_path = (project_root/"data"/"raw"/"occupations_en.csv")
+
+    occupations = pd.read_csv(occupations_path)
+
+    required_columns = {
+        "conceptUri",
+        "description"
+    }
+
+    missing_columns = (required_columns - set(occupations.columns))
+
+    if missing_columns:
+        raise ValueError("occupations_en.csv is missing required columns: "
+            f"{sorted(missing_columns)}"
+        )
+
+    description_map = {}
+
+    for _, row in occupations.iterrows():
+        if pd.isna(row["conceptUri"]):
+            continue
+
+        concept_uri = str(row["conceptUri"]).strip()
+        occupation_id = (concept_uri.rstrip("/").split("/")[-1])
+        description = row["description"]
+
+        description_map[occupation_id] = (str(description).strip()
+            if pd.notna(description)
+            else None
+        )
+
+    return description_map
+
 def generate_career_transition_recommendations(
     session,
     current_occupation_id,
@@ -62,7 +101,7 @@ def generate_career_transition_recommendations(
     )
 
     structural_candidates = (structural_result["similar_occupations"])
-
+    occupation_descriptions = load_occupation_descriptions()
     evaluated_candidates = []
 
     for candidate in structural_candidates:
@@ -72,6 +111,7 @@ def generate_career_transition_recommendations(
             "occupation_id": candidate["occupation_id"],
             "occupation_name": candidate["occupation_name"],
             "isco_group": candidate["isco_group"],
+            "description": occupation_descriptions.get(candidate["occupation_id"]),
             "structural_rank": candidate["rank"],
             "occupation_similarity": candidate["jaccard_similarity"],
             "shared_skill_count": candidate["shared_skill_count"],
@@ -206,7 +246,8 @@ def generate_career_discovery_recommendations(session, user_skill_ids, recommend
 
     if not candidate_occupations:
         raise ValueError("No occupations are available for Career Discovery.")
-
+    
+    occupation_descriptions = load_occupation_descriptions()
     evaluated_candidates = []
 
     for candidate in candidate_occupations:
@@ -220,6 +261,7 @@ def generate_career_discovery_recommendations(session, user_skill_ids, recommend
             "occupation_id": candidate["occupation_id"],
             "occupation_name": candidate["occupation_name"],
             "isco_group": candidate["isco_group"],
+            "description": occupation_descriptions.get(candidate["occupation_id"]),
             "match_esco": recommendation["match_esco"],
             "match_market": recommendation["match_market"],
             "market_reason": recommendation["market_reason"],

@@ -4,7 +4,6 @@ from esco_skill_extractor import SkillExtractor
 with open("skillab_jobs_isco25.json", "r", encoding="utf-8") as f:
     jobs = json.load(f)
 
-# Job postings we want to check
 titles_to_test = [
     "DATA ARCHITECT H/F",
     "Senior Data Engineer (F/H/X)",
@@ -34,7 +33,7 @@ for title_to_test in titles_to_test:
     description = job.get("description", "")
 
     for threshold in thresholds:
-        print(f"\n--- THRESHOLD {threshold} ---")
+        print(f"\n THRESHOLD {threshold} ---")
 
         extractor = SkillExtractor(occupation_threshold=threshold)
         result = extractor.get_occupations([description])

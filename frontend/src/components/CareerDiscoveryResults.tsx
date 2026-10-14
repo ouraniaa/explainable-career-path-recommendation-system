@@ -25,6 +25,7 @@ type CareerRecommendation = {
 
   occupation_id: string;
   occupation_name: string;
+  description?: string | null;
   isco_group?: string | null;
 
   match_esco: number;
@@ -281,6 +282,20 @@ export default function CareerDiscoveryResults({
                           recommendation.isco_group
                         }
                       </div>
+                    )}
+
+                    {recommendation.description && (
+                      <p
+                        style={{
+                          margin: "10px 0 0",
+                          maxWidth: "680px",
+                          color: "#4B5563",
+                          fontSize: "14px",
+                          lineHeight: 1.6
+                        }}
+                      >
+                        {recommendation.description}
+                      </p>
                     )}
                   </div>
 
