@@ -95,35 +95,37 @@ def health():
 def search_skills(q: str = Query(default="", min_length=0), limit: int = Query(default=20, ge=1, le=50)):
     """
     Searches ESCO skills by name.
+
     Ranking priority:
     1. exact match
-    2. starts with search query
-    3. contains search query
+    2. skill name starts with the search query
+    3. one of the skill-name words starts with the search query
     """
     try:
-        search_text = q.strip()
+        search_text = q.strip().lower()
+
+        if len(search_text) < 2:
+            return {
+                "query": q,
+                "count": 0,
+                "skills": []
+            }
+
         with driver.session() as session:
             query = """
             MATCH (s:Skill)
 
             WHERE
                 s.name IS NOT NULL
-                AND (
-                    $search = ""
-                    OR toLower(s.name)
-                       CONTAINS toLower($search)
-                )
+                AND toLower(s.name) CONTAINS $search
 
             WITH
                 s,
                 CASE
-                    WHEN toLower(s.name) =
-                         toLower($search)
+                    WHEN toLower(s.name) = $search
                     THEN 0
 
-                    WHEN toLower(s.name)
-                         STARTS WITH
-                         toLower($search)
+                    WHEN toLower(s.name) STARTS WITH $search
                     THEN 1
 
                     ELSE 2
@@ -141,6 +143,7 @@ def search_skills(q: str = Query(default="", min_length=0), limit: int = Query(d
 
             LIMIT $limit
             """
+
             records = session.run(query, search=search_text, limit=limit)
 
             skills = [
@@ -150,6 +153,7 @@ def search_skills(q: str = Query(default="", min_length=0), limit: int = Query(d
                 }
                 for record in records
             ]
+
         return {
             "query": q,
             "count": len(skills),
@@ -157,8 +161,8 @@ def search_skills(q: str = Query(default="", min_length=0), limit: int = Query(d
         }
 
     except Neo4jError:
-        raise HTTPException( status_code=503, detail=("Neo4j database operation failed."),)
-
+        raise HTTPException(status_code=503, detail="Neo4j database operation failed.")
+    
 @app.post("/api/analyze-target-occupation")
 def analyze_target_occupation_endpoint(request: TargetOccupationRequest):
     try:

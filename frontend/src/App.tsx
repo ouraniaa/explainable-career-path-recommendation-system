@@ -57,12 +57,17 @@ function App() {
       return;
     }
 
+    const controller = new AbortController();
+
+    setSkillResults([]);
     setSkillsLoading(true);
 
     const timeout = setTimeout(async () => {
       try {
-        const response = await fetch(
-          `${API_BASE_URL}/api/skills?q=${encodeURIComponent(query)}&limit=10`
+        const response = await fetch(`${API_BASE_URL}/api/skills?q=${encodeURIComponent(query)}&limit=10`,
+          {
+            signal: controller.signal
+          }
         );
 
         if (!response.ok) {
@@ -70,16 +75,27 @@ function App() {
         }
 
         const data = await response.json();
+
         setSkillResults(data.skills ?? []);
-      } catch (error) {
+      } 
+      catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") {
+          return;
+        }
+
         console.error("Skill search error:", error);
         setSkillResults([]);
-      } finally {
-        setSkillsLoading(false);
+      } 
+      finally {
+        if (!controller.signal.aborted) 
+          setSkillsLoading(false);
       }
     }, 300);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      controller.abort();
+    };
   }, [skillQuery]);
 
   useEffect(() => {
