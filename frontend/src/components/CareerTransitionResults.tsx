@@ -66,6 +66,9 @@ type CareerTransitionResult = {
   recommendation_top_n: number;
   evaluated_candidate_count: number;
 
+  recommendation_status: "matches_found" | "no_match";
+  recommendation_message: string | null;
+
   recommendations: CareerTransitionRecommendation[];
 };
 
@@ -210,55 +213,90 @@ export default function CareerTransitionResults({
         </div>
       </ResultCard>
 
-      <div
-        style={{
-          marginTop: "24px",
-          marginBottom: "14px"
-        }}
-      >
+      {result.recommendation_status === "no_match" ? (
         <div
           style={{
-            fontSize: "13px",
-            color: "#6B7280",
-            fontWeight: 700,
-            textTransform: "uppercase",
-            letterSpacing: "0.06em",
-            marginBottom: "6px"
+            marginTop: "24px"
           }}
         >
-          Suggested directions
+          <ResultCard>
+            <SectionHeader
+              eyebrow="Transition result"
+              title="No meaningful career transition match was found"
+              description={
+                result.recommendation_message || "Structurally related occupations were identified from your current occupation, but your selected skills currently provide no ESCO skill coverage for those candidates."
+              }
+            />
+
+            <div
+              style={{
+                marginTop: "18px",
+                padding: "14px 16px",
+                borderRadius: "10px",
+                background: "#FFFBEB",
+                border: "1px solid #FDE68A",
+                color: "#92400E",
+                fontSize: "14px",
+                lineHeight: 1.6
+              }}
+            >
+              Structural similarity was used only to generate candidate occupations.
+              Since none of the evaluated candidates achieved positive MatchESCO coverage,
+              the system does not present them as career recommendations.
+            </div>
+          </ResultCard>
         </div>
+      ) : (
+        <>
+          <div
+            style={{
+              marginTop: "24px",
+              marginBottom: "14px"
+            }}
+          >
+            <div
+              style={{
+                fontSize: "13px",
+                color: "#6B7280",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.06em",
+                marginBottom: "6px"
+              }}
+            >
+              Suggested directions
+            </div>
 
-        <h3
-          style={{
-            margin: 0,
-            fontSize: "24px"
-          }}
-        >
-          Careers that fit your current skills
-        </h3>
+            <h3
+              style={{
+                margin: 0,
+                fontSize: "24px"
+              }}
+            >
+              Careers that fit your current skills
+            </h3>
 
-        <p
-          style={{
-            marginTop: "8px",
-            color: "#4B5563",
-            lineHeight: 1.6
-          }}
-        >
-          These occupations come from the
-          structural candidate set and are
-          displayed in order of current ESCO
-          skill fit.
-        </p>
-      </div>
+            <p
+              style={{
+                marginTop: "8px",
+                color: "#4B5563",
+                lineHeight: 1.6
+              }}
+            >
+              These occupations come from the
+              structural candidate set and are
+              displayed in order of current ESCO
+              skill fit.
+            </p>
+          </div>
 
-      <div
-        style={{
-          display: "grid",
-          gap: "20px"
-        }}
-      >
-        {result.recommendations.map((recommendation) => {
+          <div
+            style={{
+              display: "grid",
+              gap: "20px"
+            }}
+          >
+            {result.recommendations.map((recommendation) => {
             const currentFit = toPercent(recommendation.match_esco) ?? 0;
             const marketFit = toPercent(recommendation.match_market);
             const marketDetails = recommendation.market_details ?? [];
@@ -1065,8 +1103,11 @@ export default function CareerTransitionResults({
             );
           }
         )}
-      </div>
-        {comparisonExplanation && (
+          </div>
+        </>
+      )}
+
+        {result.recommendation_status === "matches_found" && comparisonExplanation && (
           <ResultCard>
             <SectionHeader
               eyebrow="Why this path?"

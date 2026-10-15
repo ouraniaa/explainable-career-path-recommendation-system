@@ -137,6 +137,29 @@ def generate_career_transition_recommendations(
         )
     )
 
+    best_match_esco = (evaluated_candidates[0]["match_esco"]
+        if evaluated_candidates
+        else 0.0
+    )
+
+    if best_match_esco <= 0.0:
+        return {
+            "mode": "career_transition",
+            "current_occupation_id": structural_result["current_occupation_id"],
+            "current_occupation_name": structural_result["current_occupation_name"],
+            "current_occupation_isco_group": structural_result["current_occupation_isco_group"],
+            "candidate_pool_definition": structural_result["candidate_pool_definition"],
+            "structural_similarity_method": structural_result["similarity_method"],
+            "structural_filtering_role": "candidate_generation_only",
+            "final_ranking_criterion": "match_esco",
+            "structural_top_n": structural_top_n,
+            "recommendation_top_n": recommendation_top_n,
+            "evaluated_candidate_count": len(evaluated_candidates),
+            "recommendation_status": "no_match",
+            "recommendation_message": ("No meaningful career transition match was found for the selected skill profile among the structurally related occupations."),
+            "recommendations": []
+        }
+
     final_candidates = (evaluated_candidates[:recommendation_top_n])
 
     ranked_recommendations = []
@@ -155,11 +178,12 @@ def generate_career_transition_recommendations(
         "candidate_pool_definition": structural_result["candidate_pool_definition"],
         "structural_similarity_method": structural_result["similarity_method"],
         "structural_filtering_role": "candidate_generation_only",
-        "final_ranking_criterion": 
-            "match_esco",
+        "final_ranking_criterion": "match_esco",
         "structural_top_n": structural_top_n,
         "recommendation_top_n": recommendation_top_n,
         "evaluated_candidate_count": len(evaluated_candidates),
+        "recommendation_status": "matches_found",
+        "recommendation_message": None,
         "recommendations": ranked_recommendations
     }
 

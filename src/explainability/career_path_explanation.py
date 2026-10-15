@@ -43,23 +43,38 @@ def generate_career_transition_explanation(transition_result):
 
     recommendations = transition_result["recommendations"]
 
-    if not recommendations:
-        raise ValueError("No career transition recommendations available.")
+    recommendation_status = transition_result.get("recommendation_status", "matches_found")
 
+    if recommendation_status == "no_match":
+        general_explanation = (
+            f"Career Transition started from "
+            f"'{transition_result['current_occupation_name']}' and identified "
+            f"structurally related occupation candidates using Jaccard similarity. "
+            f"However, none of the evaluated candidates achieved positive "
+            f"MatchESCO coverage for the user's selected skill profile. "
+            f"Therefore, no career transition recommendation was returned."
+        )
+
+        return {
+            "explanation_type": "career_transition",
+            "current_occupation_id": transition_result["current_occupation_id"],
+            "current_occupation_name": transition_result["current_occupation_name"],
+            "ranking_criterion": transition_result["final_ranking_criterion"],
+            "recommendation_status": "no_match",
+            "general_explanation": general_explanation,
+            "recommendations": []
+        }
+
+    if not recommendations:
+        raise ValueError("Career Transition returned no recommendations without a no_match status.")
+    
     current_occupation_name = transition_result["current_occupation_name"]
 
     general_explanation = (
-        f"Career transition candidates were first selected "
-        f"according to their structural similarity with the "
-        f"user's current occupation, "
+        f"Career transition candidates were first selected according to their structural similarity with the user's current occupation, "
         f"'{current_occupation_name}'. "
-        f"Structural similarity was measured using "
-        f"unweighted Jaccard similarity over canonical "
-        f"ESCO skill requirements. "
-        f"The structurally related candidates were then "
-        f"evaluated against the user's actual skill profile. "
-        f"The final user-specific ranking is based on "
-        f"MatchESCO."
+        f"Structural similarity was measured using unweighted Jaccard similarity over canonical ESCO skill requirements. "
+        f"The structurally related candidates were then evaluated against the user's actual skill profile. The final user-specific ranking is based on MatchESCO."
     )
 
     explained_recommendations = []
@@ -213,9 +228,30 @@ def generate_career_discovery_explanation(discovery_result):
 
     recommendations = discovery_result["recommendations"]
 
-    if not recommendations:
-        raise ValueError("No career discovery recommendations available.")
+    recommendation_status = discovery_result.get("recommendation_status", "matches_found")
 
+    if recommendation_status == "no_match":
+        general_explanation = (
+            f"No current occupation was provided, so the system operated "
+            f"in Career Discovery mode. "
+            f"{discovery_result['candidate_count']} supported occupations "
+            f"were evaluated directly against the user's current skill profile. "
+            f"No occupation achieved positive ESCO skill coverage for the "
+            f"selected profile, so no career recommendation was returned."
+        )
+
+        return {
+            "explanation_type": "career_discovery",
+            "candidate_pool": discovery_result["candidate_pool"],
+            "candidate_count": discovery_result["candidate_count"],
+            "ranking_criterion": discovery_result["final_ranking_criterion"],
+            "recommendation_status": "no_match",
+            "general_explanation": general_explanation,
+            "recommendations": []
+        }
+
+    if not recommendations:
+        raise ValueError("Career Discovery returned no recommendations without a no_match status.")
     general_explanation = (
         f"No current occupation was provided, so the system operated in Career Discovery mode. "
         f"{discovery_result['candidate_count']} supported occupations were evaluated directly against the user's current skill profile. "
