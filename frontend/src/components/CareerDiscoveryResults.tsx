@@ -52,6 +52,9 @@ type CareerDiscoveryResult = {
   final_ranking_criterion: string;
   recommendation_top_n: number;
 
+  recommendation_status: "matches_found" | "no_match";
+  recommendation_message: string | null;
+
   recommendations: CareerRecommendation[];
 };
 
@@ -63,13 +66,9 @@ type CareerPathComparisonExplanation = {
 type CareerDiscoveryResponse = {
   analysis_type: "career_paths";
   mode: "career_discovery";
-
   current_occupation_id: null;
-
   user_skill_count: number;
-
   career_result: CareerDiscoveryResult;
-
   explanation?: unknown;
   comparison_explanation?: CareerPathComparisonExplanation | null;
 };
@@ -169,7 +168,7 @@ export default function CareerDiscoveryResults({
             color: "#111827"
           }}
         >
-          Careers that match your skills
+          {result.recommendation_status === "no_match" ? "Career discovery result" : "Careers that match your skills"}
         </h2>
 
         <p
@@ -182,11 +181,9 @@ export default function CareerDiscoveryResults({
             fontSize: "16px"
           }}
         >
-          Your selected skills were compared
-          with the supported analytical
-          occupations. The careers below are
-          ordered by their current ESCO skill
-          fit.
+          {result.recommendation_status === "no_match"
+            ? "Your selected skills were compared with the supported analytical occupations, but no ESCO skill coverage was found."
+            : "Your selected skills were compared with the supported analytical occupations. The careers below are ordered by their current ESCO skill fit."}
         </p>
 
         <div
@@ -199,7 +196,54 @@ export default function CareerDiscoveryResults({
           {result.candidate_count} occupations evaluated
         </div>
       </div>
+      
+      {result.recommendation_status === "no_match" && (
+        <ResultCard>
+          <div
+            style={{
+              padding: "4px 0"
+            }}
+          >
+            <div
+              style={{
+                fontSize: "13px",
+                fontWeight: 700,
+                color: "#92400E",
+                textTransform: "uppercase",
+                letterSpacing: "0.06em",
+                marginBottom: "8px"
+              }}
+            >
+              No matching career found
+            </div>
 
+            <h3
+              style={{
+                margin: 0,
+                fontSize: "24px",
+                color: "#111827"
+              }}
+            >
+              No meaningful career match was found
+            </h3>
+
+            <p
+              style={{
+                marginTop: "10px",
+                marginBottom: 0,
+                color: "#4B5563",
+                fontSize: "15px",
+                lineHeight: 1.65,
+                maxWidth: "760px"
+              }}
+            >
+              {result.recommendation_message || "Your selected skills currently provide no ESCO skill coverage for the supported occupations. Try adding more skills that better represent your current profile."}
+            </p>
+          </div>
+        </ResultCard>
+      )}
+
+      {result.recommendation_status === "matches_found" && (
       <div
         style={{
           display: "grid",
@@ -1065,7 +1109,9 @@ export default function CareerDiscoveryResults({
           }
         )}
       </div>
-        {comparisonExplanation && (
+      )}
+
+        {result.recommendation_status === "matches_found" && comparisonExplanation && (
           <ResultCard>
             <div
               style={{

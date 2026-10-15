@@ -282,6 +282,23 @@ def generate_career_discovery_recommendations(session, user_skill_ids, recommend
         )
     )
 
+    best_match_esco = (evaluated_candidates[0]["match_esco"]
+        if evaluated_candidates
+        else 0.0
+    )
+
+    if best_match_esco <= 0.0:
+        return {
+            "mode": "career_discovery",
+            "candidate_pool": "analytical_occupation_profile",
+            "candidate_count": len(candidate_occupations),
+            "final_ranking_criterion": "match_esco",
+            "recommendation_top_n": recommendation_top_n,
+            "recommendation_status": "no_match",
+            "recommendation_message": ("No meaningful career match was found for the selected skill profile within the supported occupation set."),
+            "recommendations": []
+        }
+    
     final_candidates = (evaluated_candidates[:recommendation_top_n])
 
     ranked_recommendations = []
@@ -298,5 +315,7 @@ def generate_career_discovery_recommendations(session, user_skill_ids, recommend
         "candidate_count": len(candidate_occupations),
         "final_ranking_criterion": "match_esco",
         "recommendation_top_n": recommendation_top_n,
+        "recommendation_status": "matches_found",
+        "recommendation_message": None,
         "recommendations": ranked_recommendations
     }
