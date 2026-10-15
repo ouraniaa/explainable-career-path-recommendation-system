@@ -70,18 +70,16 @@ function App() {
           }
         );
 
-        if (!response.ok) {
+        if (!response.ok)
           throw new Error("Skill search request failed.");
-        }
 
         const data = await response.json();
 
         setSkillResults(data.skills ?? []);
       } 
       catch (error) {
-        if (error instanceof DOMException && error.name === "AbortError") {
+        if (error instanceof DOMException && error.name === "AbortError")
           return;
-        }
 
         console.error("Skill search error:", error);
         setSkillResults([]);
@@ -110,9 +108,8 @@ function App() {
       try {
         const response = await fetch(`${API_BASE_URL}/api/occupations?q=${encodeURIComponent(query)}&limit=10`);
 
-        if (!response.ok) {
+        if (!response.ok) 
           throw new Error("Target occupation search failed.");
-        }
 
         const data = await response.json();
         setTargetOccupationResults(data.occupations ?? []);
@@ -137,10 +134,9 @@ function App() {
       try {
         const response = await fetch(`${API_BASE_URL}/api/current-occupations?q=${encodeURIComponent(query)}&limit=10`);
 
-        if (!response.ok) {
+        if (!response.ok)
           throw new Error("Current occupation search failed.");
-        }
-
+        
         const data = await response.json();
         setCurrentOccupationResults(data.occupations ?? []);
       } catch (error) {
@@ -155,10 +151,9 @@ function App() {
   const handleSelectSkill = (skill: Skill) => {
     const alreadySelected = selectedSkills.some((item) => item.skill_id === skill.skill_id);
 
-    if (!alreadySelected) {
+    if (!alreadySelected) 
       setSelectedSkills([...selectedSkills, skill]);
-    }
-
+    
     setSkillQuery("");
     setSkillResults([]);
   };
@@ -475,11 +470,41 @@ function App() {
             {selectedSkills.length > 0 && (
               <div
                 style={{
-                  fontSize: "14px",
-                  color: "var(--text-muted)"
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px"
                 }}
               >
-                {selectedSkills.length} selected
+                <span
+                  style={{
+                    fontSize: "14px",
+                    color: "var(--text-muted)"
+                  }}
+                >
+                  {selectedSkills.length} selected
+                </span>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedSkills([]);
+                    setAnalysisResult(null);
+                    setAnalysisError(null);
+                  }}
+                  style={{
+                    border: "none",
+                    background: "transparent",
+                    color: "#6366F1",
+                    cursor: "pointer",
+                    fontSize: "13px",
+                    fontWeight: 600,
+                    padding: 0,
+                    minHeight: "auto",
+                    boxShadow: "none"
+                  }}
+                >
+                  Clear all
+                </button>
               </div>
             )}
           </div>
@@ -549,14 +574,52 @@ function App() {
               marginTop: "16px"
             }}
           >
-            <input
-              type="text"
-              value={skillQuery}
-              onChange={(event) =>
-                setSkillQuery(event.target.value)
-              }
-              placeholder="Search for a skill, e.g. Python, data analysis..."
-            />
+            <div
+              style={{
+                position: "relative"
+              }}
+            >
+              <input
+                type="text"
+                value={skillQuery}
+                onChange={(event) =>
+                  setSkillQuery(event.target.value)
+                }
+                placeholder="Search for a skill, e.g. Python, data analysis..."
+                style={{
+                  paddingRight: "46px"
+                }}
+              />
+
+              {skillQuery.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSkillQuery("");
+                    setSkillResults([]);
+                  }}
+                  aria-label="Clear skill search"
+                  title="Clear search"
+                  style={{
+                    position: "absolute",
+                    right: "12px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    border: "none",
+                    background: "transparent",
+                    color: "#6B7280",
+                    cursor: "pointer",
+                    fontSize: "20px",
+                    lineHeight: 1,
+                    padding: "4px",
+                    minHeight: "auto",
+                    boxShadow: "none"
+                  }}
+                >
+                  ×
+                </button>
+              )}
+            </div>
 
             {skillQueryContainsGreek && (
               <div
