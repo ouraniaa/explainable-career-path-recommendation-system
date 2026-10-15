@@ -196,6 +196,42 @@ export default function CareerDiscoveryResults({
           {result.candidate_count} occupations evaluated
         </div>
       </div>
+    
+
+      {result.recommendation_status === "matches_found" && data.user_skill_count === 1 && (
+          <div
+            style={{
+              marginBottom: "20px",
+              padding: "16px 18px",
+              borderRadius: "12px",
+              background: "#FFFBEB",
+              border: "1px solid #FDE68A"
+            }}
+          >
+            <div
+              style={{
+                fontSize: "14px",
+                fontWeight: 700,
+                color: "#92400E",
+                marginBottom: "5px"
+              }}
+            >
+              Limited skill profile
+            </div>
+
+            <div
+              style={{
+                fontSize: "14px",
+                lineHeight: 1.6,
+                color: "#78350F"
+              }}
+            >
+              These recommendations are based on only one selected skill.
+              Add more skills that represent your experience for a more
+              informative career comparison.
+            </div>
+          </div>
+        )}
       
       {result.recommendation_status === "no_match" && (
         <ResultCard>
@@ -268,10 +304,13 @@ export default function CareerDiscoveryResults({
                   return (b.gap - a.gap);
                 });
 
-            const relatedMatches = recommendation.skill_gaps.filter((skill) => skill.match_type === "semantic")
-                .sort((a, b) => b.coverage - a.coverage);
-            const visibleMissingSkills = missingSkills.slice(0, 5);
-            const visibleRelatedMatches = relatedMatches.slice(0, 5);
+          const exactMatches = recommendation.skill_gaps.filter((skill) => skill.match_type === "exact").sort((a, b) => a.skill_name.localeCompare(b.skill_name));
+
+          const relatedMatches = recommendation.skill_gaps.filter((skill) => skill.match_type === "semantic").sort((a, b) => b.coverage - a.coverage);
+
+          const visibleMissingSkills = missingSkills.slice(0, 5);
+          const visibleExactMatches = exactMatches.slice(0, 5);
+          const visibleRelatedMatches = relatedMatches.slice(0, 5);
 
             return (
               <ResultCard
@@ -486,7 +525,7 @@ export default function CareerDiscoveryResults({
                   </div>
                 </details>
 
-                {visibleRelatedMatches.length > 0 && (
+                {(visibleExactMatches.length > 0 || visibleRelatedMatches.length > 0) && (
                   <details
                     style={{
                       marginTop: "18px"
@@ -506,6 +545,121 @@ export default function CareerDiscoveryResults({
                         marginTop: "14px"
                       }}
                     >
+
+                      {visibleExactMatches.length > 0 && (
+                        <>
+                          <div
+                            style={{
+                              fontSize: "13px",
+                              fontWeight: 700,
+                              color: "#6B7280",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.05em",
+                              marginBottom: "10px"
+                            }}
+                          >
+                            Exact matches
+                          </div>
+
+                          <div
+                            style={{
+                              display: "grid",
+                              gap: "10px",
+                              marginBottom:
+                                visibleRelatedMatches.length > 0
+                                  ? "18px"
+                                  : 0
+                            }}
+                          >
+                            {visibleExactMatches.map((skill) => (
+                              <div
+                                key={`exact-${skill.skill_id}`}
+                                style={{
+                                  padding: "14px 16px",
+                                  borderRadius: "10px",
+                                  background: "#F0FDF4",
+                                  border: "1px solid #BBF7D0"
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "space-between",
+                                    alignItems: "flex-start",
+                                    gap: "14px",
+                                    flexWrap: "wrap"
+                                  }}
+                                >
+                                  <strong
+                                    style={{
+                                      fontSize: "15px"
+                                    }}
+                                  >
+                                    {formatLabel(skill.skill_name)}
+                                  </strong>
+
+                                  <span
+                                    style={{
+                                      padding: "4px 9px",
+                                      borderRadius: "999px",
+                                      background: "#DCFCE7",
+                                      color: "#166534",
+                                      fontSize: "12px",
+                                      fontWeight: 700
+                                    }}
+                                  >
+                                    100.0% direct coverage
+                                  </span>
+                                </div>
+
+                                <p
+                                  style={{
+                                    margin: "9px 0 0",
+                                    color: "#4B5563",
+                                    fontSize: "14px",
+                                    lineHeight: 1.55
+                                  }}
+                                >
+                                  Your selected skill{" "}
+                                  <strong>
+                                    {formatLabel(
+                                      skill.best_user_skill_name ||
+                                        skill.skill_name
+                                    )}
+                                  </strong>{" "}
+                                  directly matches this required ESCO skill.
+                                </p>
+
+                                <div
+                                  style={{
+                                    marginTop: "9px"
+                                  }}
+                                >
+                                  <RelationBadge
+                                    relationType={skill.relation_type}
+                                  />
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </>
+                      )}
+
+                      {visibleRelatedMatches.length > 0 && (
+                        <div
+                          style={{
+                            fontSize: "13px",
+                            fontWeight: 700,
+                            color: "#6B7280",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.05em",
+                            marginBottom: "10px"
+                          }}
+                        >
+                          Related matches
+                        </div>
+                      )}
+
                       {visibleRelatedMatches.map(
                         (skill) => {
                           const coverage = toPercent(skill.coverage) ?? 0;
