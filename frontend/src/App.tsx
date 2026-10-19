@@ -348,8 +348,7 @@ function App() {
             marginBottom: "22px"
           }}
         >
-          Ανάπτυξη Εξηγήσιμου Συστήματος Σύστασης Επαγγελματικών
-          Διαδρομών με χρήση Γράφων Γνώσης και Αλγορίθμων Γράφων
+          Development of an Explainable Career Path Recommendation System using Knowledge Graphs and Graph Algorithms
         </div>
 
         <h1 style={{ marginBottom: "12px" }}>
