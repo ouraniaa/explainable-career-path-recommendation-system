@@ -1014,7 +1014,7 @@ function App() {
                 marginBottom: "4px"
               }}
             >
-              © 2026 AI Career Recommendation System
+              © 2026 Career Recommendation System
             </div>
 
             <div>
