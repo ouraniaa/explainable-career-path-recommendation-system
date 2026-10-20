@@ -117,7 +117,115 @@ export default function CareerTransitionResults({
   const comparisonExplanation = data.comparison_explanation;
 
   return (
-    <section
+    <>
+      <style>{`
+        .transition-result-card {
+          transition:
+            transform 150ms ease,
+            box-shadow 150ms ease,
+            border-color 150ms ease;
+        }
+
+        .transition-result-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+          border-color: #D1D5DB !important;
+        }
+
+        .transition-summary {
+          display: inline-flex;
+          align-items: center;
+          border-radius: 7px;
+          padding: 4px 7px;
+          margin-left: -7px;
+          transition:
+            background-color 120ms ease,
+            color 120ms ease;
+        }
+
+        .transition-summary:hover {
+          background: #EEF2FF;
+          color: #4338CA !important;
+        }
+
+        .transition-metric,
+        .transition-small-metric {
+          transition:
+            transform 120ms ease,
+            border-color 120ms ease,
+            box-shadow 120ms ease;
+        }
+
+        .transition-metric:hover,
+        .transition-small-metric:hover {
+          transform: translateY(-1px);
+          border-color: #D1D5DB !important;
+          box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05);
+        }
+
+        .transition-start-card,
+        .transition-market-card,
+        .transition-evidence-card,
+        .transition-skill-card,
+        .transition-structural-card {
+          transition:
+            transform 130ms ease,
+            border-color 130ms ease,
+            box-shadow 130ms ease,
+            background-color 130ms ease;
+        }
+
+        .transition-start-card:hover,
+        .transition-market-card:hover,
+        .transition-evidence-card:hover,
+        .transition-skill-card:hover,
+        .transition-structural-card:hover {
+          transform: translateY(-1px);
+          border-color: #C7D2FE !important;
+          box-shadow: 0 4px 12px rgba(79, 70, 229, 0.06);
+        }
+
+        .transition-accordion {
+          transition:
+            border-color 140ms ease,
+            box-shadow 140ms ease,
+            background-color 140ms ease;
+        }
+
+        .transition-accordion:hover {
+          border-color: #C7D2FE !important;
+          box-shadow: 0 4px 12px rgba(79, 70, 229, 0.06);
+          background: #FCFCFF !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .transition-result-card,
+          .transition-summary,
+          .transition-metric,
+          .transition-small-metric,
+          .transition-start-card,
+          .transition-market-card,
+          .transition-evidence-card,
+          .transition-skill-card,
+          .transition-structural-card,
+          .transition-accordion {
+            transition: none;
+          }
+
+          .transition-result-card:hover,
+          .transition-metric:hover,
+          .transition-small-metric:hover,
+          .transition-start-card:hover,
+          .transition-market-card:hover,
+          .transition-evidence-card:hover,
+          .transition-skill-card:hover,
+          .transition-structural-card:hover {
+            transform: none;
+          }
+        }
+      `}</style>
+
+      <section
       style={{
         marginTop: "32px",
         width: "100%",
@@ -180,6 +288,7 @@ export default function CareerTransitionResults({
         />
 
         <div
+          className="transition-start-card"
           style={{
             marginTop: "20px",
             padding: "18px",
@@ -455,6 +564,7 @@ export default function CareerTransitionResults({
                   }}
                 >
                   <summary
+                    className="transition-summary"
                     style={summaryStyle}
                   >
                     Why does this career appear?
@@ -491,6 +601,7 @@ export default function CareerTransitionResults({
                 </details>
 
                 <div
+                  className="transition-market-card"
                   style={{
                     marginTop: "20px",
                     padding: "18px",
@@ -616,6 +727,7 @@ export default function CareerTransitionResults({
                           }}
                         >
                           <summary
+                            className="transition-summary"
                             style={summaryStyle}
                           >
                             See the market-supported
@@ -669,6 +781,7 @@ export default function CareerTransitionResults({
 
                                   return (
                                     <div
+                                      className="transition-skill-card"
                                       key={
                                         skill.skill_id
                                       }
@@ -735,6 +848,7 @@ export default function CareerTransitionResults({
                                         }}
                                       >
                                         <summary
+                                          className="transition-summary"
                                           style={{
                                             ...summaryStyle,
                                             fontSize: "13px"
@@ -816,6 +930,7 @@ export default function CareerTransitionResults({
                     }}
                   >
                     <summary
+                      className="transition-summary"
                       style={summaryStyle}
                     >
                       See how your existing skills
@@ -835,6 +950,7 @@ export default function CareerTransitionResults({
 
                           return (
                             <div
+                              className="transition-skill-card"
                               key={
                                 skill.skill_id
                               }
@@ -968,6 +1084,7 @@ export default function CareerTransitionResults({
                     }}
                   >
                     <summary
+                      className="transition-summary"
                       style={summaryStyle}
                     >
                       Skills you may still need
@@ -1031,12 +1148,14 @@ export default function CareerTransitionResults({
                   }}
                 >
                   <summary
+                    className="transition-summary"
                     style={summaryStyle}
                   >
                     View structural evidence
                   </summary>
 
                   <div
+                    className="transition-structural-card"
                     style={{
                       marginTop: "14px",
                       padding: "16px",
@@ -1131,6 +1250,7 @@ export default function CareerTransitionResults({
 
 
       <details
+        className="transition-accordion"
         style={{
           marginTop: "28px",
           padding: "20px",
@@ -1140,6 +1260,7 @@ export default function CareerTransitionResults({
         }}
       >
         <summary
+          className="transition-summary"
           style={{
             cursor: "pointer",
             fontWeight: 650,
@@ -1199,6 +1320,7 @@ export default function CareerTransitionResults({
         </div>
       </details>
     </section>
+    </>
   );
 }
 
@@ -1209,6 +1331,7 @@ function ResultCard({
 }) {
   return (
     <article
+      className="transition-result-card"
       style={{
         border: "1px solid #E5E7EB",
         borderRadius: "16px",
@@ -1282,6 +1405,7 @@ function Metric({
 }) {
   return (
     <div
+      className="transition-metric"
       style={{
         padding: "16px",
         borderRadius: "12px",
@@ -1376,6 +1500,7 @@ function SmallMetric({
 }) {
   return (
     <div
+      className="transition-small-metric"
       style={{
         padding: "12px 14px",
         borderRadius: "10px",

@@ -410,6 +410,93 @@ function App() {
           animation: analysisResultsEnter 320ms ease-out both;
         }
 
+        .interactive-card {
+          transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease, background-color 150ms ease;
+        }
+
+        .interactive-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        }
+
+        .interactive-card:active {
+          transform: translateY(0);
+        }
+
+        .search-option {
+          transition: background-color 120ms ease, color 120ms ease;
+        }
+
+        .search-option:hover {
+          background: var(--primary-soft) !important;
+        }
+
+        .interactive-input {
+          transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+        }
+
+        .interactive-input:hover {
+          border-color: #A5B4FC !important;
+        }
+
+        .interactive-input:focus {
+          border-color: var(--primary) !important;
+          box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12) !important;
+          outline: none;
+        }
+
+        .primary-action {
+          transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+        }
+
+        .primary-action:not(:disabled):hover {
+          transform: translateY(-1px);
+          box-shadow: 0 6px 14px rgba(79, 70, 229, 0.22);
+          filter: brightness(1.03);
+        }
+
+        .primary-action:not(:disabled):active {
+          transform: translateY(0);
+          box-shadow: none;
+        }
+
+        .secondary-action,
+        .text-action,
+        .icon-action {
+          transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease, transform 120ms ease;
+        }
+
+        .secondary-action:hover {
+          background: #EEF2FF !important;
+          border-color: #A5B4FC !important;
+        }
+
+        .secondary-action:active,
+        .text-action:active,
+        .icon-action:active {
+          transform: scale(0.97);
+        }
+
+        .text-action:hover {
+          color: #4338CA !important;
+          text-decoration: underline;
+        }
+
+        .icon-action:hover {
+          color: #4338CA !important;
+          background: #EEF2FF !important;
+        }
+
+        .skill-chip {
+          transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+        }
+
+        .skill-chip:hover {
+          transform: translateY(-1px);
+          border-color: #A5B4FC !important;
+          box-shadow: 0 3px 8px rgba(79, 70, 229, 0.08);
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .analysis-spinner {
             animation-duration: 1.4s;
@@ -417,6 +504,23 @@ function App() {
 
           .analysis-results-enter {
             animation: none;
+          }
+
+          .interactive-card,
+          .search-option,
+          .interactive-input,
+          .primary-action,
+          .secondary-action,
+          .text-action,
+          .icon-action,
+          .skill-chip {
+            transition: none;
+          }
+
+          .interactive-card:hover,
+          .primary-action:not(:disabled):hover,
+          .skill-chip:hover {
+            transform: none;
           }
         }
       `}</style>
@@ -589,6 +693,7 @@ function App() {
                 </span>
 
                 <button
+                  className="text-action"
                   type="button"
                   onClick={() => {
                     setSelectedSkills([]);
@@ -625,6 +730,7 @@ function App() {
             >
               {selectedSkills.map((skill) => (
                 <div
+                  className="skill-chip"
                   key={skill.skill_id}
                   style={{
                     border: "1px solid #C7D2FE",
@@ -647,6 +753,7 @@ function App() {
                   </span>
 
                   <button
+                    className="icon-action"
                     type="button"
                     onClick={() =>
                       handleRemoveSkill(skill.skill_id)
@@ -684,6 +791,7 @@ function App() {
               }}
             >
               <input
+                className="interactive-input"
                 type="text"
                 value={skillQuery}
                 onChange={(event) => {
@@ -699,6 +807,7 @@ function App() {
 
               {skillQuery.length > 0 && (
                 <button
+                  className="icon-action"
                   type="button"
                   onClick={() => {
                     setSkillQuery("");
@@ -811,6 +920,7 @@ function App() {
                   }}
                 >
                   <input
+                    className="interactive-input"
                     type="text"
                     value={targetOccupationQuery}
                     onChange={(event) => {
@@ -920,6 +1030,7 @@ function App() {
                   }}
                 >
                   <input
+                    className="interactive-input"
                     type="text"
                     value={currentOccupationQuery}
                     onChange={(event) => {
@@ -1032,6 +1143,7 @@ function App() {
           }}
         >
           <button
+            className="primary-action"
             type="button"
             onClick={handleAnalyze}
             disabled={isAnalyzing}
@@ -1043,7 +1155,8 @@ function App() {
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: "9px"
+              gap: "9px",
+              cursor: isAnalyzing ? "wait" : "pointer"
             }}
           >
             {isAnalyzing && (
@@ -1213,6 +1326,7 @@ function ModeCard({
 }) {
   return (
     <button
+      className="interactive-card"
       type="button"
       onClick={onClick}
       aria-pressed={selected}
@@ -1230,7 +1344,8 @@ function ModeCard({
         boxShadow: selected
           ? "0 0 0 3px rgba(79,70,229,0.08)"
           : "none",
-        minHeight: "130px"
+        minHeight: "130px",
+        cursor: "pointer"
       }}
     >
       <strong
@@ -1311,6 +1426,7 @@ function SearchOption({
 }) {
   return (
     <button
+      className="search-option"
       type="button"
       onClick={onClick}
       onMouseEnter={onMouseEnter}
@@ -1324,7 +1440,8 @@ function SearchOption({
         borderRadius: 0,
         background: active ? "var(--primary-soft)" : "#FFFFFF",
         color: "var(--text-primary)",
-        boxShadow: "none"
+        boxShadow: "none",
+        cursor: "pointer"
       }}
     >
       {children}
@@ -1377,6 +1494,7 @@ function SelectedOccupationCard({
       </div>
 
       <button
+        className="secondary-action"
         type="button"
         onClick={onChange}
         style={{
@@ -1385,7 +1503,8 @@ function SelectedOccupationCard({
           background: "#FFFFFF",
           color: "#4338CA",
           border: "1px solid #C7D2FE",
-          boxShadow: "none"
+          boxShadow: "none",
+          cursor: "pointer"
         }}
       >
         Change

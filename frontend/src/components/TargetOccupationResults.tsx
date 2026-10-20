@@ -221,7 +221,132 @@ export default function TargetOccupationResults({
   const missingSkills = recommendation.skill_gaps ?.filter((skill) => skill.match_type === "none").slice(0, 10) ?? [];
 
   return (
-    <section
+    <>
+      <style>{`
+        .result-card-interactive {
+          transition:
+            transform 150ms ease,
+            box-shadow 150ms ease,
+            border-color 150ms ease;
+        }
+
+        .result-card-interactive:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+          border-color: #D1D5DB !important;
+        }
+
+        .recommendation-card {
+          transition:
+            transform 140ms ease,
+            box-shadow 140ms ease,
+            border-color 140ms ease,
+            background-color 140ms ease;
+        }
+
+        .recommendation-card:hover {
+          transform: translateY(-1px);
+          border-color: #C7D2FE !important;
+          box-shadow: 0 5px 14px rgba(79, 70, 229, 0.08);
+          background: #FCFCFF !important;
+        }
+
+        .roadmap-step {
+          transition:
+            transform 130ms ease,
+            border-color 130ms ease,
+            background-color 130ms ease,
+            box-shadow 130ms ease;
+        }
+
+        .roadmap-step:hover {
+          transform: translateX(2px);
+          border-color: #D1D5DB !important;
+          background: #FAFAFA;
+          box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+        }
+
+        .metric-card {
+          transition:
+            transform 120ms ease,
+            border-color 120ms ease,
+            box-shadow 120ms ease;
+        }
+
+        .metric-card:hover {
+          transform: translateY(-1px);
+          border-color: #D1D5DB !important;
+          box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05);
+        }
+
+        .explain-summary {
+          display: inline-flex;
+          align-items: center;
+          border-radius: 7px;
+          padding: 4px 7px;
+          margin-left: -7px;
+          transition:
+            background-color 120ms ease,
+            color 120ms ease;
+        }
+
+        .explain-summary:hover {
+          background: #EEF2FF;
+          color: #4338CA !important;
+        }
+
+        .evidence-accordion {
+          transition:
+            border-color 140ms ease,
+            box-shadow 140ms ease,
+            background-color 140ms ease;
+        }
+
+        .evidence-accordion:hover {
+          border-color: #C7D2FE !important;
+          box-shadow: 0 4px 12px rgba(79, 70, 229, 0.06);
+          background: #FCFCFF !important;
+        }
+
+        .affected-skill-card,
+        .technical-evidence-card {
+          transition:
+            transform 120ms ease,
+            border-color 120ms ease,
+            box-shadow 120ms ease;
+        }
+
+        .affected-skill-card:hover,
+        .technical-evidence-card:hover {
+          transform: translateY(-1px);
+          border-color: #D1D5DB !important;
+          box-shadow: 0 3px 8px rgba(15, 23, 42, 0.05);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .result-card-interactive,
+          .recommendation-card,
+          .roadmap-step,
+          .metric-card,
+          .explain-summary,
+          .evidence-accordion,
+          .affected-skill-card,
+          .technical-evidence-card {
+            transition: none;
+          }
+
+          .result-card-interactive:hover,
+          .recommendation-card:hover,
+          .roadmap-step:hover,
+          .metric-card:hover,
+          .affected-skill-card:hover,
+          .technical-evidence-card:hover {
+            transform: none;
+          }
+        }
+      `}</style>
+
+      <section
       style={{
         marginTop: "32px",
         width: "100%",
@@ -366,6 +491,7 @@ export default function TargetOccupationResults({
           }}
         >
           <summary
+            className="explain-summary"
             style={summaryStyle}
           >
             How is this calculated?
@@ -428,6 +554,7 @@ export default function TargetOccupationResults({
 
               return (
                 <div
+                  className="recommendation-card"
                   key={item.skill_id}
                   style={{
                     padding: "20px",
@@ -510,6 +637,7 @@ export default function TargetOccupationResults({
                     }}
                   >
                     <summary
+                      className="explain-summary"
                       style={
                         summaryStyle
                       }
@@ -572,7 +700,7 @@ export default function TargetOccupationResults({
 
               {item.affected_esco_skills?.length > 0 && (
                     <details style={{ marginTop: "10px" }}>
-                      <summary style={summaryStyle}>
+                      <summary className="explain-summary" style={summaryStyle}>
                         See affected ESCO skills
                       </summary>
 
@@ -585,6 +713,7 @@ export default function TargetOccupationResults({
                       >
                         {item.affected_esco_skills.map((skill) => (
                           <div
+                            className="affected-skill-card"
                             key={skill.skill_id}
                             style={{
                               padding: "10px 12px",
@@ -627,6 +756,7 @@ export default function TargetOccupationResults({
             }}
           >
             <summary
+              className="explain-summary"
               style={summaryStyle}
             >
               Show more recommended skills
@@ -642,6 +772,7 @@ export default function TargetOccupationResults({
               {remainingPriorities.map(
                 (item) => (
                   <div
+                    className="recommendation-card"
                     key={
                       item.skill_id
                     }
@@ -752,6 +883,7 @@ export default function TargetOccupationResults({
 
               return (
                 <div
+                  className="roadmap-step"
                   key={step.step}
                   style={{
                     padding: "16px 18px",
@@ -946,6 +1078,7 @@ export default function TargetOccupationResults({
       </ResultCard>
 
       <details
+        className="evidence-accordion"
         style={{
           marginTop: "28px",
           padding: "20px",
@@ -955,6 +1088,7 @@ export default function TargetOccupationResults({
         }}
       >
         <summary
+          className="explain-summary"
           style={{
             cursor: "pointer",
             fontWeight: 650,
@@ -999,6 +1133,7 @@ export default function TargetOccupationResults({
       </details>
 
       <details
+        className="evidence-accordion"
         style={{
           marginTop: "12px",
           padding: "20px",
@@ -1008,6 +1143,7 @@ export default function TargetOccupationResults({
         }}
       >
         <summary
+          className="explain-summary"
           style={{
             cursor: "pointer",
             fontWeight: 650,
@@ -1034,6 +1170,7 @@ export default function TargetOccupationResults({
 
               return (
                 <div
+                  className="technical-evidence-card"
                   key={
                     item.skill_id
                   }
@@ -1133,6 +1270,7 @@ export default function TargetOccupationResults({
 
       {missingSkills.length > 0 && (
         <details
+          className="evidence-accordion"
           style={{
             marginTop: "12px",
             padding: "20px",
@@ -1142,6 +1280,7 @@ export default function TargetOccupationResults({
           }}
         >
           <summary
+            className="explain-summary"
             style={{
               cursor: "pointer",
               fontWeight: 650,
@@ -1174,6 +1313,7 @@ export default function TargetOccupationResults({
         </details>
       )}
     </section>
+    </>
   );
 }
 
@@ -1238,6 +1378,7 @@ function ResultCard({
 }) {
   return (
     <div
+      className="result-card-interactive"
       style={{
         border: "1px solid #E5E7EB",
         borderRadius: "16px",
@@ -1312,6 +1453,7 @@ function Metric({
 }) {
   return (
     <div
+      className="metric-card"
       style={{
         padding: "16px",
         borderRadius: "12px",

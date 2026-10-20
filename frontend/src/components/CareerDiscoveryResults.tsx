@@ -134,7 +134,101 @@ export default function CareerDiscoveryResults({
   const comparisonExplanation = data.comparison_explanation;
 
   return (
-    <section
+    <>
+      <style>{`
+        .discovery-result-card {
+          transition:
+            transform 150ms ease,
+            box-shadow 150ms ease,
+            border-color 150ms ease;
+        }
+
+        .discovery-result-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+          border-color: #D1D5DB !important;
+        }
+
+        .discovery-summary {
+          display: inline-flex;
+          align-items: center;
+          border-radius: 7px;
+          padding: 4px 7px;
+          margin-left: -7px;
+          transition:
+            background-color 120ms ease,
+            color 120ms ease;
+        }
+
+        .discovery-summary:hover {
+          background: #EEF2FF;
+          color: #4338CA !important;
+        }
+
+        .discovery-metric,
+        .discovery-small-metric {
+          transition:
+            transform 120ms ease,
+            border-color 120ms ease,
+            box-shadow 120ms ease;
+        }
+
+        .discovery-metric:hover,
+        .discovery-small-metric:hover {
+          transform: translateY(-1px);
+          border-color: #D1D5DB !important;
+          box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05);
+        }
+
+        .discovery-skill-card,
+        .discovery-market-card,
+        .discovery-warning-card,
+        .discovery-accordion {
+          transition:
+            transform 130ms ease,
+            border-color 130ms ease,
+            box-shadow 130ms ease,
+            background-color 130ms ease;
+        }
+
+        .discovery-skill-card:hover,
+        .discovery-market-card:hover,
+        .discovery-warning-card:hover {
+          transform: translateY(-1px);
+          border-color: #C7D2FE !important;
+          box-shadow: 0 4px 12px rgba(79, 70, 229, 0.06);
+        }
+
+        .discovery-accordion:hover {
+          border-color: #C7D2FE !important;
+          box-shadow: 0 4px 12px rgba(79, 70, 229, 0.06);
+          background: #FCFCFF !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .discovery-result-card,
+          .discovery-summary,
+          .discovery-metric,
+          .discovery-small-metric,
+          .discovery-skill-card,
+          .discovery-market-card,
+          .discovery-warning-card,
+          .discovery-accordion {
+            transition: none;
+          }
+
+          .discovery-result-card:hover,
+          .discovery-metric:hover,
+          .discovery-small-metric:hover,
+          .discovery-skill-card:hover,
+          .discovery-market-card:hover,
+          .discovery-warning-card:hover {
+            transform: none;
+          }
+        }
+      `}</style>
+
+      <section
       style={{
         marginTop: "32px",
         width: "100%",
@@ -200,6 +294,7 @@ export default function CareerDiscoveryResults({
 
       {result.recommendation_status === "matches_found" && data.user_skill_count === 1 && (
           <div
+            className="discovery-warning-card"
             style={{
               marginBottom: "20px",
               padding: "16px 18px",
@@ -459,6 +554,7 @@ export default function CareerDiscoveryResults({
                   }}
                 >
                   <summary
+                    className="discovery-summary"
                     style={summaryStyle}
                   >
                     Why does this career fit my profile?
@@ -532,6 +628,7 @@ export default function CareerDiscoveryResults({
                     }}
                   >
                     <summary
+                      className="discovery-summary"
                       style={summaryStyle}
                     >
                       See how your existing skills
@@ -573,6 +670,7 @@ export default function CareerDiscoveryResults({
                           >
                             {visibleExactMatches.map((skill) => (
                               <div
+                                className="discovery-skill-card"
                                 key={`exact-${skill.skill_id}`}
                                 style={{
                                   padding: "14px 16px",
@@ -666,6 +764,7 @@ export default function CareerDiscoveryResults({
 
                           return (
                             <div
+                              className="discovery-skill-card"
                               key={
                                 skill.skill_id
                               }
@@ -775,6 +874,7 @@ export default function CareerDiscoveryResults({
                     }}
                   >
                     <summary
+                      className="discovery-summary"
                       style={summaryStyle}
                     >
                       Skills you may still need
@@ -793,6 +893,7 @@ export default function CareerDiscoveryResults({
 
                           return (
                             <div
+                              className="discovery-skill-card"
                               key={
                                 skill.skill_id
                               }
@@ -880,6 +981,7 @@ export default function CareerDiscoveryResults({
                 )}
 
                 <div
+                  className="discovery-market-card"
                   style={{
                     marginTop: "22px",
                     padding: "18px",
@@ -1009,6 +1111,7 @@ export default function CareerDiscoveryResults({
                           }}
                         >
                           <summary
+                            className="discovery-summary"
                             style={summaryStyle}
                           >
                             See the market-supported
@@ -1061,6 +1164,7 @@ export default function CareerDiscoveryResults({
 
                                   return (
                                     <div
+                                      className="discovery-skill-card"
                                       key={
                                         skill.skill_id
                                       }
@@ -1129,6 +1233,7 @@ export default function CareerDiscoveryResults({
                                         }}
                                       >
                                         <summary
+                                          className="discovery-summary"
                                           style={{
                                             ...summaryStyle,
                                             fontSize: "13px"
@@ -1210,6 +1315,7 @@ export default function CareerDiscoveryResults({
                   }}
                 >
                   <summary
+                    className="discovery-summary"
                     style={summaryStyle}
                   >
                     How should I interpret
@@ -1305,6 +1411,7 @@ export default function CareerDiscoveryResults({
         )}
 
       <details
+        className="discovery-accordion"
         style={{
           marginTop: "28px",
           padding: "20px",
@@ -1314,6 +1421,7 @@ export default function CareerDiscoveryResults({
         }}
       >
         <summary
+          className="discovery-summary"
           style={{
             cursor: "pointer",
             fontWeight: 650,
@@ -1386,6 +1494,7 @@ export default function CareerDiscoveryResults({
         </div>
       </details>
     </section>
+    </>
   );
 }
 
@@ -1396,6 +1505,7 @@ function ResultCard({
 }) {
   return (
     <article
+      className="discovery-result-card"
       style={{
         border: "1px solid #E5E7EB",
         borderRadius: "16px",
@@ -1418,6 +1528,7 @@ function Metric({
 }) {
   return (
     <div
+      className="discovery-metric"
       style={{
         padding: "16px",
         borderRadius: "12px",
@@ -1513,6 +1624,7 @@ function SmallMetric({
 }) {
   return (
     <div
+      className="discovery-small-metric"
       style={{
         padding: "12px 14px",
         borderRadius: "10px",
