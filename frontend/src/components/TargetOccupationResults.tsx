@@ -554,50 +554,7 @@ export default function TargetOccupationResults({
                         </p>
                       )}
 
-                      {item.affected_esco_skills?.length > 0 && (
-                        <details style={{ marginTop: "10px" }}>
-                          <summary style={summaryStyle}>
-                            See affected ESCO skills
-                          </summary>
 
-                          <div
-                            style={{
-                              marginTop: "10px",
-                              display: "grid",
-                              gap: "8px",
-                            }}
-                          >
-                            {item.affected_esco_skills.map((skill) => (
-                              <div
-                                key={skill.skill_id}
-                                style={{
-                                  padding: "10px 12px",
-                                  border: "1px solid #E5E7EB",
-                                  borderRadius: "8px",
-                                  background: "#FFFFFF",
-                                }}
-                              >
-                                <strong>{skill.skill_name}</strong>
-
-                                <div
-                                  style={{
-                                    marginTop: "4px",
-                                    color: "#6B7280",
-                                    fontSize: "13px",
-                                  }}
-                                >
-                                  {(skill.old_coverage * 100).toFixed(1)}%
-                                  {" → "}
-                                  {(skill.new_coverage * 100).toFixed(1)}%
-                                  {"  "}
-                                  (+
-                                  {(skill.coverage_increase * 100).toFixed(1)} pp)
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </details>
-                      )}
 
                       {topRelated && (
                         <p>
@@ -612,6 +569,51 @@ export default function TargetOccupationResults({
                       )}
                     </div>
                   </details>
+
+              {item.affected_esco_skills?.length > 0 && (
+                    <details style={{ marginTop: "10px" }}>
+                      <summary style={summaryStyle}>
+                        See affected ESCO skills
+                      </summary>
+
+                      <div
+                        style={{
+                          marginTop: "10px",
+                          display: "grid",
+                          gap: "8px",
+                        }}
+                      >
+                        {item.affected_esco_skills.map((skill) => (
+                          <div
+                            key={skill.skill_id}
+                            style={{
+                              padding: "10px 12px",
+                              border: "1px solid #E5E7EB",
+                              borderRadius: "8px",
+                              background: "#FFFFFF",
+                            }}
+                          >
+                            <strong>{skill.skill_name}</strong>
+
+                            <div
+                              style={{
+                                marginTop: "4px",
+                                color: "#6B7280",
+                                fontSize: "13px",
+                              }}
+                            >
+                              {(skill.old_coverage * 100).toFixed(1)}%
+                              {" → "}
+                              {(skill.new_coverage * 100).toFixed(1)}%
+                              {"  "}
+                              (+
+                              {(skill.coverage_increase * 100).toFixed(1)} pp)
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </details>
+                  )}
                 </div>
               );
             }
@@ -993,174 +995,184 @@ export default function TargetOccupationResults({
             does not determine which skill
             is ranked first.
           </p>
+        </div>
+      </details>
 
-          <details
-            style={{
-              marginTop: "18px",
-            }}
-          >
-            <summary
-              style={summaryStyle}
-            >
-              View technical evidence
-            </summary>
+      <details
+        style={{
+          marginTop: "12px",
+          padding: "20px",
+          background: "#F9FAFB",
+          borderRadius: "12px",
+          border: "1px solid #E5E7EB",
+        }}
+      >
+        <summary
+          style={{
+            cursor: "pointer",
+            fontWeight: 650,
+            color: "#374151",
+            fontSize: "16px",
+          }}
+        >
+          View technical evidence
+        </summary>
 
-            <div
-              style={{
-                marginTop: "14px",
-                display: "grid",
-                gap: "12px",
-              }}
-            >
-              {personalized.map(
-                (item) => {
-                  const topRelated = item.structurally_related_skills ?.[0];
+        <div
+          style={{
+            marginTop: "14px",
+            display: "grid",
+            gap: "12px",
+            color: "#4B5563",
+            fontSize: "14px",
+            lineHeight: 1.65,
+          }}
+        >
+          {personalized.map(
+            (item) => {
+              const topRelated = item.structurally_related_skills?.[0];
 
-                  return (
-                    <div
-                      key={
-                        item.skill_id
-                      }
-                      style={{
-                        padding: "14px",
-                        background: "#FFFFFF",
-                        border: "1px solid #E5E7EB",
-                        borderRadius: "8px",
-                      }}
-                    >
-                      <strong
-                        style={{
-                          color: "#111827",
-                        }}
-                      >
-                        {
-                          item.skill_name
-                        }
+              return (
+                <div
+                  key={
+                    item.skill_id
+                  }
+                  style={{
+                    padding: "14px",
+                    background: "#FFFFFF",
+                    border: "1px solid #E5E7EB",
+                    borderRadius: "8px",
+                  }}
+                >
+                  <strong
+                    style={{
+                      color: "#111827",
+                    }}
+                  >
+                    {
+                      item.skill_name
+                    }
+                  </strong>
+
+                  <div
+                    style={{
+                      marginTop: "10px",
+                      display: "grid",
+                      gap: "5px",
+                    }}
+                  >
+                    <div>
+                      ImprovementESCO:{" "}
+                      <strong>
+                        {(
+                          item.improvement_esco *
+                          100
+                        ).toFixed(4)}
+                        pp
                       </strong>
-
-                      <div
-                        style={{
-                          marginTop: "10px",
-                          display: "grid",
-                          gap: "5px",
-                        }}
-                      >
-                        <div>
-                          ImprovementESCO:{" "}
-                          <strong>
-                            {(
-                              item.improvement_esco *
-                              100
-                            ).toFixed(
-                              4
-                            )}
-                            pp
-                          </strong>
-                        </div>
-
-                        <div>
-                          Direct contribution:{" "}
-                          {(
-                            item.direct_improvement *
-                            100
-                          ).toFixed(
-                            4
-                          )}
-                          pp
-                        </div>
-
-                        <div>
-                          Semantic spillover:{" "}
-                          {(
-                            item.semantic_spillover *
-                            100
-                          ).toFixed(
-                            4
-                          )}
-                          pp
-                        </div>
-
-                        {item.rca !== null && (
-                          <div>
-                            RCA:{" "}
-                            {item.rca.toFixed(
-                              4
-                            )}
-                          </div>
-                        )}
-
-                        {item.market_gap_severity !== null && (
-                          <div>
-                            Market gap severity:{" "}
-                            {item.market_gap_severity.toFixed(4)}
-                          </div>
-                        )}
-
-                        {topRelated && (
-                          <>
-                            <div>
-                              Most structurally related skill:{" "}
-                              {
-                                topRelated.skill_name
-                              }
-                            </div>
-
-                            <div>
-                              Jaccard similarity:{" "}
-                              {(
-                                topRelated.jaccard_similarity * 100
-                              ).toFixed(
-                                2
-                              )}
-                              %
-                            </div>
-                          </>
-                        )}
-                      </div>
                     </div>
-                  );
-                }
-              )}
-            </div>
-          </details>
 
-          {missingSkills.length > 0 && (
-            <details
-              style={{
-                marginTop: "16px",
-              }}
-            >
-              <summary
-                style={summaryStyle}
-              >
-                View example missing skills
-              </summary>
+                    <div>
+                      Direct contribution:{" "}
+                      {(
+                        item.direct_improvement *
+                        100
+                      ).toFixed(4)}
+                      pp
+                    </div>
 
-              <ul
-                style={{
-                  marginTop: "12px",
-                }}
-              >
-                {missingSkills.map((skill) => (
-                    <li
-                      key={
-                        skill.skill_id
-                      }
-                      style={{
-                        marginBottom: "6px",
-                      }}
-                    >
-                      {
-                        skill.skill_name
-                      }
-                    </li>
-                  )
-                )}
-              </ul>
-            </details>
+                    <div>
+                      Semantic spillover:{" "}
+                      {(
+                        item.semantic_spillover *
+                        100
+                      ).toFixed(4)}
+                      pp
+                    </div>
+
+                    {item.rca !== null && (
+                      <div>
+                        RCA:{" "}
+                        {item.rca.toFixed(4)}
+                      </div>
+                    )}
+
+                    {item.market_gap_severity !== null && (
+                      <div>
+                        Market gap severity:{" "}
+                        {item.market_gap_severity.toFixed(4)}
+                      </div>
+                    )}
+
+                    {topRelated && (
+                      <>
+                        <div>
+                          Most structurally related skill:{" "}
+                          {
+                            topRelated.skill_name
+                          }
+                        </div>
+
+                        <div>
+                          Jaccard similarity:{" "}
+                          {(
+                            topRelated.jaccard_similarity *
+                            100
+                          ).toFixed(2)}
+                          %
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+              );
+            }
           )}
         </div>
       </details>
+
+      {missingSkills.length > 0 && (
+        <details
+          style={{
+            marginTop: "12px",
+            padding: "20px",
+            background: "#F9FAFB",
+            borderRadius: "12px",
+            border: "1px solid #E5E7EB",
+          }}
+        >
+          <summary
+            style={{
+              cursor: "pointer",
+              fontWeight: 650,
+              color: "#374151",
+              fontSize: "16px",
+            }}
+          >
+            View example missing skills
+          </summary>
+
+          <ul
+            style={{
+              marginTop: "12px",
+              color: "#4B5563",
+              fontSize: "14px",
+              lineHeight: 1.65,
+            }}
+          >
+            {missingSkills.map((skill) => (
+              <li
+                key={skill.skill_id}
+                style={{
+                  marginBottom: "6px",
+                }}
+              >
+                {skill.skill_name}
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
     </section>
   );
 }
