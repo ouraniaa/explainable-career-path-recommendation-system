@@ -31,14 +31,17 @@ function App() {
   const [skillResults, setSkillResults] = useState<Skill[]>([]);
   const [selectedSkills, setSelectedSkills] = useState<Skill[]>([]);
   const [skillsLoading, setSkillsLoading] = useState(false);
+  const [skillActiveIndex, setSkillActiveIndex] = useState(-1);
 
   const [targetOccupationQuery, setTargetOccupationQuery] = useState("");
   const [targetOccupationResults, setTargetOccupationResults] = useState<Occupation[]>([]);
   const [selectedTargetOccupation, setSelectedTargetOccupation] = useState<Occupation | null>(null);
+  const [targetOccupationActiveIndex, setTargetOccupationActiveIndex] = useState(-1);
 
   const [currentOccupationQuery, setCurrentOccupationQuery] = useState("");
   const [currentOccupationResults, setCurrentOccupationResults] = useState<Occupation[]>([]);
   const [selectedCurrentOccupation, setSelectedCurrentOccupation] = useState<Occupation | null>(null);
+  const [currentOccupationActiveIndex, setCurrentOccupationActiveIndex] = useState(-1);
 
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisError, setAnalysisError] = useState<string | null>(null);
@@ -53,6 +56,7 @@ function App() {
 
     if (query.length < 2 || containsGreekCharacters(query)) {
       setSkillResults([]);
+      setSkillActiveIndex(-1);
       setSkillsLoading(false);
       return;
     }
@@ -60,6 +64,7 @@ function App() {
     const controller = new AbortController();
 
     setSkillResults([]);
+    setSkillActiveIndex(-1);
     setSkillsLoading(true);
 
     const timeout = setTimeout(async () => {
@@ -76,6 +81,7 @@ function App() {
         const data = await response.json();
 
         setSkillResults(data.skills ?? []);
+        setSkillActiveIndex(-1);
       } 
       catch (error) {
         if (error instanceof DOMException && error.name === "AbortError")
@@ -101,6 +107,7 @@ function App() {
 
     if (mode !== "target" || query.length < 2 || selectedTargetOccupation !== null || containsGreekCharacters(query)) {
       setTargetOccupationResults([]);
+      setTargetOccupationActiveIndex(-1);
       return;
     }
 
@@ -113,6 +120,7 @@ function App() {
 
         const data = await response.json();
         setTargetOccupationResults(data.occupations ?? []);
+        setTargetOccupationActiveIndex(-1);
       } catch (error) {
         console.error("Target occupation search error:", error);
         setTargetOccupationResults([]);
@@ -127,6 +135,7 @@ function App() {
 
     if (mode !== "transition" || query.length < 2 || selectedCurrentOccupation !== null || containsGreekCharacters(query)) {
       setCurrentOccupationResults([]);
+      setCurrentOccupationActiveIndex(-1);
       return;
     }
 
@@ -139,6 +148,7 @@ function App() {
         
         const data = await response.json();
         setCurrentOccupationResults(data.occupations ?? []);
+        setCurrentOccupationActiveIndex(-1);
       } catch (error) {
         console.error("Current occupation search error:", error);
         setCurrentOccupationResults([]);
@@ -156,6 +166,7 @@ function App() {
     
     setSkillQuery("");
     setSkillResults([]);
+    setSkillActiveIndex(-1);
   };
 
   const handleRemoveSkill = (skillId: string) => {
@@ -167,14 +178,108 @@ function App() {
 
     setTargetOccupationQuery("");
     setTargetOccupationResults([]);
+    setTargetOccupationActiveIndex(-1);
     setSelectedTargetOccupation(null);
 
     setCurrentOccupationQuery("");
     setCurrentOccupationResults([]);
+    setCurrentOccupationActiveIndex(-1);
     setSelectedCurrentOccupation(null);
 
     setAnalysisResult(null);
     setAnalysisError(null);
+  };
+
+  const handleSkillSearchKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (skillResults.length === 0) {
+      if (event.key === "Escape") {
+        setSkillResults([]);
+        setSkillActiveIndex(-1);
+      }
+      return;
+    }
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setSkillActiveIndex((current) => current < skillResults.length - 1 ? current + 1 : 0);
+    } 
+    else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setSkillActiveIndex((current) => current > 0 ? current - 1 : skillResults.length - 1);
+    } 
+    else if (event.key === "Enter") {
+      event.preventDefault();
+      const selectedIndex = skillActiveIndex >= 0 ? skillActiveIndex : 0;
+      handleSelectSkill(skillResults[selectedIndex]);
+    } 
+    else if (event.key === "Escape") {
+      setSkillResults([]);
+      setSkillActiveIndex(-1);
+    }
+  };
+
+  const handleTargetOccupationKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (targetOccupationResults.length === 0) {
+      if (event.key === "Escape") {
+        setTargetOccupationResults([]);
+        setTargetOccupationActiveIndex(-1);
+      }
+      return;
+    }
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setTargetOccupationActiveIndex((current) => current < targetOccupationResults.length - 1 ? current + 1 : 0);
+    } 
+    else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setTargetOccupationActiveIndex((current) => current > 0 ? current - 1 : targetOccupationResults.length - 1);
+    } 
+    else if (event.key === "Enter") {
+      event.preventDefault();
+      const selectedIndex = targetOccupationActiveIndex >= 0 ? targetOccupationActiveIndex : 0;
+      const occupation = targetOccupationResults[selectedIndex];
+      setSelectedTargetOccupation(occupation);
+      setTargetOccupationQuery(occupation.occupation_name);
+      setTargetOccupationResults([]);
+      setTargetOccupationActiveIndex(-1);
+    } 
+    else if (event.key === "Escape") {
+      setTargetOccupationResults([]);
+      setTargetOccupationActiveIndex(-1);
+    }
+  };
+
+  const handleCurrentOccupationKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (currentOccupationResults.length === 0) {
+      if (event.key === "Escape") {
+        setCurrentOccupationResults([]);
+        setCurrentOccupationActiveIndex(-1);
+      }
+      return;
+    }
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setCurrentOccupationActiveIndex((current) => current < currentOccupationResults.length - 1 ? current + 1 : 0);
+    } 
+    else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setCurrentOccupationActiveIndex((current) => current > 0 ? current - 1 : currentOccupationResults.length - 1);
+    } 
+    else if (event.key === "Enter") {
+      event.preventDefault();
+      const selectedIndex = currentOccupationActiveIndex >= 0 ? currentOccupationActiveIndex : 0;
+      const occupation = currentOccupationResults[selectedIndex];
+      setSelectedCurrentOccupation(occupation);
+      setCurrentOccupationQuery(occupation.occupation_name);
+      setCurrentOccupationResults([]);
+      setCurrentOccupationActiveIndex(-1);
+    } 
+    else if (event.key === "Escape") {
+      setCurrentOccupationResults([]);
+      setCurrentOccupationActiveIndex(-1);
+    }
   };
 
   const handleAnalyze = async () => {
@@ -581,9 +686,11 @@ function App() {
               <input
                 type="text"
                 value={skillQuery}
-                onChange={(event) =>
-                  setSkillQuery(event.target.value)
-                }
+                onChange={(event) => {
+                  setSkillQuery(event.target.value);
+                  setSkillActiveIndex(-1);
+                }}
+                onKeyDown={handleSkillSearchKeyDown}
                 placeholder="Search for a skill, e.g. Python, data analysis..."
                 style={{
                   paddingRight: "46px"
@@ -596,6 +703,7 @@ function App() {
                   onClick={() => {
                     setSkillQuery("");
                     setSkillResults([]);
+                    setSkillActiveIndex(-1);
                   }}
                   aria-label="Clear skill search"
                   title="Clear search"
@@ -651,9 +759,11 @@ function App() {
 
             {skillResults.length > 0 && (
               <SearchDropdown>
-                {skillResults.map((skill) => (
+                {skillResults.map((skill, index) => (
                   <SearchOption
                     key={skill.skill_id}
+                    active={index === skillActiveIndex}
+                    onMouseEnter={() => setSkillActiveIndex(index)}
                     onClick={() =>
                       handleSelectSkill(skill)
                     }
@@ -703,11 +813,13 @@ function App() {
                   <input
                     type="text"
                     value={targetOccupationQuery}
-                    onChange={(event) =>
+                    onChange={(event) => {
                       setTargetOccupationQuery(
                         event.target.value
-                      )
-                    }
+                      );
+                      setTargetOccupationActiveIndex(-1);
+                    }}
+                    onKeyDown={handleTargetOccupationKeyDown}
                     placeholder="Search target career..."
                   />
 
@@ -731,9 +843,11 @@ function App() {
                   {targetOccupationResults.length > 0 && (
                     <SearchDropdown>
                       {targetOccupationResults.map(
-                        (occupation) => (
+                        (occupation, index) => (
                           <SearchOption
                             key={occupation.occupation_id}
+                            active={index === targetOccupationActiveIndex}
+                            onMouseEnter={() => setTargetOccupationActiveIndex(index)}
                             onClick={() => {
                               setSelectedTargetOccupation(
                                 occupation
@@ -742,6 +856,7 @@ function App() {
                                 occupation.occupation_name
                               );
                               setTargetOccupationResults([]);
+                              setTargetOccupationActiveIndex(-1);
                             }}
                           >
                             <span>
@@ -807,11 +922,13 @@ function App() {
                   <input
                     type="text"
                     value={currentOccupationQuery}
-                    onChange={(event) =>
+                    onChange={(event) => {
                       setCurrentOccupationQuery(
                         event.target.value
-                      )
-                    }
+                      );
+                      setCurrentOccupationActiveIndex(-1);
+                    }}
+                    onKeyDown={handleCurrentOccupationKeyDown}
                     placeholder="Search current career..."
                   />
 
@@ -835,9 +952,11 @@ function App() {
                   {currentOccupationResults.length > 0 && (
                     <SearchDropdown>
                       {currentOccupationResults.map(
-                        (occupation) => (
+                        (occupation, index) => (
                           <SearchOption
                             key={occupation.occupation_id}
+                            active={index === currentOccupationActiveIndex}
+                            onMouseEnter={() => setCurrentOccupationActiveIndex(index)}
                             onClick={() => {
                               setSelectedCurrentOccupation(
                                 occupation
@@ -846,6 +965,7 @@ function App() {
                                 occupation.occupation_name
                               );
                               setCurrentOccupationResults([]);
+                              setCurrentOccupationActiveIndex(-1);
                             }}
                           >
                             <span>
@@ -1180,15 +1300,20 @@ function SearchDropdown({
 
 function SearchOption({
   children,
-  onClick
+  onClick,
+  active = false,
+  onMouseEnter
 }: {
   children: ReactNode;
   onClick: () => void;
+  active?: boolean;
+  onMouseEnter?: () => void;
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
       style={{
         width: "100%",
         textAlign: "left",
@@ -1197,7 +1322,7 @@ function SearchOption({
         border: "none",
         borderBottom: "1px solid var(--border)",
         borderRadius: 0,
-        background: "#FFFFFF",
+        background: active ? "var(--primary-soft)" : "#FFFFFF",
         color: "var(--text-primary)",
         boxShadow: "none"
       }}
