@@ -834,7 +834,7 @@ export default function TargetOccupationResults({
         <SectionHeader
           eyebrow="Step 4"
           title="Labor-market evidence"
-          description="A separate view of the requirements for which labor-market evidence is available."
+          description="A separate view of skill requirements supported by job-posting data collected within the Skillab project."
         />
 
         <div
