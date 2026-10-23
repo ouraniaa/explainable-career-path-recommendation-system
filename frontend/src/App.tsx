@@ -525,6 +525,20 @@ function App() {
         }
       `}</style>
 
+      <img
+        src="/logo.png"
+        alt="CareerPath Explorer logo"
+        style={{
+          position: "absolute",
+          top: "22px",
+          left: "22px",
+          width: "50px",
+          height: "50px",
+          objectFit: "contain",
+          zIndex: 1000
+        }}
+      />
+
       <div
       style={{
         maxWidth: "980px",
