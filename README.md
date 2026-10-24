@@ -129,11 +129,12 @@ Example:
 ```env
 NEO4J_URI=bolt://localhost:7687
 NEO4J_USER=neo4j
-NEO4J_PASSWORD=<ThesisProject>
+NEO4J_PASSWORD=<your_neo4j_password>
 Skillab_USERNAME=
 Skillab_PASSWORD=
 ```
 Do not commit the `.env` file.
+Replace your_neo4j_password with the password configured for your local Neo4j instance.
 
 ### 3. Neo4j Database Setup
 A prebuilt Neo4j database dump is included in the repository:
