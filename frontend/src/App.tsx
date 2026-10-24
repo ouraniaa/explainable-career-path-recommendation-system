@@ -571,7 +571,7 @@ function App() {
             marginBottom: "22px"
           }}
         >
-          Development of an Explainable Career Path Recommendation System using Knowledge Graphs and Graph Algorithms
+          Development of an Explainable Career Path Recommendation System using Knowledge Graphs
         </div>
 
         <h1 style={{ marginBottom: "12px" }}>
