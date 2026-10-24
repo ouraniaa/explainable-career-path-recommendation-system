@@ -213,4 +213,4 @@ experiments/build_knowledge_graph.ipynb
 
 ## Thesis
 This repository accompanies the undergraduate thesis:
-**Development of an Explainable Career Path Recommendation System using Knowledge Graphs and Graph Algorithms**
+**Development of an Explainable Career Path Recommendation System using Knowledge Graphs**
